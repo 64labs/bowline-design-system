@@ -2,8 +2,6 @@
 
 > A lightweight design system built on React. [bowline.netlify.com](https://bowline.netlify.com)
 
-[![NPM](https://img.shields.io/npm/v/bowline.svg)](https://www.npmjs.com/package/bowline)
-
 ## Install
 
 ```bash
