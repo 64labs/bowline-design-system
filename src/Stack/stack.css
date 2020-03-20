@@ -1,0 +1,31 @@
+@import '../base';
+
+.u-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.u-stack__item {
+  max-width: 100%;
+}
+
+@media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
+  .u-box--display-none-0:first-child + .u-inline__item {
+    margin-top: 0;
+  }
+}
+@media (min-width: map-get($breakpoints, 1)px) and (max-width: calc(map-get($breakpoints, 2) - 1)px) {
+  .u-box--display-none-1:first-child + .u-inline__item {
+    margin-top: 0;
+  }
+}
+@media (min-width: map-get($breakpoints, 2)px) {
+  .u-box--display-none-2:first-child + .u-inline__item {
+    margin-top: 0;
+  }
+}
+
+.u-stack__divider {
+  width: 100%;
+  border-top: 1px solid map-get($backgroundColors, subtle);
+}

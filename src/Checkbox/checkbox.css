@@ -1,0 +1,106 @@
+.u-input--checkbox {
+  position: relative;
+
+  & input {
+    position: relative;
+    display: block;
+    /* TODO: border color theme configs */
+    border: 1px solid #cccccc;
+    border-radius: map-get(map-get($border, radius), standard);
+    background: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      background: map-get($backgroundColors, formAccent);
+      border-radius: map-get(map-get($border, radius), standard);
+      opacity: 0;
+      transition: opacity 0.1s ease-in-out;
+    }
+
+    &:active {
+      background: transparent;
+      &::after {
+        opacity: 0.1;
+      }
+    }
+
+    &:checked {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &.focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+    }
+
+    &::-ms-check {
+      border-radius: 50%;
+    }
+  }
+
+  &.u-input--disabled {
+    opacity: 0.5;
+  }
+
+  & .u-input--checkbox__check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: none;
+    /* use background context for foreground color */
+    color: white;
+  }
+
+  & input:checked + .u-input--checkbox__check {
+    display: block;
+  }
+
+  &:hover {
+    & input:not(:checked) {
+      border-color: map-get($backgroundColors, formAccent);
+    }
+    & input:not(:checked) + .u-input--checkbox__check {
+      color: map-get($backgroundColors, formAccent);
+      display: block;
+      opacity: 0.3;
+    }
+  }
+
+  &.u-input--tone-critical {
+    & input {
+      border-color: map-get($foregroundColors, critical);
+    }
+  }
+}
+
+.u-input--checkbox--small {
+  & input {
+    width: #{$space-small}px;
+    height: #{$space-small}px;
+  }
+}
+
+.u-input--checkbox--regular {
+  & input {
+    width: #{$space-gutter}px;
+    height: #{$space-gutter}px;
+  }
+}
+
+.u-input--checkbox--large {
+  & input {
+    width: #{$space-medium}px;
+    height: #{$space-medium}px;
+  }
+}

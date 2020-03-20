@@ -1,0 +1,74 @@
+@import '../base';
+
+.u-inline {
+  display: flex;
+}
+
+.u-inline__item {
+  flex-shrink: 0;
+}
+
+@each $bp $i in $breakpoints {
+  @each $value $space in $spacingMap {
+    @if $i == 0 {
+      .u-inline--container-#{$space}-#{$i} {
+        padding-top: 1px;
+        &:before {
+          content: '';
+          display: block;
+          margin-top: calc(($value + 1) * -1px);
+        }
+      }
+      .u-inline--space-#{$space}-#{$i} {
+        margin-left: -#{$value}px;
+      }
+    } @else {
+      @media (min-width: #{$bp}px) {
+        .u-inline--container-#{$space}-#{$i} {
+          padding-top: 1px;
+          &:before {
+            content: '';
+            display: block;
+            margin-top: calc(($value + 1) * -1px);
+          }
+        }
+        .u-inline--space-#{$space}-#{$i} {
+          margin-left: -#{$value}px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
+  .u-inline.u-inline--collapse-1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .u-inline.u-inline--collapse-2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (min-width: calc(map-get($breakpoints, 1)px)) and (max-width: calc((map-get($breakpoints, 2) - 1))px) {
+  .u-inline.u-inline--collapse-1 {
+    flex-direction: row;
+  }
+  .u-inline.u-inline--collapse-2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (min-width: calc(map-get($breakpoints, 2)px)) {
+  .u-inline.u-inline--collapse-1 {
+    flex-direction: row;
+  }
+  .u-inline.u-inline--collapse-2 {
+    flex-direction: row;
+  }
+}
+
+.u-inline__divider {
+  border-left: 1px solid map-get($backgroundColors, subtle);
+  min-height: 14px;
+}

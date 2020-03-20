@@ -1,0 +1,34 @@
+# replace default config
+
+# multipass: true
+# full: true
+
+plugins:
+  # - name
+  #
+  # or:
+  # - name: false
+  # - name: true
+  #
+  # or:
+  # - name:
+  #     param1: 1
+  #     param2: 2
+  - removeViewBox: false
+  - removeDimensions: true
+  - removeStyleElement: true
+  - mergePaths: true
+  - removeUselessDefs: true
+  - collapseGroups: true
+  - prefixIds: true
+  - removeAttrs:
+      attrs: '(fill|stroke|stroke.*|class|xmlns)'
+  - addClassesToSVGElement:
+      className: '_feather'
+# configure the indent (default 4 spaces) used by `--pretty` here:
+#
+# @see https://github.com/svg/svgo/blob/master/lib/svgo/js2svg.js#L6 for more config options
+#
+# js2svg:
+#  pretty: true
+#  indent: '  '

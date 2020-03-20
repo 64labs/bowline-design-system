@@ -1,0 +1,44 @@
+import {Button, Divider, Icon, Inline, ScrollBox, Stack, Text} from '@64labs/bowline-design-system'
+import PropsTable from '../components/PropsTable'
+import Showcase from '../components/Showcase'
+
+export const meta = {
+  name: 'ScrollBox',
+  component: ScrollBox,
+  description: 'A horizontal scrolling section.',
+  inheritBoxProps: true,
+  playroom:
+    '#?code=N4Igxg9gJgpiBcIA8BlALgQzAawAQGcAHLGAXmAG0AdEfAWwwBtGaAaXGumKASwFc6bDiEYYATgHMYNALoBfXMSi8AdhNI1Rk6SAB8VFblxIACqLAwAFhEawxuSzB4TLacgFYADAoD0+w8ZmJNa2MPaOzq4e3rh+Bkam5lY2dg5OLm7AXr7+SD7oWNj+IKwgAO48UGiW+AgUAMwA7O6sjQBsABysAIyeAEwALPJAA',
+}
+
+<Showcase style={{height: '300px'}}>
+  <ScrollBox height="half" scrollY>
+    <Text>Scroll Down</Text>
+    <Stack padding="medium">
+      <Icon name="eye" />
+      <Icon name="heart" />
+      <Icon name="eye" />
+      <Icon name="heart" />
+      <Icon name="moon" />
+      <Icon name="heart" />
+      <Icon name="eye" />
+      <Icon name="heart" />
+      <Icon name="eye" />
+    </Stack>
+    <Text>Now, Scroll Up</Text>
+  </ScrollBox>
+  <Divider marginY="medium" />
+  <ScrollBox height="full" width="half" scrollX marginTop="medium">
+    <Inline wrap={false}>
+      <Button weight="weak">Scroll</Button>
+      <Button weight="weak">Horizontally</Button>
+      <Button weight="weak">To</Button>
+      <Button weight="weak">See</Button>
+      <Button weight="weak">More</Button>
+      <Button weight="weak">Buttons</Button>
+      <Button weight="weak">Then</Button>
+      <Button weight="weak">Scroll</Button>
+      <Button weight="weak">Back</Button>
+    </Inline>
+  </ScrollBox>
+</Showcase>

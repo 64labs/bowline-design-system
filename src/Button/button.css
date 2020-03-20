@@ -1,0 +1,80 @@
+@import '../base';
+
+.u-button {
+  display: block;
+  border: 0;
+  width: 100%;
+  border-radius: map-get(map-get($border, radius), standard);
+
+  &.u-button--icon-only {
+    width: auto;
+
+    &.u-button--size-large {
+      width: #{$space-xxlarge}px;
+      height: #{$space-xxlarge}px;
+    }
+
+    &.u-button--size-regular {
+      width: #{$space-xlarge}px;
+      height: #{$space-xlarge}px;
+    }
+
+    &.u-button--size-small {
+      width: #{$space-largeish}px;
+      height: #{$space-largeish}px;
+    }
+
+    &.u-button--size-xsmall {
+      width: #{$space-large}px;
+      height: #{$space-large}px;
+    }
+  }
+
+  & [class*='u-text--'] {
+    line-height: 1;
+  }
+
+  &.u-button--size-large .u-button__inner {
+    height: #{$space-xxlarge}px;
+  }
+
+  &.u-button--size-regular .u-button__inner {
+    height: #{$space-xlarge}px;
+  }
+
+  &.u-button--size-small .u-button__inner {
+    height: #{$space-largeish}px;
+  }
+}
+
+@each $color $tone in $base-colors {
+  .u-button.bg--#{$tone} {
+    &.focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px color($color a(40%));
+    }
+  }
+}
+
+.u-button.bg--transparent {
+  &.focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
+  }
+}
+
+.u-button--weight-link {
+  position: relative;
+  @include linkStyle();
+}
+
+/* TODO: consider making a component for pill button/link */
+.u-button--weight-pill {
+  border-radius: 24px;
+  & .u-button--size-xsmall {
+    border-radius: 18px;
+  }
+  & .u-button--size-small {
+    border-radius: 20px;
+  }
+}

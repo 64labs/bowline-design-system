@@ -1,0 +1,88 @@
+.u-input--radio {
+  & input {
+    position: relative;
+    display: block;
+
+    /* TODO: border color theme configs */
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    background: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      background: map-get($backgroundColors, formAccent);
+      border-radius: 50%;
+      transform: scale(0.8);
+      opacity: 0;
+      transition: transform 0.17s ease-out, opacity 0.17s ease-in-out;
+    }
+
+    &:active {
+      background: transparent;
+      &::after {
+        opacity: 0.2;
+      }
+    }
+
+    &:checked {
+      &::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &.focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+    }
+
+    &::-ms-check {
+      border-radius: 50%;
+    }
+  }
+
+  &.u-input--disabled {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    & input:not(:checked) {
+      border-color: map-get($backgroundColors, formAccent);
+    }
+  }
+
+  &.u-input--tone-critical {
+    & input {
+      border-color: map-get($foregroundColors, critical);
+    }
+  }
+}
+
+.u-input--radio--small {
+  & input {
+    width: #{$space-small}px;
+    height: #{$space-small}px;
+  }
+}
+
+.u-input--radio--regular {
+  & input {
+    width: #{$space-gutter}px;
+    height: #{$space-gutter}px;
+  }
+}
+
+.u-input--radio--large {
+  & input {
+    width: #{$space-medium}px;
+    height: #{$space-medium}px;
+  }
+}

@@ -1,0 +1,50 @@
+@mixin textAdjust($size: 13, $rows: 4, $scaleKey: text) {
+  $lineHeight: $grid * $rows;
+
+  $transform: baseliner($size, $rows, $scaleKey, transform);
+  $negativeTransform: baseliner($size, $rows, $scaleKey, negativeTransform);
+  $marginTop: baseliner($size, $rows, $scaleKey, marginTop);
+
+  font-size: calc($size * 1px);
+  line-height: calc($lineHeight * 1px);
+
+  &.u-text--baseline {
+    transform: $transform;
+    padding-top: 1px;
+    &:before {
+      content: '';
+      display: block;
+      height: 0;
+      margin-top: $marginTop;
+    }
+    &.focus-visible:after {
+      content: '';
+      display: block;
+      border: 3px solid color(map-get($base-colors, focus) a(30%));
+      border-radius: 3px;
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      bottom: -5px;
+      right: -4px;
+      transform: $negativeTransform;
+    }
+  }
+}
+
+@mixin linkStyle() {
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+
+  &.c-underline {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    & .u-text {
+      text-decoration: underline;
+    }
+  }
+}

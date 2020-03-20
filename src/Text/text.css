@@ -1,0 +1,85 @@
+@import '../base';
+
+.u-text {
+  font-family: $font-family;
+  font-weight: $regular-font-weight;
+
+  & .u-link {
+    @include linkStyle();
+  }
+}
+
+.u-text-heading {
+  font-family: $header-font-family;
+  font-weight: $regular-font-weight;
+
+  & .pw-link {
+    border: 0;
+    text-decoration: none;
+  }
+}
+
+.u-text--weight-medium {
+  font-weight: $medium-font-weight;
+}
+.u-text--weight-strong {
+  font-weight: $bold-font-weight;
+}
+
+.u-text--align-left {
+  text-align: left;
+}
+.u-text--align-center {
+  text-align: center;
+}
+.u-text--align-right {
+  text-align: right;
+}
+
+.u-text--block {
+  display: block;
+}
+
+@each $mqs $label in $textSizes {
+  $mobile: map-get($mqs, mobile);
+  $tablet: map-get($mqs, tablet);
+
+  .u-text--#{$label} {
+    $size: map-get($mobile, size);
+    $rows: map-get($mobile, rows);
+    @include textAdjust($size, $rows, text);
+  }
+  @media (min-width: map-get($breakpoints, 1)px) {
+    .u-text--#{$label} {
+      $size: map-get($tablet, size);
+      $rows: map-get($tablet, rows);
+      @include textAdjust($size, $rows, text);
+    }
+  }
+}
+
+@each $mqs $label in $headingSizes {
+  $mobile: map-get($mqs, mobile);
+  $tablet: map-get($mqs, tablet);
+  .u-text-heading--#{$label} {
+    $size: map-get($mobile, size);
+    $rows: map-get($mobile, rows);
+    @include textAdjust($size, $rows, heading);
+  }
+  @media (min-width: map-get($breakpoints, 1)px) {
+    .u-text-heading--#{$label} {
+      $size: map-get($tablet, size);
+      $rows: map-get($tablet, rows);
+      @include textAdjust($size, $rows, heading);
+    }
+  }
+}
+
+.u-text:focus {
+  outline: none;
+}
+
+.u-text.focus-visible:not(.u-text--baseline) {
+  border-radius: 3px;
+  box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
+}

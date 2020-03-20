@@ -1,0 +1,19 @@
+@import '../base';
+
+.u-icon {
+  display: block;
+
+  &:not([class*='tone--']) {
+    color: inherit;
+  }
+
+  pointer-events: none;
+}
+
+._feather {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}

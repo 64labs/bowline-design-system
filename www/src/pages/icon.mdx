@@ -1,0 +1,66 @@
+import {Box, Icon, Inline, Stack} from '@64labs/bowline-design-system'
+import Showcase from '../components/Showcase'
+import PropsTable from '../components/PropsTable'
+
+export const meta = {
+  name: 'Icon',
+  component: Icon,
+  description: 'Render an SVG icon from symbol sprites.',
+  inheritBoxProps: true,
+}
+
+<Box marginBottom="medium">
+  <Showcase>
+    <Stack dividers>
+      <Inline space="large">
+        <Icon name="edit" size="small" />
+        <Icon name="eye" size="small" />
+        <Icon name="heart" size="small" />
+        <Icon name="frown" size="small" />
+        <Icon name="map" size="small" />
+      </Inline>
+      <Inline space="large">
+        <Icon name="edit" size="medium" />
+        <Icon name="eye" size="medium" />
+        <Icon name="heart" size="medium" />
+        <Icon name="frown" size="medium" />
+        <Icon name="map" size="medium" />
+      </Inline>
+      <Inline space="large">
+        <Icon name="edit" size="xlarge" />
+        <Icon name="eye" size="xlarge" />
+        <Icon name="heart" size="xlarge" />
+        <Icon name="frown" size="xlarge" />
+        <Icon name="map" size="xlarge" />
+      </Inline>
+    </Stack>
+  </Showcase>
+</Box>
+
+## Usage
+
+The `Icon` component acts as a wrapper for referencing symbols in an SVG sprite. The creation and injection of your sprite sheet will need to be handled by you, in a way that makes sense for your project. This app uses [`svg-sprite-loader`](https://github.com/JetBrains/svg-sprite-loader) with Webpack. With this, importing any SVG automatically adds it to a sprite sheet, where each symbol `id` is the filename of the imported SVG. The sprite sheet is injected in the DOM at build time and we use `Icon`'s `name` prop to render our icon from its sprite id:
+
+We recommend importing all of the icons your app uses in a single file so the `Icon` component can be used without additional SVG imports where its used.
+
+```
+import './icons/search.svg'
+import './icons/cancel.svg'
+```
+
+Then anywhere else in your app:
+
+```
+<Icon name="search" />
+<Icon name="cancel" />
+```
+
+### External sprite sheets
+
+`Icon` can also reference symbols in a sprite via their url by passing it as the `url` prop. This is useful if your project does not inline your SVG symbols, but instead wants to reference them remotely.
+
+```
+<Icon url="/static/sprite.svg#search" />
+```
+
+Keep in mind this approach may have some browser support concerns, though [there are workarounds](https://css-tricks.com/pretty-good-svg-icon-system/).

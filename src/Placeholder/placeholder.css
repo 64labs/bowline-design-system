@@ -1,0 +1,9 @@
+.u-placeholder {
+  background-image: repeating-linear-gradient(
+    135deg,
+    #eeeeee,
+    #eeeeee 5px,
+    #e3e3e3 5px,
+    #e3e3e3 10px
+  );
+}

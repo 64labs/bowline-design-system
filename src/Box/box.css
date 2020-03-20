@@ -1,0 +1,266 @@
+@import '../base';
+
+@mixin boxPadding($space, $v, $i) {
+  .u-box--p-#{$space}-#{$i} {
+    padding: #{$value}px;
+  }
+  .u-box--px-#{$space}-#{$i} {
+    padding-left: #{$value}px;
+    padding-right: #{$value}px;
+  }
+  .u-box--py-#{$space}-#{$i} {
+    padding-top: #{$value}px;
+    padding-bottom: #{$value}px;
+  }
+  .u-box--pt-#{$space}-#{$i} {
+    padding-top: #{$value}px;
+  }
+  .u-box--pr-#{$space}-#{$i} {
+    padding-right: #{$value}px;
+  }
+  .u-box--pb-#{$space}-#{$i} {
+    padding-bottom: #{$value}px;
+  }
+  .u-box--pl-#{$space}-#{$i} {
+    padding-left: #{$value}px;
+  }
+}
+
+@mixin boxMargin($space, $v, $i) {
+  .u-box--m-#{$space}-#{$i} {
+    margin: #{$value}px;
+  }
+  .u-box--mx-#{$space}-#{$i} {
+    margin-left: #{$value}px;
+    margin-right: #{$value}px;
+  }
+  .u-box--my-#{$space}-#{$i} {
+    margin-top: #{$value}px;
+    margin-bottom: #{$value}px;
+  }
+  .u-box--mt-#{$space}-#{$i} {
+    margin-top: #{$value}px;
+  }
+  .u-box--mr-#{$space}-#{$i} {
+    margin-right: #{$value}px;
+  }
+  .u-box--mb-#{$space}-#{$i} {
+    margin-bottom: #{$value}px;
+  }
+  .u-box--ml-#{$space}-#{$i} {
+    margin-left: #{$value}px;
+  }
+}
+
+@mixin boxDisplay($i) {
+  .u-box--display-none-#{$i} {
+    display: none;
+  }
+  .u-box--display-inline-#{$i} {
+    display: inline;
+  }
+  .u-box--display-block-#{$i} {
+    display: block;
+  }
+  .u-box--display-flex-#{$i} {
+    display: flex;
+  }
+  .u-box--display-grid-#{$i} {
+    display: flex;
+  }
+}
+
+@mixin boxSize($space, $v, $i) {
+  .u-box--size-#{$space}-#{$i} {
+    width: #{$value}px;
+    height: #{$value}px;
+  }
+  .u-box--minHeight-#{$space}-#{$i} {
+    min-height: #{$value}px;
+  }
+  .u-box--height-#{$space}-#{$i} {
+    height: #{$value}px;
+  }
+  .u-box--width-#{$space}-#{$i} {
+    width: #{$value}px;
+  }
+}
+
+.u-box--wrap {
+  flex-wrap: wrap;
+}
+
+@each $bp $i in $breakpoints {
+  @if $i == 0 {
+    .u-box--height-full-0 {
+      height: 100%;
+    }
+    .u-box--height-half-0 {
+      height: 50%;
+    }
+    .u-box--width-full-0 {
+      width: 100%;
+    }
+    .u-box--width-half-0 {
+      width: 50%;
+    }
+    @each $value $space in $spacingMap {
+      @include boxPadding($space, $value, 0);
+      @include boxMargin($space, $value, 0);
+      @include boxSize($space, $value, 0);
+    }
+    @include boxDisplay(0);
+    @each $position in (absolute, relative, fixed, sticky, static) {
+      .u-box--position-#{$position}-0 {
+        position: $position;
+      }
+    }
+    @each $alignValue in (flex-start, flex-end, center, baseline, stretch) {
+      .u-box--alignItems-#{$alignValue}-0,
+      .u-box--align-#{$alignValue}-0 {
+        align-items: $alignValue;
+      }
+      .u-box--alignSelf-#{$alignValue}-0 {
+        align-self: $alignValue;
+      }
+    }
+    @each $justifyValue
+      in (flex-start, flex-end, center, space-around, space-between, stretch)
+    {
+      .u-box--justifyContent-#{$justifyValue}-0,
+      .u-box--justify-#{$justifyValue}-0 {
+        justify-content: $justifyValue;
+      }
+    }
+    @for $k from 1 through 5 {
+      .u-box--grow-#{$k}-0 {
+        flex-grow: $k;
+      }
+    }
+    @each $overflowValue in (hidden, visible, auto, scroll) {
+      .u-box--overflow-#{$overflowValue}-0 {
+        overflow: $overflowValue;
+      }
+
+      .u-box--overflowX-#{$overflowValue}-0 {
+        overflow-x: $overflowValue;
+      }
+
+      .u-box--overflowY-#{$overflowValue}-0 {
+        overflow-y: $overflowValue;
+      }
+    }
+  } @else {
+    @media (min-width: #{$bp}px) {
+      .u-box--height-full-#{$i} {
+        height: 100%;
+      }
+      .u-box--height-half-#{$i} {
+        height: 50%;
+      }
+      .u-box--width-full-#{$i} {
+        width: 100%;
+      }
+      .u-box--width-half-#{$i} {
+        width: 50%;
+      }
+      @each $value $space in $spacingMap {
+        @include boxPadding($space, $value, $i);
+        @include boxMargin($space, $value, $i);
+        @include boxSize($space, $value, $i);
+      }
+      @include boxDisplay($i);
+      @each $position in (absolute, relative, fixed, sticky, static) {
+        .u-box--position-#{$position}-#{$i} {
+          position: $position;
+        }
+      }
+      @each $alignValue in (flex-start, flex-end, center, baseline, stretch) {
+        .u-box--alignItems-#{$alignValue}-#{$i},
+        .u-box--align-#{$alignValue}-#{$i} {
+          align-items: $alignValue;
+        }
+        .u-box--alignSelf-#{$alignValue}-#{$i} {
+          align-self: $alignValue;
+        }
+      }
+      @each $justifyValue
+        in (flex-start, flex-end, center, space-around, space-between, stretch)
+      {
+        .u-box--justifyContent-#{$justifyValue}-#{$i},
+        .u-box--justify-#{$justifyValue}-#{$i} {
+          justify-content: $justifyValue;
+        }
+      }
+      @for $k from 1 through 5 {
+        .u-box--grow-#{$k}-#{$i} {
+          flex-grow: $k;
+        }
+      }
+      @each $overflowValue in (hidden, visible, auto, scroll) {
+        .u-box--overflow-#{$overflowValue}-#{$i} {
+          overflow: $overflowValue;
+        }
+
+        .u-box--overflowX-#{$overflowValue}-#{$i} {
+          overflow-x: $overflowValue;
+        }
+
+        .u-box--overflowY-#{$overflowValue}-#{$i} {
+          overflow-y: $overflowValue;
+        }
+      }
+    }
+  }
+}
+
+.bg--transparent {
+  background-color: transparent;
+}
+
+.bg--white {
+  background-color: white;
+}
+
+@each $color $tone in $base-colors {
+  .bg--#{$tone} {
+    background-color: $color;
+  }
+
+  .tone--#{$tone} {
+    color: $color;
+  }
+
+  .tone--neutral.tone--neutral-on-#{$tone} {
+    color: isLight(
+      $color,
+      map-get($base-colors, neutral),
+      map-get($base-colors, neutralInverted)
+    );
+  }
+
+  .tone--secondary.tone--secondary-on-#{$tone} {
+    color: isLight(
+      $color,
+      map-get($base-colors, secondary),
+      map-get($base-colors, secondaryInverted)
+    );
+  }
+
+  .shadow--borderStandard-on-#{$tone} {
+    box-shadow: inset
+      0
+      0
+      0
+      2px
+      isLight(
+        $color,
+        map-get($base-colors, subtle),
+        map-get($base-colors, white)
+      );
+  }
+}
+
+.shadow--borderStandard {
+  box-shadow: inset 0 0 0 2px map-get($base-colors, subtle);
+}

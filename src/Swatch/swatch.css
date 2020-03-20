@@ -1,0 +1,31 @@
+.u-swatch {
+  position: relative;
+  border-radius: 50%;
+}
+
+.u-swatch__inner {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.u-swatch:not(.u-swatch--selected) {
+  border: 1px solid #ccc;
+  padding: 1px;
+
+  .u-swatch__inner {
+  }
+}
+
+.u-swatch--selected {
+  padding: 2px;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #777;
+  }
+}

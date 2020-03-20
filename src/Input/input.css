@@ -1,0 +1,101 @@
+.u-input {
+  position: relative;
+  font-weight: $regular-font-weight;
+
+  & label {
+    display: block;
+    margin: 0;
+    z-index: 1;
+    & span {
+      display: block;
+      font-size: inherit;
+      line-height: inherit;
+      transition: all 150ms ease-out;
+    }
+  }
+
+  &.u-input--empty:not(.u-input--outline) {
+    & label {
+      font-size: 16px;
+      & span {
+        transform: translateY(25px);
+      }
+    }
+  }
+
+  & input,
+  & select,
+  & textarea {
+    display: block;
+    border-radius: 0;
+    position: relative;
+    -webkit-appearance: none;
+    font-family: $font-family;
+    min-width: 0;
+    width: 100%;
+    z-index: 2;
+    height: auto;
+    min-height: auto;
+    font-size: 16px;
+    padding: 9px 0 4px 0;
+    line-height: 24px;
+    background: transparent;
+    border: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #e1e1e1;
+
+    &.focus-visible {
+      outline: none;
+      border-color: map-get($base-colors, formAccent);
+    }
+  }
+
+  & select {
+    padding-right: #{$space-medium}px;
+  }
+
+  & .u-input--select__chevron {
+    position: absolute;
+    top: 12px;
+    right: 0px;
+    padding: 0;
+    z-index: 2;
+  }
+
+  &.u-input--outline {
+    & label {
+      margin-bottom: #{$space-xsmall}px;
+      font-weight: $bold-font-weight;
+    }
+    & input,
+    & textarea {
+      padding: 7px 10px;
+      border: 1px solid #e1e1e1;
+      border-radius: map-get(map-get($border, radius), standard);
+      &.focus-visible {
+        box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+      }
+    }
+    & select {
+      border-radius: map-get(map-get($border, radius), standard);
+      padding: 7px #{$space-large}px 7px 10px;
+      border: 1px solid #e1e1e1;
+      &.focus-visible {
+        box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+      }
+    }
+    & .u-input--select__chevron {
+      right: 10px;
+    }
+  }
+
+  &.u-input--tone-critical {
+    & input,
+    & select {
+      &:not(:focus) {
+        border-color: map-get($foregroundColors, critical);
+      }
+    }
+  }
+}
