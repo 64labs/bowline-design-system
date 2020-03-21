@@ -16,16 +16,24 @@ const PropsTable = ({component}) => {
   return (
     <Columns className="props-table">
       <Column span={1}>
-        <Text tone="secondary">Name</Text>
+        <Text tone="secondary" size="small">
+          Name
+        </Text>
       </Column>
       <Column span={1}>
-        <Text tone="secondary">Type</Text>
+        <Text tone="secondary" size="small">
+          Type
+        </Text>
       </Column>
       <Column span={1}>
-        <Text tone="secondary">Responsive</Text>
+        <Text tone="secondary" size="small">
+          Responsive
+        </Text>
       </Column>
       <Column span={1}>
-        <Text tone="secondary">Description</Text>
+        <Text tone="secondary" size="small">
+          Description
+        </Text>
       </Column>
       <Column span={4}>
         <Divider />
@@ -58,7 +66,9 @@ const PropsTable = ({component}) => {
           return (
             <React.Fragment key={propName}>
               <Column span={1}>
-                <Text weight="medium">{propName}</Text>
+                <Text weight="medium" size="small">
+                  {propName}
+                </Text>
               </Column>
               <Column span={1}>
                 {propValues ? (
@@ -68,14 +78,14 @@ const PropsTable = ({component}) => {
                         as="code"
                         key={`${propName}-${val.value || val}`}
                         baseline={false}
-                        size="standard"
+                        size="small"
                       >
                         {val.value ? val.value.replace(/'/g, '') : val}
                       </Text>
                     ))}
                   </Inline>
                 ) : (
-                  <Text>
+                  <Text size="small">
                     {prop.type && prop.type.name === 'union'
                       ? propOneOf
                         ? propOneOf.value.name
@@ -93,12 +103,14 @@ const PropsTable = ({component}) => {
               </Column>
               <Column span={1}>
                 <Stack space="small">
-                  {prop.description && <Text>{prop.description}</Text>}
+                  {prop.description && (
+                    <Text size="small">{prop.description}</Text>
+                  )}
                   {prop.defaultValue &&
                     prop.defaultValue.value !== 'undefined' && (
-                      <Text>
+                      <Text size="small">
                         Default:{' '}
-                        <Text as="code" baseline={false}>
+                        <Text as="code" size="small" baseline={false}>
                           {prop.defaultValue.value.replace(/'/g, '')}
                         </Text>
                       </Text>

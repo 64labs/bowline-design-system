@@ -1,5 +1,6 @@
 import 'focus-visible'
 import React from 'react'
+import Helmet from 'react-helmet'
 import {render} from 'react-dom'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {MDXProvider} from '@mdx-js/react'
@@ -67,6 +68,9 @@ const mdxComponents = {
 const App = () => {
   return (
     <BowlineProvider theme={theme}>
+      <Helmet>
+        <title>Bowline Design System</title>
+      </Helmet>
       <Router>
         <Box
           display="flex"

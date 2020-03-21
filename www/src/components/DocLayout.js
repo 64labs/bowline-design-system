@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import {shadesOfPurple as syntaxTheme} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import {Link} from 'react-router-dom'
@@ -23,7 +24,10 @@ const DocLayout = ({children, meta}) => {
   } = meta
 
   return (
-    <Stack space="xlarge" paddingY="xxlarge">
+    <Stack space="xlarge" paddingY="xlarge">
+      <Helmet>
+        <title>{name} | Bowline Design System</title>
+      </Helmet>
       <Stack align="flex-start" space="medium">
         <Text heading size="xlarge" weight="strong">
           {name}
