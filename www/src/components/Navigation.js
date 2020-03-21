@@ -31,7 +31,7 @@ const Navigation = ({pages}) => {
             <Text
               as="span"
               size="small"
-              weight={isOpen('components') ? 'strong' : 'regular'}
+              weight={isOpen('components') ? 'medium' : 'medium'}
             >
               Components
             </Text>

@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import {render} from 'react-dom'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {MDXProvider} from '@mdx-js/react'
-import theme from '@64labs/bowline-design-system/themes/baseTheme'
 import {
   BowlineProvider,
   Box,
@@ -18,6 +17,7 @@ import {
   Icon,
   Inline,
 } from '@64labs/bowline-design-system'
+import theme from '../bowline.config'
 import Navigation from './components/Navigation'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'

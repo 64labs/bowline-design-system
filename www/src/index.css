@@ -1,4 +1,5 @@
 @import '@64labs/bowline-design-system/base.css';
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap');
 
 * {
   margin: 0;
