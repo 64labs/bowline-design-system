@@ -25,11 +25,11 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: yarn install
-      - run: yarn version --new-version ${GITHUB_REF#"refs/tags/"}
-      - run: yarn build
       - run: |
           git config --local user.email "darekrossman@me.com"
           git config --local user.name "subpopular"
+      - run: yarn version --new-version ${GITHUB_REF#"refs/tags/"}
+      - run: yarn build
       - run: |
           yarn publish dist
           git status
