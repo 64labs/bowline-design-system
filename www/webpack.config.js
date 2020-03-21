@@ -7,9 +7,11 @@ const bowline = require('@64labs/bowline-design-system/postcss-plugin')
 
 const dist = path.resolve(__dirname, 'dist')
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
   const prod =
-    (env && env.mode === 'production') || process.env.NODE_ENV === 'production'
+    (env && env.mode === 'production') ||
+    process.env.NODE_ENV === 'production' ||
+    (argv && argv.mode === 'production')
       ? true
       : undefined
 
