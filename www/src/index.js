@@ -15,7 +15,7 @@ import {
   Icon,
   Inline,
 } from '@64labs/bowline-design-system'
-import theme from '@64labs/bowline-design-system/dist/themes/baseTheme'
+import theme from '@64labs/bowline-design-system/themes/baseTheme'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'
 import './index.css'
