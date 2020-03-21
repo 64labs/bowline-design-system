@@ -3,19 +3,21 @@ import React from 'react'
 import {render} from 'react-dom'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {MDXProvider} from '@mdx-js/react'
+import theme from '@64labs/bowline-design-system/themes/baseTheme'
 import {
   BowlineProvider,
   Box,
   Columns,
   ContentBlock,
+  ScrollBox,
   Column,
   Divider,
-  Stack,
+  VerticalDivider,
   Text,
   Icon,
   Inline,
 } from '@64labs/bowline-design-system'
-import theme from '@64labs/bowline-design-system/themes/baseTheme'
+import Navigation from './components/Navigation'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'
 import './index.css'
@@ -66,56 +68,36 @@ const App = () => {
   return (
     <BowlineProvider theme={theme}>
       <Router>
-        <Box paddingY="medium">
-          <ContentBlock>
-            <Inline justify="space-between">
-              <Text heading size="standard">
-                Bowline Design System
-              </Text>
-
-              <Icon name="github" />
-            </Inline>
-          </ContentBlock>
+        <Box
+          display="flex"
+          align="center"
+          justify="space-between"
+          paddingY="gutter"
+          paddingX="gutter"
+        >
+          <Text heading weight="strong" size="standard" as={Link} to="/">
+            Bowline Design System
+          </Text>
+          <Icon name="github" />
         </Box>
 
-        <Stack space="large">
-          <Divider />
+        <Divider />
 
-          <ContentBlock>
-            <Columns cols={5} gap="xlarge">
-              <Column span={1}>
-                <Stack space="large" dividers>
-                  {/* <Stack as="nav">
-                  <Text weight="strong">Get Started</Text>
-                  <Stack as="ul">
-                    <li>
-                      <Text as={Link} to="/motivation" block>
-                        Motivation
-                      </Text>
-                    </li>
-                  </Stack>
-                </Stack> */}
+        <Columns cols={6} gap="none" align="stretch">
+          <Column span={1}>
+            <Box display="flex" height="full">
+              <Box style={{flex: 1}}>
+                <ScrollBox scrollY style={{height: 'calc(100vh - 76px)'}}>
+                  <Navigation pages={docPages} />
+                </ScrollBox>
+              </Box>
+              <VerticalDivider />
+            </Box>
+          </Column>
 
-                  <Stack as="nav">
-                    <Text weight="strong">Components</Text>
-                    <Stack as="ul">
-                      {docPages.map((page) => (
-                        <li key={page}>
-                          <Text
-                            as={Link}
-                            to={`/components/${page.toLowerCase()}`}
-                            block
-                          >
-                            {page}
-                          </Text>
-                        </li>
-                      ))}
-                    </Stack>
-                  </Stack>
-                </Stack>
-              </Column>
-
-              <Column span={4}>
+          <Column span={5}>
+            <ScrollBox scrollY style={{height: 'calc(100vh - 76px)'}}>
+              <ContentBlock width="medium">
                 <Switch>
                   <MDXProvider components={mdxComponents}>
                     <Route path="/components/:componentName">
@@ -123,10 +105,10 @@ const App = () => {
                     </Route>
                   </MDXProvider>
                 </Switch>
-              </Column>
-            </Columns>
-          </ContentBlock>
-        </Stack>
+              </ContentBlock>
+            </ScrollBox>
+          </Column>
+        </Columns>
       </Router>
     </BowlineProvider>
   )

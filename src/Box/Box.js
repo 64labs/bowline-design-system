@@ -102,7 +102,7 @@ Box.propTypes = {
   /**
    * Sets the background color
    */
-  background: t.oneOf([...types.tokens.background, t.string]),
+  background: t.string,
   /**
    * Adds the given class name
    */

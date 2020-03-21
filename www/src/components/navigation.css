@@ -1,0 +1,20 @@
+.nav-box {
+  background-color: color(map-get($base-colors, brand) tint(97%));
+}
+
+.nav-item--selected.nav-item--selected {
+  background-color: color(map-get($base-colors, brand) tint(93%));
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: auto;
+    border-left: 4px solid map-get($base-colors, brandAccent);
+  }
+}
+
+.nav-item:not(.nav-item--selected):hover {
+  background-color: color(map-get($base-colors, brand) tint(95%));
+}

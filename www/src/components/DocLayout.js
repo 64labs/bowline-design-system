@@ -1,6 +1,6 @@
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import {googlecode as syntaxTheme} from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import {shadesOfPurple as syntaxTheme} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import {Link} from 'react-router-dom'
 import {
   Box,
@@ -23,14 +23,12 @@ const DocLayout = ({children, meta}) => {
   } = meta
 
   return (
-    <Stack space="xlarge" paddingBottom="xxlarge">
-      <Inline align="flex-start" justify="space-between">
-        <Stack>
-          <Text heading size="xlarge">
-            {name}
-          </Text>
-          <Text>{description}</Text>
-        </Stack>
+    <Stack space="xlarge" paddingY="xxlarge">
+      <Stack align="flex-start" space="medium">
+        <Text heading size="xlarge" weight="strong">
+          {name}
+        </Text>
+        <Text>{description}</Text>
 
         <Box>
           <SyntaxHighlighter
@@ -39,14 +37,15 @@ const DocLayout = ({children, meta}) => {
               ...syntaxTheme,
               hljs: {
                 ...syntaxTheme.hljs,
-                border: `1px solid #EEE`,
-                padding: '9px 18px',
+                border: 'none',
+                borderRadius: 4,
+                padding: '12px 20px',
                 lineHeight: '24px',
               },
             }}
           >{`import {${name}} from '@64labs/bowline-design-system'`}</SyntaxHighlighter>
         </Box>
-      </Inline>
+      </Stack>
 
       <Stack space="xxlarge">
         {children && <Stack>{children}</Stack>}

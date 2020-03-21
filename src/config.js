@@ -27,6 +27,7 @@ const spacingMap = {
 const baseColors = {
   brand: '#445560',
   brandAccent: '#d80a86',
+  brandLight: '#fff8fc',
   brandAccentAccessible: '#ce0c80',
   formAccent: '#d80a86',
   white: '#fff',
@@ -155,17 +156,17 @@ export default {
     },
     small: {
       mobile: {
-        size: 13,
+        size: 14,
         rows: 5,
       },
       tablet: {
-        size: 13,
+        size: 14,
         rows: 5,
       },
     },
     standard: {
       mobile: {
-        size: 15,
+        size: 16,
         rows: 6,
       },
       tablet: {

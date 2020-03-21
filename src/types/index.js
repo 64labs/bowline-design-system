@@ -11,6 +11,8 @@ export const tokens = {
     'largeish',
     'xlarge',
     'xxlarge',
+    'full',
+    'half',
   ],
   textSizes: ['xsmall', 'small', 'standard', 'large', 'xlarge'],
   display: ['none', 'inline', 'block', 'flex', 'grid'],
