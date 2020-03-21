@@ -32,6 +32,7 @@ jobs:
           cp package.json dist
           cp README.md dist
           yarn publish dist --new-version ${GITHUB_REF#"refs/tags/"}
+          git status
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Push changes
