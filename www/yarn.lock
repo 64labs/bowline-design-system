@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@64labs/bowline-design-system@link:..":
+"@64labs/bowline-design-system@link:../dist":
   version "0.0.0"
   uid ""
 
@@ -5393,6 +5393,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typeface-montserrat-subrayada@^0.0.63:
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/typeface-montserrat-subrayada/-/typeface-montserrat-subrayada-0.0.63.tgz#594c8792c4a314495386d8e332f585fba63aa53c"
+  integrity sha512-MhIxX2Zy75jzHkSJlGU6xrQ3S+4+C23X5ldqNyfwwGErUxOD7BeqzG485gK3+snkCPWgv5kTQco7rfADxWxx6w==
 
 uglify-js@3.4.x:
   version "3.4.10"

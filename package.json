@@ -16,7 +16,6 @@
     "build": "rollup -c --environment NODE_ENV:production",
     "build:docs": "rollup -c --environment EXAMPLE_BUILD,NODE_ENV:production && cd www && yarn install && yarn build",
     "start": "rollup -c -w",
-    "prepare": "yarn run build",
     "playroom:start": "playroom start",
     "playroom:build": "playroom build"
   },

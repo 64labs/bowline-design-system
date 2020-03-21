@@ -1,4 +1,4 @@
-@import '@64labs/bowline-design-system/dist/index.css';
+@import '@64labs/bowline-design-system/base.css';
 
 * {
   margin: 0;

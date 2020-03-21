@@ -41,7 +41,7 @@ const docPages = [
 ]
 
 var svgIcons = require.context(
-  '@64labs/bowline-design-system/dist/icons',
+  '@64labs/bowline-design-system/icons',
   false,
   /.*\.svg$/
 )
