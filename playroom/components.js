@@ -1,5 +1,5 @@
 import './playroom.css'
-import '../dist/index.css'
+import '../dist/base.css'
 
 export {Box} from '../dist/index'
 export {Text} from '../dist/index'
