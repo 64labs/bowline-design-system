@@ -43,6 +43,8 @@ const mainConfig = {
     commonjs(),
     copy({
       targets: [
+        {src: 'package.json', dest: 'dist'},
+        {src: 'README.md', dest: 'dist'},
         {src: 'src/svg/*.svg', dest: 'dist/icons'},
         {src: 'src/config.js', dest: 'dist/themes', rename: 'baseTheme.js'},
       ],

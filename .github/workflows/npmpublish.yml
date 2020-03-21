@@ -30,8 +30,6 @@ jobs:
           git config --local user.email "darekrossman@me.com"
           git config --local user.name "subpopular"
       - run: |
-          cp -f package.json dist
-          cp -f README.md dist
           yarn publish dist --new-version ${GITHUB_REF#"refs/tags/"}
           git status
         env:
