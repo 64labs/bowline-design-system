@@ -27,7 +27,11 @@ jobs:
       - run: |
           git config --local user.email "darekrossman@me.com"
           git config --local user.name "subpopular"
-      - run: yarn publish --new-version ${GITHUB_REF#"refs/tags/"}
+      - run: |
+          cp package.json dist
+          cp README.md dist
+          cd dist
+          yarn publish --new-version ${GITHUB_REF#"refs/tags/"}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Push changes

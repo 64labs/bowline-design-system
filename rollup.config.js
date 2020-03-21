@@ -10,18 +10,17 @@ import copy from 'rollup-plugin-copy'
 import pkg from './package.json'
 
 const isProduction = process.env.NODE_ENV === 'production'
-const isExampleBuild = process.env.EXAMPLE_BUILD === 'true'
 
 const mainConfig = {
   input: 'src/index.js',
   output: [
     {
-      file: pkg.main,
+      file: 'dist/' + pkg.main,
       format: 'cjs',
       sourcemap: true,
     },
     {
-      file: pkg.module,
+      file: 'dist/' + pkg.module,
       format: 'es',
       sourcemap: true,
     },
@@ -33,7 +32,7 @@ const mainConfig = {
       modules: false,
       syntax: 'postcss-scss',
       plugins: [cssImports()],
-      extract: true,
+      extract: 'dist/base.css',
     }),
     url(),
     babel({
@@ -43,7 +42,10 @@ const mainConfig = {
     resolve(),
     commonjs(),
     copy({
-      targets: [{src: 'src/svg/*.svg', dest: 'dist/icons'}],
+      targets: [
+        {src: 'src/svg/*.svg', dest: 'dist/icons'},
+        {src: 'src/config.js', dest: 'dist/themes', rename: 'baseTheme.js'},
+      ],
     }),
   ],
 }

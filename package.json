@@ -5,23 +5,18 @@
   "author": "64labs",
   "license": "MIT",
   "repository": "64labs/bowline-design-system",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
+  "main": "index.js",
+  "module": "index.es.js",
+  "jsnext:main": "index.es.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c --environment NODE_ENV:production",
     "build:docs": "rollup -c --environment EXAMPLE_BUILD,NODE_ENV:production && cd www && yarn install && yarn build",
     "start": "rollup -c -w",
-    "start:www": "parcel www/index.html",
     "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build",
     "playroom:start": "playroom start",
     "playroom:build": "playroom build"
   },
@@ -74,9 +69,6 @@
     "svg-sprite-loader": "^4.2.1",
     "svgo-loader": "^2.2.1"
   },
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "classnames": "^2.2.6",
     "get-contrast": "^2.0.0",
@@ -88,6 +80,10 @@
     "postcss-import": "^12.0.1",
     "postcss-map-get": "^0.2.9",
     "postcss-nesting": "^7.0.1",
-    "postcss-scss": "^2.0.0"
+    "postcss-scss": "^2.0.0",
+    "typeface-montserrat-subrayada": "^0.0.63"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

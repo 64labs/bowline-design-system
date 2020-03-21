@@ -1,8 +1,10 @@
 import 'focus-visible'
 import React from 'react'
 import {render} from 'react-dom'
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {MDXProvider} from '@mdx-js/react'
 import {
+  BowlineProvider,
   Box,
   Columns,
   ContentBlock,
@@ -13,13 +15,10 @@ import {
   Icon,
   Inline,
 } from '@64labs/bowline-design-system'
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import {ThemeProvider} from './util/ThemeContext'
+import theme from '@64labs/bowline-design-system/dist/themes/baseTheme'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'
 import './index.css'
-
-const theme = {}
 
 const docPages = [
   'Box',
@@ -65,7 +64,7 @@ const mdxComponents = {
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <BowlineProvider theme={theme}>
       <Router>
         <Box paddingY="medium">
           <ContentBlock>
@@ -129,7 +128,7 @@ const App = () => {
           </ContentBlock>
         </Stack>
       </Router>
-    </ThemeProvider>
+    </BowlineProvider>
   )
 }
 

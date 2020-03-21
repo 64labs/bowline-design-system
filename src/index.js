@@ -24,4 +24,3 @@ export {tokens} from './types'
 
 export {ThemeProvider as BowlineProvider} from './Provider'
 export {useTheme} from './Provider'
-export {default as defaultTheme} from './config'

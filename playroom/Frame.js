@@ -1,7 +1,8 @@
 import 'focus-visible'
 import React from 'react'
-import {BowlineProvider, defaultTheme} from '../dist'
+import {BowlineProvider} from '../dist'
+import theme from '../dist/themes/defaultTheme'
 
 export default ({children}) => {
-  return <BowlineProvider value={defaultTheme}>{children}</BowlineProvider>
+  return <BowlineProvider theme={theme}>{children}</BowlineProvider>
 }
