@@ -25,8 +25,12 @@ const IndexPage = () => {
     }
   `)
   return (
-    <Stack align="center" space={["medium", "medium", "large"]}>
-      <Box style={{ width: 140 }}>
+    <Stack
+      align="center"
+      space={["medium", "medium", "large"]}
+      paddingBottom="xlarge"
+    >
+      <Box style={{ width: 140 }} paddingX={["smallish", "none", "none"]}>
         <Image fluid={data.file.childImageSharp.fluid} />
       </Box>
       <Stack space="xlarge" paddingX="gutter" align="center">
