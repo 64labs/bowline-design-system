@@ -1,0 +1,10 @@
+.mdx-code-block {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.prism-code {
+  & :last-child .token.plain:empty {
+    display: none !important;
+  }
+}

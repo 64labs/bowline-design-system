@@ -1,0 +1,53 @@
+@import "@64labs/bowline-design-system/base.css";
+@import url("https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap");
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+ul.bullets {
+  list-style: disc;
+}
+
+a {
+  text-decoration: none;
+}
+
+code.u-text {
+  font-family: monospace;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: color(map-get($base-colors, info) l(95%));
+}
+
+.u-cols.props-table {
+  grid-template-columns: 120px 270px 80px 1fr;
+  align-items: center;
+}
+
+.props-table .u-col {
+}
+
+.mdx-text .u-text + .u-text {
+  margin: 24px 0;
+}
+
+.mdx-text .u-text-heading + .u-text {
+  margin: 24px 0;
+}
