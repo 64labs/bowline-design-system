@@ -19,7 +19,7 @@ const App = () => {
 }
 ```
 
-Check out the [full documentation](https://bowline.netlify.com) and [Playroom](https://bowline-playground.netlify.com).
+Check out the [full documentation](https://bowline-design-system.netlify.com) and [Playroom](https://bowline-playroom.netlify.com).
 
 ## 🚀 Developing
 

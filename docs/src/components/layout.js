@@ -39,7 +39,7 @@ const Layout = ({ children, ...props }) => {
         justify="space-between"
         paddingY={["xsmall", "xsmall", "gutter"]}
         paddingLeft={["xsmall", "xsmall", "gutter"]}
-        paddingRight="gutter"
+        paddingRight={["xsmall", "xsmall", "gutter"]}
         position={["sticky", "sticky", "static"]}
         background="white"
         style={{ top: 0, zIndex: 2, borderBottom: "1px solid #EEE" }}
@@ -58,7 +58,15 @@ const Layout = ({ children, ...props }) => {
             Bowline
           </Text>
         </Inline>
-        <Icon name="github" />
+        <Button
+          as="a"
+          aria-label="github"
+          href="https://github.com/64labs/bowline-design-system"
+          icon="github"
+          iconSize="gutter"
+          background="transparent"
+          tone="neutral"
+        />
       </Box>
 
       {!isHome ? (
