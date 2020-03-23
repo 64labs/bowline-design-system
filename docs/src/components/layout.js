@@ -23,7 +23,7 @@ const Layout = ({ children, ...props }) => {
 
   const toggleNavDrawer = () => setNavDrawerOpen(!navDrawerOpen)
 
-  const isHome = props.path === "/" || "/*"
+  const isHome = props.path === "/" || props.path === "/*"
 
   return (
     <>
