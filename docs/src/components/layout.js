@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useLocation } from "@reach/router"
 import Helmet from "react-helmet"
 import { Link } from "gatsby"
 import {
@@ -19,11 +20,12 @@ import Navigation from "./Navigation"
 import "./layout.css"
 
 const Layout = ({ children, ...props }) => {
+  const { pathname } = useLocation()
   const [navDrawerOpen, setNavDrawerOpen] = useState(false)
 
   const toggleNavDrawer = () => setNavDrawerOpen(!navDrawerOpen)
 
-  const isHome = props.path === "/" || props.path === "/*"
+  const isHome = pathname === "/"
 
   return (
     <>
