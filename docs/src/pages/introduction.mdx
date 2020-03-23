@@ -4,10 +4,20 @@ title: Introduction
 
 # Bowline Design System
 
-Bowline is a lightweight design system meant to accelerate the development of user interfaces with React. It is currently undergoing active development.
+Bowline is a lightweight design system meant to accelerate the development of user interfaces with React. It is currently under active and caring development by the people at [64labs](https://www.64labs.com).
 
 ## Why?
 
-There's no shortage of React component libraries and design-systems in the open source world to choose from. So why build something yourself?
+While there's no shortage of component libraries and design systems in the open source world to choose from, successfully navigating the tradeoffs for a given project means finding the right of balance of performance, configurability, developer ergonomics, support, compatibility, and more. Given the varying nature of our work, this meant that a library or solution we used on one project may not be able to be used on the next.
 
-Over the last several years, our team has spent considerable time working with clients to improve their websites and applications while also adapting to their current tech stack. That means for many of our projects, our technical choices are sometimes limited.
+This was especially frustrating when it came to building front-ends with React. So our team set out to bring together some of the ideas and approaches of our favorite open source UI projects into a single library.
+
+## Technical principles
+
+1. **Performance**
+
+Because our projects typically focus on producing and auditing high-performance websites, every millisecond counts. We want to limit any uncertainty when it comes to assessing the runtime impact of third-party libraries, however small.
+
+2. **Compatibility**
+
+To create and maintain a design system that we can use across different projects, we must adapt to the technical requirements and limitations of each client's existing infrastructure and partner platforms.
