@@ -40,11 +40,11 @@ const Layout = ({ children, ...props }) => {
         paddingY={["xsmall", "xsmall", "xsmall"]}
         paddingLeft={["xsmall", "xsmall", "gutter"]}
         paddingRight={["xsmall", "xsmall", "gutter"]}
-        position={["sticky", "sticky", "static"]}
+        position={["sticky", "sticky", "relative"]}
         background="white"
         style={{
           top: 0,
-          zIndex: 2,
+          zIndex: 3,
           boxShadow: "0 1px 0px #eee",
         }}
       >

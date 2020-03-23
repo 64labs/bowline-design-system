@@ -1,39 +1,60 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
+import Image from "gatsby-image"
 import {
   Box,
   Button,
+  Columns,
+  Divider,
   ContentBlock,
   Inline,
   Stack,
   Text,
 } from "@64labs/bowline-design-system"
 
-const IndexPage = () => (
-  <Box>
-    <Stack
-      space="xlarge"
-      paddingX="gutter"
-      paddingY={["medium", "large", "xxlarge"]}
-      style={{ maxWidth: 680, width: "100%" }}
-    >
-      <Stack>
-        <Text as="h1" heading size="xlarge" weight="strong">
-          For hopefully uncomplicated user interfaces.
-        </Text>
-        <Text size="xlarge">
-          Bowline is lightweight, responsive, themeable design system for
-          ordinary or ambitious React projects.
-        </Text>
-      </Stack>
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      file(name: { eq: "bowline" }) {
+        childImageSharp {
+          fluid(maxWidth: 168) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+    }
+  `)
+  return (
+    <Stack align="center" space={["medium", "medium", "large"]}>
+      <Box style={{ width: 140 }}>
+        <Image fluid={data.file.childImageSharp.fluid} />
+      </Box>
+      <Stack space="xlarge" paddingX="gutter" align="center">
+        <Stack align="center">
+          <Text
+            as="h1"
+            heading
+            size="xlarge"
+            weight="strong"
+            align="center"
+            style={{ maxWidth: 580 }}
+          >
+            For hopefully uncomplicated user interfaces
+          </Text>
+          <Text size="xlarge" align="center" style={{ maxWidth: 600 }}>
+            Bowline is lightweight, responsive, themeable design system for
+            ordinary or ambitious React projects probably.
+          </Text>
+        </Stack>
 
-      <Inline>
-        <Button as={Link} to="/getting-started/" weight="strong">
-          Get started
-        </Button>
-      </Inline>
+        <Inline>
+          <Button as={Link} to="/getting-started/" weight="strong">
+            Get started
+          </Button>
+        </Inline>
+      </Stack>
     </Stack>
-  </Box>
-)
+  )
+}
 
 export default IndexPage
