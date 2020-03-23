@@ -23,6 +23,8 @@ const Layout = ({ children, ...props }) => {
 
   const toggleNavDrawer = () => setNavDrawerOpen(!navDrawerOpen)
 
+  const isHome = props.path === "/" || "/*"
+
   return (
     <>
       <Helmet>
@@ -56,7 +58,7 @@ const Layout = ({ children, ...props }) => {
 
       <Divider />
 
-      {props.path !== "/" ? (
+      {!isHome ? (
         <Columns cols={6} gap="none" align="stretch">
           <Column span={1} display={["none", "none", "block"]}>
             <Box display="flex" height="full">
