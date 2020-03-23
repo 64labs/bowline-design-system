@@ -37,7 +37,7 @@ const Layout = ({ children, ...props }) => {
         display="flex"
         align="center"
         justify="space-between"
-        paddingY={["xsmall", "xsmall", "gutter"]}
+        paddingY={["xsmall", "xsmall", "xsmall"]}
         paddingLeft={["xsmall", "xsmall", "gutter"]}
         paddingRight={["xsmall", "xsmall", "gutter"]}
         position={["sticky", "sticky", "static"]}

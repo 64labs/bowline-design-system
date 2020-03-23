@@ -31,7 +31,7 @@ a {
 
 .content-area {
   @media (min-width: map-get($breakpoints, 2)px) {
-    height: calc(100vh - 73px);
+    height: calc(100vh - 65px);
   }
 }
 
