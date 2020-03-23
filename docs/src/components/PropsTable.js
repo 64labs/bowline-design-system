@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import {
   Box,
   Columns,
@@ -9,9 +9,12 @@ import {
   Inline,
   Stack,
   tokens,
-} from '@64labs/bowline-design-system'
+} from "@64labs/bowline-design-system"
 
-const PropsTable = ({component}) => {
+const PropsTable = ({ component }) => {
+  if (!component) {
+    return null
+  }
   const doc = component.__docgenInfo
   return (
     <Columns className="props-table">
@@ -41,27 +44,27 @@ const PropsTable = ({component}) => {
 
       {doc &&
         doc.props &&
-        Object.keys(doc.props).map((propName) => {
+        Object.keys(doc.props).map(propName => {
           const prop = doc.props[propName]
 
           const propValues =
             prop.type &&
-            prop.type.name !== 'union' &&
+            prop.type.name !== "union" &&
             (tokens[
               prop.type.value &&
                 !Array.isArray(prop.type.value) &&
-                prop.type.value.replace('types.', '').replace('tokens.', '')
+                prop.type.value.replace("types.", "").replace("tokens.", "")
             ] ||
               tokens[
                 prop.type.raw &&
-                  prop.type.raw.replace('types.', '').replace('tokens.', '')
+                  prop.type.raw.replace("types.", "").replace("tokens.", "")
               ] ||
               prop.type.value)
 
           const propOneOf =
             prop.type &&
-            prop.type.name === 'union' &&
-            prop.type.value.find((v) => v.name === 'arrayOf')
+            prop.type.name === "union" &&
+            prop.type.value.find(v => v.name === "arrayOf")
 
           return (
             <React.Fragment key={propName}>
@@ -73,29 +76,29 @@ const PropsTable = ({component}) => {
               <Column span={1}>
                 {propValues ? (
                   <Inline space="smallish">
-                    {propValues.map((val) => (
+                    {propValues.map(val => (
                       <Text
                         as="code"
                         key={`${propName}-${val.value || val}`}
                         baseline={false}
                         size="small"
                       >
-                        {val.value ? val.value.replace(/'/g, '') : val}
+                        {val.value ? val.value.replace(/'/g, "") : val}
                       </Text>
                     ))}
                   </Inline>
                 ) : (
                   <Text size="small">
-                    {prop.type && prop.type.name === 'union'
+                    {prop.type && prop.type.name === "union"
                       ? propOneOf
                         ? propOneOf.value.name
-                        : prop.type.value.map((v) => v.name).join(', ')
+                        : prop.type.value.map(v => v.name).join(", ")
                       : prop.type && prop.type.name}
                   </Text>
                 )}
               </Column>
               <Column span={1}>
-                {prop.type && (prop.type.name === 'custom' || propOneOf) ? (
+                {prop.type && (prop.type.name === "custom" || propOneOf) ? (
                   <Box paddingLeft="gutter">
                     <Icon name="check" />
                   </Box>
@@ -107,11 +110,11 @@ const PropsTable = ({component}) => {
                     <Text size="small">{prop.description}</Text>
                   )}
                   {prop.defaultValue &&
-                    prop.defaultValue.value !== 'undefined' && (
+                    prop.defaultValue.value !== "undefined" && (
                       <Text size="small">
-                        Default:{' '}
+                        Default:{" "}
                         <Text as="code" size="small" baseline={false}>
-                          {prop.defaultValue.value.replace(/'/g, '')}
+                          {prop.defaultValue.value.replace(/'/g, "")}
                         </Text>
                       </Text>
                     )}
