@@ -40,6 +40,9 @@ const Layout = ({ children, ...props }) => {
         paddingY={["xsmall", "xsmall", "gutter"]}
         paddingLeft={["xsmall", "xsmall", "gutter"]}
         paddingRight="gutter"
+        position={["sticky", "sticky", "static"]}
+        background="white"
+        style={{ top: 0, zIndex: 2, borderBottom: "1px solid #EEE" }}
       >
         <Inline space="xsmall">
           <Button
@@ -58,14 +61,12 @@ const Layout = ({ children, ...props }) => {
         <Icon name="github" />
       </Box>
 
-      <Divider />
-
       {!isHome ? (
         <Columns cols={6} gap="none" align="stretch">
           <Column span={1} display={["none", "none", "block"]}>
             <Box display="flex" height="full">
               <Box style={{ flex: 1 }}>
-                <ScrollBox scrollY style={{ height: "calc(100vh - 76px)" }}>
+                <ScrollBox scrollY className="content-area">
                   <Navigation />
                 </ScrollBox>
               </Box>
@@ -74,7 +75,7 @@ const Layout = ({ children, ...props }) => {
           </Column>
 
           <Column span={[6, 6, 5]}>
-            <ScrollBox scrollY style={{ height: "calc(100vh - 76px)" }}>
+            <ScrollBox scrollY className="content-area">
               <ContentBlock width="medium">{children}</ContentBlock>
             </ScrollBox>
           </Column>

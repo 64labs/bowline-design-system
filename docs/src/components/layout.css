@@ -29,6 +29,12 @@ a {
   text-decoration: none;
 }
 
+.content-area {
+  @media (min-width: map-get($breakpoints, 2)px) {
+    height: calc(100vh - 73px);
+  }
+}
+
 code.u-text {
   font-family: monospace;
   padding: 1px 5px;
