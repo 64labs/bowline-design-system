@@ -42,7 +42,11 @@ const Layout = ({ children, ...props }) => {
         paddingRight={["xsmall", "xsmall", "gutter"]}
         position={["sticky", "sticky", "static"]}
         background="white"
-        style={{ top: 0, zIndex: 2, borderBottom: "1px solid #EEE" }}
+        style={{
+          top: 0,
+          zIndex: 2,
+          boxShadow: "0 1px 0px #eee",
+        }}
       >
         <Inline space="xsmall">
           <Button
@@ -73,7 +77,7 @@ const Layout = ({ children, ...props }) => {
         <Columns cols={6} gap="none" align="stretch">
           <Column span={1} display={["none", "none", "block"]}>
             <Box display="flex" height="full">
-              <Box style={{ flex: 1 }}>
+              <Box style={{ flex: 1, paddingTop: 1 }}>
                 <ScrollBox scrollY className="content-area">
                   <Navigation />
                 </ScrollBox>

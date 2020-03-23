@@ -1,9 +1,10 @@
 .active-nav-section {
-  background-color: color(map-get($base-colors, brandAccent) tint(98.5%));
+  background: color(map-get($base-colors, brandAccent) tint(98.5%));
 }
 
 .nav-link:not(.nav-link-expander) {
   position: relative;
+  transition: background 0.3s;
   &:before {
     content: "";
     display: block;
@@ -32,11 +33,12 @@
 
 .nav-link:not(.selected-nav-link):hover,
 .nav-link:not(.selected-nav-link):hover + .nav-link-expander {
-  background-color: color(map-get($base-colors, brandAccent) tint(96%));
+  background: color(map-get($base-colors, brandAccent) tint(96%));
 
   &:before {
     opacity: 1;
-    transform: scaleX(1) translatey(-50%);
+    background: color(map-get($base-colors, brandAccent) tint(80%));
+    transform: scaleX(0.8) translatey(-50%);
   }
 }
 
