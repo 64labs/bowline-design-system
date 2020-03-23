@@ -22,7 +22,12 @@ export default ({ children, className }) => {
             paddingTop="large"
             paddingBottom="gutter"
             paddingX="gutter"
-            style={{ ...style, fontSize: 15, lineHeight: "20px" }}
+            style={{
+              ...style,
+              fontSize: 15,
+              lineHeight: "20px",
+              overflow: "auto",
+            }}
           >
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>

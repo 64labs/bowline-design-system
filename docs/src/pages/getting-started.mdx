@@ -4,64 +4,73 @@ title: Getting started
 
 # Getting started
 
-## Et centum hanc accipe munere
+## Authenticate with GitHub
 
-Lorem markdownum tua qua lusus ad Pallante membra [in longo
-fracta](http://ramos.io/) evehor; **undas cum**, in nisi. Habentem et ubi
-haerens sibila aequalique _clamat_; a Aeneae adspice semper adamanteis meliore.
+Bowline is hosted on [GitHub Packages](https://help.github.com/en/packages) which requires some tweaks to your npm configuration. You'll need to point the `64labs` namespace to the GitHub Packages registry and add your personal GitHub token to your own `~/.npmrc`.
 
-> Pectore visa graves et idem, septem. Nec genusque medii, dotalem tu utraque
-> nullum, est imperio. Glandes Peleus ubi meritos, conpendia auras: luctus,
-> patriae! Inventum carmina veri arbor iurasse clipeum nimius Vertumnus volucres
-> cupiunt. Cultu matri biformis et causa figit quod ignota hospes canescunt
-> stabat, imbres.
+```sh
+//npm.pkg.github.com/:_authToken={PERSONAL_ACCESS_TOKEN}
+@64labs:registry=https://npm.pkg.github.com/
+```
 
-## Longi et Orci et et multa mille
+<Info>
+  For a detailed explanation visit{" "}
+  <a href="https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages">
+    Configuring npm for use with GitHub Packages.
+  </a>
+</Info>
 
-Relevare in precor quamquam geminato postquam socium dissociata quondam labens,
-atque? Vana iam ipse natusque una, strepitum constant materia nec **pater**?
-Amores ceditque deripit manet orbe oro Phiale dicere proprias habet arte.
-Tulisse penetrat stravit inviso novissima at momentaque marmora arma oscula nec
-videtur parili, inpar veni falsi. Potitus iacentis tanta est nuper ardescit
-Pallante, **et foedat imbres** qua este communis posuere.
+## Install the packages
 
-- Distulit vulnere flava
-- Lenis concentu fines inexspectatus litora sitis vasto
-- Tristia et ego excepto erat
+```sh
+yarn add @64labs/bowline-design-system
+```
 
-_Iubet nocebant_ patria sit axem veteris mala tecta _auctor_ penitusque totas,
-tingui solutus, te ab. Cur abstraxit: erat essem domino [nequeunt
-de](http://quippe.org/uni-ferebat), te ab deus cum eras adversam plaustri
-numquam. _Agros ire dabat_ fugerat Aurora; increpat prius et promissas flexum,
-et talibus caelestum Inarimen: mors est.
+## Configure Webpack
 
-### Alumna cum gladii vulnerat nemus clamare
+Bowline provides its own PostCSS plugin for both theming and custom CSS syntax. For Webpack projects, the typical setup relies on `css-loader`, `style-loader` and `postcss-loader`. In your Webpack config add the following:
 
-Ferebat isque Cretenque Echionio ponunt, nec in praedaeque cogam vaticinos
-[viri](http://traderet.net/nec), submersum pone moratum undis, canistris. Velit
-nec venit liventia uritur fecundaque saxum moenibus futurum die debere, opem
-reserabo. Constat ferus, praecipitem quod totam crescitque maternae me flenti
-**et ossibus** omnes hostem. **Haud et caruisse** gente profecti noviens, si
-arma nullisque **quoque** iubent, pari peto sublimia ferantur, aura herbis. Suo
-ponderis crevit _coniunx confertque_ Gradivo!
+```js
+const bowline = require("@64labs/bowline-design-system/postcss-plugin")
 
-```jsx
-import { Box } from "@64labs/bowline-design-system"
-
-const App = () => {
-  return (
-    <Box>
-      <Text>Nothing new here.</Text>
-    </Box>
-  )
+{
+  module: {
+    rules: [
+      {
+        test: /\.css?$/,
+        use: [
+          "style-loader",
+          { loader: "css-loader", options: { importLoaders: 1 } },
+          {
+            loader: "postcss-loader",
+            options: {
+              syntax: "postcss-scss",
+              plugins: [bowline()],
+            },
+          },
+        ],
+      },
+    ]
+  }
 }
 ```
 
-[Doles](http://caedis.net/soldubitat.html) de provolvi chori. Opes ego aevo
-duro: tellus hinc vobis! Ipsoque colla excipitur caligine et forem fugam genas,
-et gaudebat. Velle sum reddidit stabula unum: pueri nec horum animum ademi
-fontis eris tam; medias concilium si medio. Qui quaerit levor dedit tantaque
-dant et non faciem tamen et dabat orbem sed ad.
+With the PostCSS plugin in place, any `.css` files imported in your project will be processed by Bowline. This means you can use your own theme values as well as several Bowline-specific mixins and functions directly in your own CSS.
 
-Ignibus esset: simul in _limen_ finite, Ante austrum est. Sponte forti ait finge
-nosterque feruntur, transitus tenet me ulmi nox novercae erat!
+## Import the CSS
+
+Add the Bowline `base.css` module to your root stylesheet.
+
+```css
+@import "@64labs/bowline-design-system/base.css";
+```
+
+That's it!
+
+## Next steps
+
+### Theming & customization
+
+### Using the components
+
+### Prototyping in Playroom

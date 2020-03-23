@@ -1,16 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
-import {
-  Box,
-  Button,
-  Columns,
-  Divider,
-  ContentBlock,
-  Inline,
-  Stack,
-  Text,
-} from "@64labs/bowline-design-system"
+import { Box, Button, Inline, Stack, Text } from "@64labs/bowline-design-system"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -41,7 +32,7 @@ const IndexPage = () => {
             size="xlarge"
             weight="strong"
             align="center"
-            style={{ maxWidth: 580 }}
+            style={{ maxWidth: 570 }}
           >
             For hopefully uncomplicated user interfaces
           </Text>

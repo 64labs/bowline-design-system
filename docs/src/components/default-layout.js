@@ -10,13 +10,30 @@ import {
 } from "@64labs/bowline-design-system"
 import CodeBlock from "./code-block"
 
-const textWithProps = textProps => props => <Text {...props} {...textProps} />
+const textWithProps = textProps => props => (
+  <Box>
+    <Text {...props} {...textProps} />
+  </Box>
+)
 
 const components = {
   Text,
   Stack,
   Box,
   Inline,
+  Info: props => (
+    <Box
+      padding="small"
+      marginBottom={["small", "gutter"]}
+      style={{
+        background: "#fff5fb",
+        borderLeft: `4px solid #d80a86`,
+        borderRadius: 4,
+      }}
+    >
+      <Text {...props} />
+    </Box>
+  ),
   h1: textWithProps({
     as: "h1",
     heading: true,
@@ -30,7 +47,7 @@ const components = {
     size: "large",
     weight: "strong",
     marginTop: ["small", "gutter"],
-    marginBottom: ["small", "gutter"],
+    marginBottom: ["small", "small"],
   }),
   h3: textWithProps({
     as: "h3",
@@ -50,20 +67,41 @@ const components = {
     size: "xsmall",
     weight: "strong",
   }),
-  p: textWithProps({ marginBottom: ["small", "gutter"] }),
+  p: textWithProps({ marginBottom: ["small", "small"] }),
+  a: props => (
+    <Text
+      as="a"
+      {...props}
+      baseline={false}
+      style={{ textDecoration: "underline" }}
+      tone="brandAccent"
+    />
+  ),
   ul: props => (
     <Stack
       space="smallish"
       as="ul"
-      marginBottom={["small", "gutter"]}
+      marginBottom={["small", "small"]}
       className="bullets"
       {...props}
     />
   ),
   li: textWithProps({ as: "li" }),
   code: props => (
-    <Box marginBottom={["small", "gutter"]}>
+    <Box marginBottom={["small", "small"]}>
       <CodeBlock {...props} />
+    </Box>
+  ),
+  blockquote: props => (
+    <Box
+      paddingY="xxsmall"
+      paddingLeft="small"
+      marginBottom={["small", "small"]}
+      style={{ borderLeft: "3px solid #DDD" }}
+    >
+      <Text className="foo" as="blockquote" block>
+        {props.children.props.children}
+      </Text>
     </Box>
   ),
 }

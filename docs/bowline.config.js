@@ -91,7 +91,7 @@ module.exports = {
 
   "regular-font-weight": 400,
   "medium-font-weight": 600,
-  "bold-font-weight": 800,
+  "bold-font-weight": 700,
 
   grid,
 
