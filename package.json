@@ -15,7 +15,7 @@
   "scripts": {
     "preinstall": "node ./preinstall.js",
     "build": "rollup -c --environment NODE_ENV:production",
-    "build:docs": "rollup -c --environment EXAMPLE_BUILD,NODE_ENV:production && cd www && yarn install && yarn build",
+    "build:docs": "rollup -c --environment EXAMPLE_BUILD,NODE_ENV:production && cd docs && yarn install && yarn build",
     "start": "rollup -c -w",
     "playroom:start": "playroom start",
     "playroom:build": "yarn run build && playroom build"
