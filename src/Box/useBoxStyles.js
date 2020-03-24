@@ -1,19 +1,19 @@
-import {resolveResponsiveClassnames} from '../util'
-
-const classes = (value, label) =>
-  resolveResponsiveClassnames('box', value, label)
+import {useTheme} from '../Provider'
+import {responsiveClassnames} from '../util'
 
 const useBoxStyles = ({
   as,
   background,
   boxShadow,
   display,
+  flexDirection,
   alignItems,
   alignSelf,
   justifyContent,
   align,
   justify,
   flexGrow,
+  flexShrink,
   padding,
   paddingTop,
   paddingRight,
@@ -38,6 +38,11 @@ const useBoxStyles = ({
   width,
   wrap,
 }) => {
+  const theme = useTheme()
+
+  const classes = (value, label) =>
+    responsiveClassnames(theme ? theme.breakpoints : {}, value, label)
+
   const resolvedPaddingTop = paddingTop || paddingY || padding
   const resolvedPaddingBottom = paddingBottom || paddingY || padding
   const resolvedPaddingLeft = paddingLeft || paddingX || padding
@@ -73,7 +78,6 @@ const useBoxStyles = ({
     !marginClasses && !marginXClasses && classes(resolvedMarginLeft, 'ml')
 
   return [
-    'u-box',
     paddingClasses,
     paddingYClasses,
     paddingXClasses,
@@ -92,20 +96,22 @@ const useBoxStyles = ({
     classes(height, 'height'),
     classes(width, 'width'),
     classes(display, 'display'),
-    classes(flexGrow, 'grow'),
+    classes(flexDirection, 'flex-direction'),
+    classes(flexShrink, 'flex-shrink'),
+    classes(flexGrow, 'flex-grow'),
     classes(size, 'size'),
-    classes(alignItems || align, 'alignItems'),
+    classes(alignItems || align, 'flex-alignItems'),
     classes(alignSelf, 'alignSelf'),
-    classes(justifyContent || justify, 'justifyContent'),
+    classes(justifyContent || justify, 'flex-justifyContent'),
     classes(position, 'position'),
     classes(overflow, 'overflow'),
     classes(overflowX, 'overflowX'),
     classes(overflowY, 'overflowY'),
-    {[`bg--${background}`]: background, [`u-box--wrap`]: wrap},
+    {[`bg-${background}`]: background, [`flex-wrap`]: wrap},
     {
-      [`shadow--${boxShadow}`]:
+      [`shadow-${boxShadow}`]:
         boxShadow && (!background || background === 'transparent'),
-      [`shadow--${boxShadow}-on-${background}`]:
+      [`shadow-${boxShadow}-on-${background}`]:
         boxShadow && background && background !== 'transparent',
     },
   ]

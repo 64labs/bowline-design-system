@@ -1,13 +1,13 @@
 import React, {useContext} from 'react'
 
-const ctx = React.createContext()
+export const ctx = React.createContext()
 
 const Provider = ctx.Provider
 
-export const ThemeProvider = ({theme, ...props}) => (
-  <Provider value={theme} {...props} />
-)
+export const ThemeProvider = Provider
 
 export const useTheme = () => {
-  return useContext(ctx)
+  const theme = useContext(ctx)
+  console.log('usetheme', theme)
+  return theme
 }

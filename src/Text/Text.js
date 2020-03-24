@@ -4,7 +4,6 @@ import * as types from '../types'
 import cx from 'classnames'
 import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
-import './text.css'
 
 const Text = ({
   size = 'standard',
@@ -36,17 +35,17 @@ const Text = ({
 
   const classes = cx(
     {
-      'u-text': !heading,
-      'u-text-heading': heading,
-      'u-text--baseline': baseline,
-      'u-text--block': block,
-      [`tone--${tone}-on-${background}`]: background,
-      [`tone--${tone}`]: tone,
-      [`u-text--weight-${weight}`]: weight !== 'regular',
-      [`u-text--${size}`]: !heading,
-      [`u-text-heading--${size}`]: heading,
+      text: !heading,
+      heading: heading,
+      'baseline-crop': baseline,
+      'display-block': block,
+      [`tone-${tone}-on-${background}`]: background,
+      [`tone-${tone}`]: tone,
+      [`text-weight-${weight}`]: weight !== 'regular',
+      [`text-${size}`]: !heading,
+      [`heading-${size}`]: heading,
     },
-    `u-text--align-${align}`,
+    `text-align-${align}`,
     className
   )
 

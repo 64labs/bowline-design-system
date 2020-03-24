@@ -84,10 +84,18 @@ const colors = {
 }
 
 export default {
-  'font-family':
-    'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
-  'header-font-family':
-    'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
+  fontFamily: {
+    text:
+      'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
+    heading:
+      'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
+  },
+
+  fontWeights: {
+    regular: 400,
+    medium: 500,
+    strong: 600,
+  },
 
   'thin-font-weight': 100,
   'extra-light-font-weight': 200,
@@ -100,7 +108,6 @@ export default {
   grid,
 
   breakpoints: {
-    0: 0,
     1: 480,
     2: 768,
     3: 1024,
@@ -125,6 +132,13 @@ export default {
 
   spacingKeys,
   spacingMap,
+  spacing: {
+    ...spacingMap,
+    half: '50%',
+    full: '100%',
+    fullvh: '100vh',
+    fullvw: '100vw',
+  },
 
   'space-none': 0,
   'space-xxsmall': spacingMap.xxsmall,

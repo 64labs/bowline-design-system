@@ -9,8 +9,9 @@ import functions from 'postcss-functions'
 import cssImports from 'postcss-import'
 import contrast from 'postcss-contrast'
 import colorFunctions from 'postcss-color-function'
+import {resolveSpacingAtRules, resolveResponsiveAtRules} from './lib/atrules'
 import defaultConfig from './config'
-import {isLight, mod, baseliner} from './style-functions'
+import {isLight, mod, baseliner, themeFunction} from './style-functions'
 
 export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
   // process css with all plugins
@@ -27,7 +28,7 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
 
     const userConfig = hasUserConfig ? require(configPath) : {}
 
-    const variables = Object.assign({}, defaultConfig, userConfig)
+    const theme = Object.assign({}, defaultConfig, userConfig)
 
     result.messages.push({
       type: 'dependency',
@@ -39,16 +40,19 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       cssImports({
         from: rawopts.from || process.cwd(),
       }),
-      scssVariables({variables}),
+      scssVariables({variables: theme, unresolved: 'ignore'}),
       mapGet(),
       calc({mediaQueries: true, selectors: true}),
       functions({
         functions: {
           isLight,
           mod,
-          baseliner: baseliner(variables),
+          baseliner: baseliner(theme),
+          theme: themeFunction(theme),
         },
       }),
+      resolveSpacingAtRules(theme),
+      resolveResponsiveAtRules(theme),
       contrast(),
       nesting(),
       colorFunctions(),

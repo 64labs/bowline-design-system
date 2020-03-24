@@ -3,7 +3,7 @@ import t from 'prop-types'
 import cx from 'classnames'
 import * as types from '../types'
 import Box from '../Box/Box'
-import './stack.css'
+import Divider from '../Divider/Divider'
 
 const Stack = ({
   space = 'gutter',
@@ -12,20 +12,30 @@ const Stack = ({
   children,
   ...props
 }) => {
-  const classes = cx('u-stack', `u-stack--${space}`, className)
+  const classes = cx(className)
 
   return (
-    <Box className={classes} align="stretch" justify="flex-start" {...props}>
+    <Box
+      className={classes}
+      display="flex"
+      flexDirection="column"
+      align="stretch"
+      justify="flex-start"
+      {...props}
+    >
       {React.Children.toArray(children)
         .filter((i) => i)
         .map((child, i) => {
           return (
             <React.Fragment key={child.key}>
               {i > 0 && dividers && (
-                <Box
+                <Divider
                   {...(child.props.display && {display: child.props.display})}
+                  {...(child.props.alignSelf && {
+                    alignSelf: child.props.alignSelf,
+                  })}
                   marginTop={space}
-                  className="u-stack__divider"
+                  width="full"
                 />
               )}
 
@@ -35,7 +45,7 @@ const Stack = ({
                   alignSelf: child.props.alignSelf,
                 })}
                 marginTop={i > 0 ? space : undefined}
-                className="u-stack__item"
+                maxWidth="full"
               >
                 {child}
               </Box>

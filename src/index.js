@@ -1,3 +1,5 @@
+import './base.css'
+
 export {default as Box} from './Box/Box'
 export {default as Text} from './Text/Text'
 export {default as Stack} from './Stack/Stack'
@@ -24,3 +26,4 @@ export {tokens} from './types'
 
 export {ThemeProvider as BowlineProvider} from './Provider'
 export {useTheme} from './Provider'
+export {ctx as BowlineContext} from './Provider'

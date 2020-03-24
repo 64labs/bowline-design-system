@@ -25,18 +25,24 @@ const Icon = ({
     props.title && props.title.length ? {role: 'img'} : {'aria-hidden': 'true'}
 
   const classes = classNames(
-    'u-icon',
+    'icon',
     {
-      [`u-icon--${size}`]: size,
-      [`tone--${tone}`]: tone,
-      [`tone--${tone}-on-${background}`]: background,
-      [`tone--${tone}`]: tone,
+      ['tone-inherit']: !tone,
+      [`tone-${tone}-on-${background}`]: background,
+      [`tone-${tone}`]: tone,
     },
     className
   )
 
   return (
-    <Box as="svg" size={size} {...a11y} className={classes} {...props}>
+    <Box
+      as="svg"
+      display="block"
+      size={size}
+      {...a11y}
+      className={classes}
+      {...props}
+    >
       <use role="presentation" xlinkHref={url ? url : `#${name}`} />
     </Box>
   )

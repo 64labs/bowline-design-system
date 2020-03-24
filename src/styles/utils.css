@@ -1,0 +1,152 @@
+@responsive {
+  @spacing space {
+    .p {
+      padding: $space;
+    }
+    .px {
+      padding-left: $space;
+      padding-right: $space;
+    }
+    .py {
+      padding-top: $space;
+      padding-bottom: $space;
+    }
+    .pt {
+      padding-top: $space;
+    }
+    .pr {
+      padding-right: $space;
+    }
+    .pb {
+      padding-bottom: $space;
+    }
+    .pl {
+      padding-left: $space;
+    }
+
+    .m {
+      margin: $space;
+    }
+    .mx {
+      margin-left: $space;
+      margin-right: $space;
+    }
+    .my {
+      margin-top: $space;
+      margin-bottom: $space;
+    }
+    .mt {
+      margin-top: $space;
+    }
+    .mr {
+      margin-right: $space;
+    }
+    .mb {
+      margin-bottom: $space;
+    }
+    .ml {
+      margin-left: $space;
+    }
+
+    .size {
+      width: $space;
+      height: $space;
+    }
+    .minHeight {
+      min-height: $space;
+    }
+    .height {
+      height: $space;
+    }
+    .width {
+      width: $space;
+    }
+  }
+
+  @each $display in (none, inline, block, flex, grid) {
+    .display-#{$display} {
+      display: $display;
+    }
+  }
+
+  @each $position in (absolute, relative, fixed, sticky, static) {
+    .position-#{$position} {
+      position: $position;
+    }
+  }
+
+  @each $alignValue in (flex-start, flex-end, center, baseline, stretch) {
+    .flex-alignItems-#{$alignValue} {
+      align-items: $alignValue;
+    }
+    .flex-alignSelf-#{$alignValue} {
+      align-self: $alignValue;
+    }
+  }
+
+  @each $justifyValue
+    in (flex-start, flex-end, center, space-around, space-between, stretch)
+  {
+    .flex-justifyContent-#{$justifyValue} {
+      justify-content: $justifyValue;
+    }
+  }
+
+  @for $k from 1 through 5 {
+    .flex-grow-#{$k} {
+      flex-grow: $k;
+    }
+  }
+
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .flex-shrink-1 {
+    flex-shrink: 1;
+  }
+
+  @each $directionValue in (row, row-reverse, column, column-reverse) {
+    .flex-direction-#{$directionValue} {
+      flex-direction: $directionValue;
+    }
+  }
+
+  @each $overflowValue in (hidden, visible, auto, scroll) {
+    .overflow-#{$overflowValue} {
+      overflow: $overflowValue;
+    }
+    .overflowX-#{$overflowValue} {
+      overflow-x: $overflowValue;
+    }
+    .overflowY-#{$overflowValue} {
+      overflow-y: $overflowValue;
+    }
+  }
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* 
+@each $color $tone in $base-colors {
+
+
+  .shadow--borderStandard-on-#{$tone} {
+    box-shadow: inset
+      0
+      0
+      0
+      2px
+      isLight(
+        $color,
+        map-get($base-colors, subtle),
+        map-get($base-colors, white)
+      );
+  }
+}
+
+.shadow--borderStandard {
+  box-shadow: inset 0 0 0 2px map-get($base-colors, subtle);
+} */

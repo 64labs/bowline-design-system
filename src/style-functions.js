@@ -1,4 +1,5 @@
 import contrast from 'get-contrast'
+import get from 'lodash.get'
 
 export const isLight = (color, c1, c2) => {
   if (contrast.isAccessible(color, c1, {ignoreAlpha: true})) {
@@ -18,6 +19,11 @@ export const isLight = (color, c1, c2) => {
 
 export const mod = (a, b) => {
   return a % b
+}
+
+export const themeFunction = (theme) => (path, ...defaultValue) => {
+  const value = get(theme, path.trim().replace(/('|")/g, ''), defaultValue)
+  return Array.isArray(value) ? value.join(', ') : value
 }
 
 export const baseliner = (vars) => (size, rows, scaleKey, rule) => {

@@ -1,6 +1,3 @@
-import './playroom.css'
-import '../dist/base.css'
-
 export {Box} from '../dist/index'
 export {Text} from '../dist/index'
 export {Stack} from '../dist/index'

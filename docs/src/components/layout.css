@@ -35,11 +35,11 @@ a {
   }
 }
 
-code.u-text {
+code.text {
   font-family: monospace;
   padding: 1px 5px;
   border-radius: 3px;
-  background: color(map-get($base-colors, info) l(95%));
+  background: color(theme("base-colors.brandAccent") l(95%));
 }
 
 .u-cols.props-table {
@@ -50,10 +50,10 @@ code.u-text {
 .props-table .u-col {
 }
 
-.mdx-text .u-text + .u-text {
+.mdx-text .text + .text {
   margin: 24px 0;
 }
 
-.mdx-text .u-text-heading + .u-text {
+.mdx-text .text-heading + .text {
   margin: 24px 0;
 }

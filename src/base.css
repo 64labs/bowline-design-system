@@ -1,4 +1,7 @@
-@import 'utils';
+@import './styles/mixins';
+@import './styles/color';
+@import './styles/utils';
+@import './styles/text';
 
 /*
   This will hide the focus indicator if the element receives focus via the mouse,

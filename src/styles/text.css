@@ -1,0 +1,66 @@
+.text {
+  font-family: theme('fontFamily.text');
+}
+
+.heading {
+  font-family: theme('fontFamily.heading');
+}
+
+@each $v in (left, center, right) {
+  .text-align-#{$v} {
+    text-align: $v;
+  }
+}
+
+@each $v $k in $fontWeights {
+  .text-weight-#{$k} {
+    font-weight: $v;
+  }
+}
+
+@each $mqs $label in $textSizes {
+  $mobile: map-get($mqs, mobile);
+  $tablet: map-get($mqs, tablet);
+
+  .text-#{$label} {
+    $size: map-get($mobile, size);
+    $rows: map-get($mobile, rows);
+    @include textAdjust($size, $rows, text);
+  }
+  @media (min-width: map-get($breakpoints, 1)px) {
+    .text-#{$label} {
+      $size: map-get($tablet, size);
+      $rows: map-get($tablet, rows);
+      @include textAdjust($size, $rows, text);
+    }
+  }
+}
+
+@each $mqs $label in $headingSizes {
+  $mobile: map-get($mqs, mobile);
+  $tablet: map-get($mqs, tablet);
+  .heading-#{$label} {
+    $size: map-get($mobile, size);
+    $rows: map-get($mobile, rows);
+    @include textAdjust($size, $rows, heading);
+  }
+  @media (min-width: map-get($breakpoints, 1)px) {
+    .heading-#{$label} {
+      $size: map-get($tablet, size);
+      $rows: map-get($tablet, rows);
+      @include textAdjust($size, $rows, heading);
+    }
+  }
+}
+
+// TODO: figure out better way to handle focus
+.text,
+.heading {
+  &:focus {
+    outline: none;
+  }
+  &.focus-visible:not(.baseline-crop) {
+    border-radius: 3px;
+    box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
+  }
+}

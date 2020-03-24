@@ -5,8 +5,6 @@ import * as types from '../types'
 import {renderBackgroundProvider} from '../util/BackgroundContext'
 import useBoxStyles from './useBoxStyles'
 
-import './box.css'
-
 const Box = React.forwardRef(
   (
     {
@@ -29,12 +27,14 @@ const Box = React.forwardRef(
       marginY,
       boxShadow,
       display,
+      flexDirection,
       alignItems,
       alignSelf,
       justifyContent,
       align,
       justify,
       flexGrow,
+      flexShrink,
       position,
       size,
       minHeight,
@@ -67,12 +67,14 @@ const Box = React.forwardRef(
       marginY,
       boxShadow,
       display,
+      flexDirection,
       alignItems,
       alignSelf,
       justifyContent,
       align,
       justify,
       flexGrow,
+      flexShrink,
       position,
       size,
       minHeight,

@@ -1,12 +1,4 @@
-@import '../base';
-
-.u-icon {
-  display: block;
-
-  &:not([class*='tone--']) {
-    color: inherit;
-  }
-
+.icon {
   pointer-events: none;
 }
 

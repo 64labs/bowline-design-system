@@ -84,10 +84,18 @@ const colors = {
 }
 
 module.exports = {
-  "font-family":
-    '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
-  "header-font-family":
-    '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
+  fontFamily: {
+    text:
+      '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
+    heading:
+      '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
+  },
+
+  fontWeights: {
+    regular: 400,
+    medium: 500,
+    strong: 700,
+  },
 
   "regular-font-weight": 400,
   "medium-font-weight": 600,
@@ -120,6 +128,13 @@ module.exports = {
 
   spacingKeys,
   spacingMap,
+  spacing: {
+    ...spacingMap,
+    half: "50%",
+    full: "100%",
+    fullvh: "100vh",
+    fullvw: "100vw",
+  },
 
   "space-none": 0,
   "space-xxsmall": spacingMap.xxsmall,

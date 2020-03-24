@@ -1,5 +1,3 @@
-@import '../base';
-
 @supports (grid-area: auto) {
   @each $bp $i in $breakpoints {
     @if $i == 0 {
