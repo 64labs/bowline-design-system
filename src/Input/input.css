@@ -30,7 +30,7 @@
     border-radius: 0;
     position: relative;
     -webkit-appearance: none;
-    font-family: $font-family;
+    font-family: theme('fontFamily.text');
     min-width: 0;
     width: 100%;
     z-index: 2;

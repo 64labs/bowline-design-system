@@ -68,7 +68,7 @@
       width: $space;
     }
     .maxWidth {
-      maxwidth: $space;
+      max-width: $space;
     }
 
     .grid-gap {

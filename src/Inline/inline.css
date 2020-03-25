@@ -8,16 +8,18 @@
 
 @each $bp $i in $breakpoints {
   @each $value $space in $spacingMap {
-    .u-inline--container-#{$space}-0 {
-      padding-top: 1px;
-      &:before {
-        content: '';
-        display: block;
-        margin-top: calc(($value + 1) * -1px);
+    @if (i == 1) {
+      .u-inline--container-#{$space}-0 {
+        padding-top: 1px;
+        &:before {
+          content: '';
+          display: block;
+          margin-top: calc(($value + 1) * -1px);
+        }
       }
-    }
-    .u-inline--space-#{$space}-#{$i} {
-      margin-left: -#{$value}px;
+      .u-inline--space-#{$space}-0 {
+        margin-left: -#{$value}px;
+      }
     }
 
     @media (min-width: #{$bp}px) {
