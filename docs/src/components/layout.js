@@ -10,10 +10,8 @@ import {
   Inline,
   ScrollBox,
   Column,
-  Divider,
   VerticalDivider,
   Text,
-  Icon,
 } from "@64labs/bowline-design-system"
 import NavDrawer from "./NavDrawer"
 import Navigation from "./Navigation"

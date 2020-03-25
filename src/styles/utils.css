@@ -58,8 +58,17 @@
     .height {
       height: $space;
     }
+    .maxHeight {
+      max-height: $space;
+    }
+    .minWidth {
+      min-width: $space;
+    }
     .width {
       width: $space;
+    }
+    .maxWidth {
+      maxwidth: $space;
     }
   }
 

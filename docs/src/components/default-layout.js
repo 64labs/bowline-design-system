@@ -1,13 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { MDXProvider } from "@mdx-js/react"
-import {
-  ContentBlock,
-  Box,
-  Inline,
-  Text,
-  Stack,
-} from "@64labs/bowline-design-system"
+import { Box, Inline, Text, Stack } from "@64labs/bowline-design-system"
 import CodeBlock from "./code-block"
 
 const textWithProps = textProps => props => (

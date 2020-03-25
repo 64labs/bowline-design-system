@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
 import { createPortal } from "react-dom"
-import { Link } from "gatsby"
 import { useTransition, useSpring, animated } from "react-spring"
 import { Box, ScrollBox, Button, Divider } from "@64labs/bowline-design-system"
 import Navigation from "./Navigation"

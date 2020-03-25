@@ -35,7 +35,10 @@ const useBoxStyles = ({
   overflowY,
   minHeight,
   height,
+  maxHeight,
+  minWidth,
   width,
+  maxWidth,
   wrap,
 }) => {
   const theme = useTheme()
@@ -94,7 +97,10 @@ const useBoxStyles = ({
     marginLeftClasses,
     classes(minHeight, 'minHeight'),
     classes(height, 'height'),
+    classes(maxHeight, 'maxHeight'),
+    classes(minWidth, 'minWidth'),
     classes(width, 'width'),
+    classes(maxWidth, 'maxWidth'),
     classes(display, 'display'),
     classes(flexDirection, 'flex-direction'),
     classes(flexShrink, 'flex-shrink'),
