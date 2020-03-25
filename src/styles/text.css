@@ -53,7 +53,7 @@
   }
 }
 
-// TODO: figure out better way to handle focus
+/* TODO: figure out better way to handle focus */
 .text,
 .heading {
   &:focus {

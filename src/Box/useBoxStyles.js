@@ -39,7 +39,12 @@ const useBoxStyles = ({
   minWidth,
   width,
   maxWidth,
+  flexWrap,
   wrap,
+  gridTemplateColumns,
+  gridGap,
+  gridRowGap,
+  gridColumnGap,
 }) => {
   const theme = useTheme()
 
@@ -113,7 +118,11 @@ const useBoxStyles = ({
     classes(overflow, 'overflow'),
     classes(overflowX, 'overflowX'),
     classes(overflowY, 'overflowY'),
-    {[`bg-${background}`]: background, [`flex-wrap`]: wrap},
+    classes(gridTemplateColumns, 'grid-template-cols'),
+    classes(gridGap, 'grid-gap'),
+    classes(gridRowGap, 'grid-row-gap'),
+    classes(gridColumnGap, 'grid-column-gap'),
+    {[`bg-${background}`]: background, [`flex-wrap`]: wrap || flexWrap},
     {
       [`shadow-${boxShadow}`]:
         boxShadow && (!background || background === 'transparent'),

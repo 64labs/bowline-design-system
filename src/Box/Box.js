@@ -46,7 +46,12 @@ const Box = React.forwardRef(
       overflow,
       overflowX,
       overflowY,
-      wrap = false,
+      wrap,
+      flexWrap,
+      gridTemplateColumns,
+      gridGap,
+      gridRowGap,
+      gridColumnGap,
       ...props
     },
     ref
@@ -87,6 +92,11 @@ const Box = React.forwardRef(
       overflowX,
       overflowY,
       wrap,
+      flexWrap,
+      gridTemplateColumns,
+      gridGap,
+      gridRowGap,
+      gridColumnGap,
     })
 
     const element = React.createElement(as, {

@@ -104,9 +104,9 @@ module.exports = {
   grid,
 
   breakpoints: {
-    0: 480,
-    1: 768,
-    2: 1024,
+    1: 480,
+    2: 768,
+    3: 1024,
   },
 
   contentWidth: {

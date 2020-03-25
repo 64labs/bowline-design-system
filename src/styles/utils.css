@@ -70,6 +70,16 @@
     .maxWidth {
       maxwidth: $space;
     }
+
+    .grid-gap {
+      grid-gap: $space;
+    }
+    .grid-row-gap {
+      grid-row-gap: $space;
+    }
+    .grid-col-gap {
+      grid-column-gap: $space;
+    }
   }
 
   @each $display in (none, inline, block, flex, grid) {
@@ -130,6 +140,12 @@
     }
     .overflowY-#{$overflowValue} {
       overflow-y: $overflowValue;
+    }
+  }
+
+  @for $j from 1 through 24 {
+    .grid-template-cols-#{$j} {
+      grid-template-columns: repeat($j, 1fr);
     }
   }
 }

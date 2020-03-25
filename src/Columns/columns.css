@@ -1,9 +1,4 @@
-@supports (grid-area: auto) {
-  .u-cols {
-    display: grid;
-  }
-
-  @each $bp $i in $breakpoints {
+/* @each $bp $i in $breakpoints {
     @if $i == 0 {
       @for $j from 1 through 24 {
         .u-cols--cols-#{$j}-0 {
@@ -41,17 +36,16 @@
         }
       }
     }
-  }
+  } */
 
-  @media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
-    .u-cols--collapse-0 {
-      grid-template-columns: 1fr;
-    }
+@media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
+  .u-cols--collapse-0 {
+    grid-template-columns: 1fr;
   }
+}
 
-  @media (max-width: calc(map-get($breakpoints, 2) - 1)px) {
-    .u-cols--collapse-1 {
-      grid-template-columns: 1fr;
-    }
+@media (max-width: calc(map-get($breakpoints, 2) - 1)px) {
+  .u-cols--collapse-1 {
+    grid-template-columns: 1fr;
   }
 }

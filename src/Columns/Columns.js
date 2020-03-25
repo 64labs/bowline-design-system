@@ -1,7 +1,6 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {resolveResponsiveClassnames} from '../util'
 import Box from '../Box/Box'
 import * as types from '../types'
 import './columns.css'
@@ -18,10 +17,6 @@ const Columns = ({
   ...props
 }) => {
   const classes = cx(
-    'u-cols',
-    resolveResponsiveClassnames('cols', cols, 'cols'),
-    resolveResponsiveClassnames('cols', rowGap || gap, 'row-gap'),
-    resolveResponsiveClassnames('cols', colGap || gap, 'col-gap'),
     {
       'u-cols--collapse-0': collapse || collapseBelowTablet,
       'u-cols--collapse-1': collapseBelowTablet,
@@ -30,7 +25,14 @@ const Columns = ({
   )
 
   return (
-    <Box className={classes} {...props}>
+    <Box
+      display="grid"
+      gridTemplateColumns={cols}
+      gridRowGap={rowGap || gap}
+      gridColumnGap={colGap || gap}
+      className={classes}
+      {...props}
+    >
       {children}
     </Box>
   )
