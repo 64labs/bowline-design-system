@@ -8,7 +8,7 @@
 
 @each $bp $i in $breakpoints {
   @each $value $space in $spacingMap {
-    @if (i == 1) {
+    @if $i == 1 {
       .u-inline--container-#{$space}-0 {
         padding-top: 1px;
         &:before {

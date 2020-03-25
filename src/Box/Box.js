@@ -52,6 +52,7 @@ const Box = React.forwardRef(
       gridGap,
       gridRowGap,
       gridColumnGap,
+      borderRadius,
       ...props
     },
     ref
@@ -97,6 +98,7 @@ const Box = React.forwardRef(
       gridGap,
       gridRowGap,
       gridColumnGap,
+      borderRadius,
     })
 
     const element = React.createElement(as, {

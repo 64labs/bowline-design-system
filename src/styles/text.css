@@ -1,9 +1,11 @@
 .text {
   font-family: theme('fontFamily.text');
+  font-weight: theme('fontWeights.regular');
 }
 
 .heading {
   font-family: theme('fontFamily.heading');
+  font-weight: theme('fontWeights.regular');
 }
 
 @each $v in (left, center, right) {

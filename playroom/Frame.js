@@ -1,5 +1,5 @@
 import React from 'react'
-import {ThemeProvider} from '../src/Provider'
+import {BowlineProvider} from '../dist'
 import theme from '../dist/themes/baseTheme'
 
 import 'focus-visible'
@@ -10,5 +10,5 @@ const svgIcons = require.context('../dist/icons', false, /.*\.svg$/)
 svgIcons.keys().map(svgIcons)
 
 export default ({children}) => {
-  return <ThemeProvider value={theme}>{children}</ThemeProvider>
+  return <BowlineProvider value={theme}>{children}</BowlineProvider>
 }

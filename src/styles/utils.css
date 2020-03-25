@@ -71,14 +71,24 @@
       max-width: $space;
     }
 
-    .grid-gap {
+    .gap {
       grid-gap: $space;
     }
-    .grid-row-gap {
+    .row-gap {
       grid-row-gap: $space;
     }
-    .grid-col-gap {
+    .col-gap {
       grid-column-gap: $space;
+    }
+  }
+
+  @each $v $k in $border {
+    @if $k == radius {
+      @each $i $j in $v {
+        .radius-#{$j} {
+          border-radius: $i;
+        }
+      }
     }
   }
 

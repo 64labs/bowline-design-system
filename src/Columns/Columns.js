@@ -28,8 +28,9 @@ const Columns = ({
     <Box
       display="grid"
       gridTemplateColumns={cols}
-      gridRowGap={rowGap || gap}
-      gridColumnGap={colGap || gap}
+      gridGap={gap}
+      gridColumnGap={colGap}
+      gridRowGap={rowGap}
       className={classes}
       {...props}
     >

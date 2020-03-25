@@ -266,6 +266,8 @@ export default {
   border: {
     radius: {
       standard: '3px',
+      medium: '6px',
+      large: '9px',
     },
   },
 }

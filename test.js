@@ -2,9 +2,13 @@ const postcss = require('postcss')
 const plugin = require('./dist/postcss-plugin')
 
 const css = `
-@each $v $k in $fontWeights {
-  .text-weight-#{$k} {
-    font-weight: $v;
+@each $v $k in $border {
+  @if $k == radius {
+    @each $i $j in $v {
+      .radius-#{$j} {
+        border-radius: $i;
+      }
+    }
   }
 }
 `

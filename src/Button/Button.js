@@ -64,21 +64,19 @@ const Button = React.forwardRef(
     let paddingY = paddings[size].y
 
     const text = hasChildren && (
-      <Box>
-        <Text
-          className="u-button__text"
-          as="div"
-          baseline={true}
-          size={fontSizes[size]}
-          tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
-          align="center"
-          weight="regular"
-          display={children.props && children.props.display}
-          block
-        >
-          {children}
-        </Text>
-      </Box>
+      <Text
+        className="u-button__text"
+        as="div"
+        baseline={true}
+        size={fontSizes[size]}
+        tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
+        align="center"
+        weight="regular"
+        display={children.props && children.props.display}
+        block
+      >
+        {children}
+      </Text>
     )
 
     return (

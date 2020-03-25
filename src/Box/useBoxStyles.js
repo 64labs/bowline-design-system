@@ -45,6 +45,7 @@ const useBoxStyles = ({
   gridGap,
   gridRowGap,
   gridColumnGap,
+  borderRadius,
 }) => {
   const theme = useTheme()
 
@@ -119,9 +120,10 @@ const useBoxStyles = ({
     classes(overflowX, 'overflowX'),
     classes(overflowY, 'overflowY'),
     classes(gridTemplateColumns, 'grid-template-cols'),
-    classes(gridGap, 'grid-gap'),
-    classes(gridRowGap, 'grid-row-gap'),
-    classes(gridColumnGap, 'grid-column-gap'),
+    classes(gridGap, 'gap'),
+    classes(gridRowGap, 'row-gap'),
+    classes(gridColumnGap, 'col-gap'),
+    classes(borderRadius, 'radius'),
     {[`bg-${background}`]: background, [`flex-wrap`]: wrap || flexWrap},
     {
       [`shadow-${boxShadow}`]:
