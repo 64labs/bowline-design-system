@@ -109,8 +109,8 @@ export default {
 
   breakpoints: {
     1: 480,
-    2: 768,
-    3: 1024,
+    2: 960,
+    3: 1280,
   },
 
   contentWidth: {
