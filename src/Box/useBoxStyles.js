@@ -113,7 +113,7 @@ const useBoxStyles = ({
     classes(flexGrow, 'flex-grow'),
     classes(size, 'size'),
     classes(alignItems || align, 'flex-alignItems'),
-    classes(alignSelf, 'alignSelf'),
+    classes(alignSelf, 'flex-alignSelf'),
     classes(justifyContent || justify, 'flex-justifyContent'),
     classes(position, 'position'),
     classes(overflow, 'overflow'),
