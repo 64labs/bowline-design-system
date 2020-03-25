@@ -1,11 +1,11 @@
 # Bowline Design System
 
-> A lightweight design system built on React. [bowline.netlify.com](https://bowline.netlify.com)
+> A lightweight design system built on React. [bowline-design-system.netlify.com](https://bowline-design-system.netlify.com)
 
 ## Install
 
 ```bash
-npm install --save bowline
+yarn add @64labs/bowline-design-system
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ Check out the [full documentation](https://bowline-design-system.netlify.com) an
 2.  **Install dependencies**
 
     ```bash
-    cd bowline
+    cd bowline-design-system
     yarn install
     ```
 
