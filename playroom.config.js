@@ -47,6 +47,10 @@ module.exports = {
           use: [
             {
               loader: 'svg-sprite-loader',
+              options: {
+                extract: false,
+                symbolId: (filePath) => path.basename(filePath, '.svg'),
+              },
             },
             {
               loader: 'svgo-loader',
