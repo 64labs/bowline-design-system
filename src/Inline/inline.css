@@ -2,10 +2,6 @@
   display: flex;
 }
 
-.u-inline__item {
-  flex-shrink: 0;
-}
-
 @each $bp $i in $breakpoints {
   @each $value $space in $spacingMap {
     @if $i == 1 {

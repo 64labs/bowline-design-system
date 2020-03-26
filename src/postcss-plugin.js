@@ -10,12 +10,14 @@ import cssImports from 'postcss-import'
 import contrast from 'postcss-contrast'
 import colorFunctions from 'postcss-color-function'
 import {resolveSpacingAtRules, resolveResponsiveAtRules} from './lib/atrules'
-import defaultConfig from './config'
+
 import {isLight, mod, baseliner, themeFunction} from './style-functions'
 
 export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
   // process css with all plugins
   return (root, result) => {
+    console.log(__dirname, process.cwd())
+    const defaultConfigPath = path.resolve(__dirname, 'themes/baseTheme.js')
     const configPath = rawopts.configPath
       ? path.join(rawopts.configPath, 'bowline.config.js')
       : path.resolve(process.cwd(), 'bowline.config.js')
@@ -26,6 +28,9 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       delete require.cache[require.resolve(configPath)]
     }
 
+    delete require.cache[require.resolve(defaultConfigPath)]
+
+    const defaultConfig = require(defaultConfigPath)
     const userConfig = hasUserConfig ? require(configPath) : {}
 
     const theme = Object.assign({}, defaultConfig, userConfig)

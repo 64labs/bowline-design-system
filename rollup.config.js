@@ -46,7 +46,6 @@ const mainConfig = {
         {src: 'package.json', dest: 'dist'},
         {src: 'README.md', dest: 'dist'},
         {src: 'src/svg/*.svg', dest: 'dist/icons'},
-        {src: 'src/config.js', dest: 'dist/themes', rename: 'baseTheme.js'},
       ],
     }),
   ],
@@ -62,10 +61,16 @@ const pluginConfig = {
   plugins: [],
 }
 
-const configs = [mainConfig]
+const themeConfig = {
+  input: 'src/config.js',
+  output: {
+    file: 'dist/themes/baseTheme.js',
+    format: 'cjs',
+    sourcemap: false,
+  },
+  plugins: [],
+}
 
-// if (isProduction) {
-configs.push(pluginConfig)
-// }
+const configs = [mainConfig, pluginConfig, themeConfig]
 
 export default configs

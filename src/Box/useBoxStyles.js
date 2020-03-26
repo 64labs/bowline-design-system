@@ -14,6 +14,7 @@ const useBoxStyles = ({
   justify,
   flexGrow,
   flexShrink,
+  flexBasis,
   padding,
   paddingTop,
   paddingRight,
@@ -111,6 +112,7 @@ const useBoxStyles = ({
     classes(flexDirection, 'flex-direction'),
     classes(flexShrink, 'flex-shrink'),
     classes(flexGrow, 'flex-grow'),
+    classes(flexBasis, 'flex-basis'),
     classes(size, 'size'),
     classes(alignItems || align, 'flex-alignItems'),
     classes(alignSelf, 'flex-alignSelf'),
@@ -123,9 +125,9 @@ const useBoxStyles = ({
     classes(gridGap, 'gap'),
     classes(gridRowGap, 'row-gap'),
     classes(gridColumnGap, 'col-gap'),
-    classes(borderRadius, 'radius'),
-    {[`bg-${background}`]: background, [`flex-wrap`]: wrap || flexWrap},
+    ...(background ? [].concat(classes(background, 'bg')) : []),
     {
+      [`flex-wrap`]: wrap || flexWrap,
       [`shadow-${boxShadow}`]:
         boxShadow && (!background || background === 'transparent'),
       [`shadow-${boxShadow}-on-${background}`]:

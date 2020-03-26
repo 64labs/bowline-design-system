@@ -35,7 +35,7 @@ const baseColors = {
   positive: '#138a08',
   critical: '#f44336',
   info: '#1e468c',
-  promote: '#af3534',
+  promote: 'orange',
   neutral: '#1c1c1c',
   neutralInverted: '#ffffff',
   black: '#1c1c1c',
@@ -83,7 +83,7 @@ const colors = {
   },
 }
 
-export default {
+module.exports = {
   fontFamily: {
     text:
       'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
@@ -121,11 +121,11 @@ export default {
 
   'font-scale': {
     text: {
-      descenderHeightScale: 0.15,
+      descenderHeightScale: 0.16,
       capHeight: 0.7,
     },
     heading: {
-      descenderHeightScale: 0.15,
+      descenderHeightScale: 0.16,
       capHeight: 0.7,
     },
   },
@@ -223,11 +223,11 @@ export default {
     },
     small: {
       mobile: {
-        size: 16,
+        size: 15,
         rows: 5,
       },
       tablet: {
-        size: 16,
+        size: 15,
         rows: 5,
       },
     },
@@ -237,24 +237,24 @@ export default {
         rows: 6,
       },
       tablet: {
-        size: 22,
+        size: 21,
         rows: 6,
       },
     },
     large: {
       mobile: {
-        size: 22,
+        size: 21,
         rows: 7,
       },
       tablet: {
         size: 28,
-        rows: 9,
+        rows: 8,
       },
     },
     xlarge: {
       mobile: {
-        size: 24,
-        rows: 9,
+        size: 23,
+        rows: 7,
       },
       tablet: {
         size: 34,

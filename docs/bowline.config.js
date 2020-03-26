@@ -35,7 +35,8 @@ const baseColors = {
   positive: "#138a08",
   critical: "#f44336",
   info: "#1e468c",
-  promote: "#af3534",
+  promote: "rebeccapurple",
+  promoteLight: "#f5ebff",
   neutral: "#1c1c1c",
   neutralInverted: "#ffffff",
   black: "#1c1c1c",
@@ -93,7 +94,7 @@ module.exports = {
 
   fontWeights: {
     regular: 400,
-    medium: 500,
+    medium: 600,
     strong: 700,
   },
 
@@ -156,11 +157,11 @@ module.exports = {
   textSizes: {
     xsmall: {
       mobile: {
-        size: 11,
+        size: 12,
         rows: 4,
       },
       tablet: {
-        size: 11,
+        size: 12,
         rows: 4,
       },
     },
@@ -262,6 +263,8 @@ module.exports = {
   border: {
     radius: {
       standard: "3px",
+      medium: "6px",
+      large: "9px",
     },
   },
 }

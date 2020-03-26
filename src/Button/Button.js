@@ -83,7 +83,7 @@ const Button = React.forwardRef(
       <Box
         ref={ref}
         as="button"
-        paddingX={props.paddingX || (!iconOnly && paddingX)}
+        paddingX={props.paddingX || (!iconOnly ? paddingX : undefined)}
         boxShadow={
           props.boxShadow || (weight === 'weak' ? 'borderStandard' : undefined)
         }

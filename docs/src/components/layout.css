@@ -37,9 +37,6 @@ a {
 
 code.text {
   font-family: monospace;
-  padding: 1px 5px;
-  border-radius: 3px;
-  background: color(theme("base-colors.brandAccent") l(95%));
 }
 
 .u-cols.props-table {

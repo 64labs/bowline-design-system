@@ -8,33 +8,35 @@
   background-color: black;
 }
 
-@each $color $tone in $base-colors {
-  .bg-#{$tone} {
-    background-color: $color;
-  }
+@responsive {
+  @each $color $tone in $base-colors {
+    .bg-#{$tone} {
+      background-color: $color;
+    }
 
-  .tone-#{$tone} {
-    color: $color;
-  }
+    .tone-#{$tone} {
+      color: $color;
+    }
 
-  .borderColor-#{$tone} {
-    border-color: $color;
-  }
+    .borderColor-#{$tone} {
+      border-color: $color;
+    }
 
-  .tone-neutral.tone-neutral-on-#{$tone} {
-    color: isLight(
-      $color,
-      map-get($base-colors, neutral),
-      map-get($base-colors, neutralInverted)
-    );
-  }
+    .tone-neutral.tone-neutral-on-#{$tone} {
+      color: isLight(
+        $color,
+        map-get($base-colors, neutral),
+        map-get($base-colors, neutralInverted)
+      );
+    }
 
-  .tone-secondary.tone-secondary-on-#{$tone} {
-    color: isLight(
-      $color,
-      map-get($base-colors, secondary),
-      map-get($base-colors, secondaryInverted)
-    );
+    .tone-secondary.tone-secondary-on-#{$tone} {
+      color: isLight(
+        $color,
+        map-get($base-colors, secondary),
+        map-get($base-colors, secondaryInverted)
+      );
+    }
   }
 }
 

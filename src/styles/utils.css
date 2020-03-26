@@ -135,6 +135,14 @@
     flex-shrink: 1;
   }
 
+  .flex-basis-0 {
+    flex-basis: 0;
+  }
+
+  .flex-basis-auto {
+    flex-basis: auto;
+  }
+
   @each $directionValue in (row, row-reverse, column, column-reverse) {
     .flex-direction-#{$directionValue} {
       flex-direction: $directionValue;

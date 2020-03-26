@@ -35,6 +35,7 @@ const Box = React.forwardRef(
       justify,
       flexGrow,
       flexShrink,
+      flexBasis,
       position,
       size,
       minHeight,
@@ -84,6 +85,7 @@ const Box = React.forwardRef(
       justify,
       flexGrow,
       flexShrink,
+      flexBasis,
       position,
       size,
       minHeight,
@@ -113,125 +115,214 @@ const Box = React.forwardRef(
 
 Box.propTypes = {
   /**
-   * Renders the given component or element
+   * Sets the root element
    */
   as: t.any,
   /**
-   * Sets the background color
+   * [colors.background] Applies background color
    */
-  background: t.string,
+  background: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Adds the given class name
+   * Adds class name to underlying element
    */
   className: t.string,
   /**
-   * Sets the display rule.
+   * Sets the CSS display rule
    */
-  display: types.display,
+  display: t.oneOfType([
+    t.oneOf(['none', 'inline', 'block', 'flex', 'grid']),
+    t.arrayOf(t.oneOf(['none', 'inline', 'block', 'flex', 'grid'])),
+  ]),
   /**
-   * Applies padding to all sides
+   * [spacing] Applies padding to all sides
    */
-  padding: types.spacing,
+  padding: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies padding to the top
+   * [spacing] Applies padding to the top
    */
-  paddingTop: types.spacing,
+  paddingTop: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies padding to the right
+   * [spacing] Applies padding to the right
    */
-  paddingRight: types.spacing,
+  paddingRight: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies padding to the bottom
+   * [spacing] Applies padding to the bottom
    */
-  paddingBottom: types.spacing,
+  paddingBottom: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies padding to the left
+   * [spacing] Applies padding to the left
    */
-  paddingLeft: types.spacing,
+  paddingLeft: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies padding to the left and right
+   * [spacing] Applies padding to the left and right
    */
-  paddingX: types.spacing,
+  paddingX: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies padding to the top and bottom
+   * [spacing] Applies padding to the top and bottom
    */
-  paddingY: types.spacing,
+  paddingY: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies margin to all sides
+   * [spacing] Applies margin to all sides
    */
-  margin: types.spacing,
+  margin: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies margin to the top
+   * [spacing] Applies margin to the top
    */
-  marginTop: types.spacing,
+  marginTop: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies margin to the right
+   * [spacing] Applies margin to the right
    */
-  marginRight: types.spacing,
+  marginRight: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies margin to the bottom
+   * [spacing] Applies margin to the bottom
    */
-  marginBottom: types.spacing,
+  marginBottom: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies margin to the left
+   * [spacing] Applies margin to the left
    */
-  marginLeft: types.spacing,
+  marginLeft: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies margin to the left and right
+   * [spacing] Applies margin to the left and right
    */
-  marginX: types.spacing,
+  marginX: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies margin to the top and bottom
+   * [spacing] Applies margin to the top and bottom
    */
-  marginY: types.spacing,
+  marginY: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Sets the CSS position
+   * Sets the CSS position rule
    */
-  position: types.position,
+  position: t.oneOfType([
+    t.oneOf(['static', 'relative', 'absolute', 'fixed', 'sticky']),
+    t.arrayOf(t.oneOf(['static', 'relative', 'absolute', 'fixed', 'sticky'])),
+  ]),
   /**
-   * Applies flex alignment to children (only applies to flex display)
+   * Applies CS flex-grow rule
    */
-  align: types.alignItems,
+  flexGrow: t.oneOfType([
+    t.oneOf([0, 1, 2, 3, 4, 5]),
+    t.arrayOf(t.oneOf([0, 1, 2, 3, 4, 5])),
+  ]),
   /**
-   * Applies flex justification to children (only applies to flex display)
+   * Applies CSS flex-shrink rule
    */
-  justify: types.justifyContent,
+  flexShrink: t.oneOfType([t.oneOf([0, 1]), t.arrayOf(t.oneOf([0, 1]))]),
   /**
-   * Sets the width and height equally
+   * Applies CSS flex-basis rule
    */
-  size: types.spacing,
+  flexBasis: t.oneOfType([
+    t.oneOf([0, 'auto']),
+    t.arrayOf(t.oneOf([0, 'auto'])),
+  ]),
   /**
-   * Applies shadow styles and/or borders
+   * Applies CSS flex-wrap rule
+   */
+  flexWrap: t.bool,
+  /**
+   * Applies CSS align-items rule
+   */
+  alignItems: t.oneOfType([
+    t.oneOf(['flex-start', 'flex-end', 'center', 'baseline', 'stretch']),
+    t.arrayOf(
+      t.oneOf(['flex-start', 'flex-end', 'center', 'baseline', 'stretch'])
+    ),
+  ]),
+  /**
+   * Applies CSS justify-content rule
+   */
+  justifyContent: t.oneOfType([
+    t.oneOf([
+      'flex-start',
+      'flex-end',
+      'center',
+      'space-around',
+      'space-between',
+      'stretch',
+    ]),
+    t.arrayOf(
+      t.oneOf([
+        'flex-start',
+        'flex-end',
+        'center',
+        'space-around',
+        'space-between',
+        'stretch',
+      ])
+    ),
+  ]),
+  /**
+   * [spacing] Sets the width and height equally
+   */
+  size: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [shadows] Applies shadow styles and/or borders
    */
   boxShadow: t.string,
   /**
-   * Defines overflow behavior on X and Y axis
+   * [border.radius] Applies border-radius
    */
-  overflow: types.overflow,
+  borderRadius: t.string,
   /**
-   * Defines overflow behavior on X axis
+   * Applies CSS overflow rule
    */
-  overflowX: types.overflow,
+  overflow: t.oneOfType([
+    t.oneOf(['hidden', 'visible', 'auto', 'scroll']),
+    t.arrayOf(t.oneOf(['hidden', 'visible', 'auto', 'scroll'])),
+  ]),
   /**
-   * Defines overflow behavior on Y axis
+   * Applies CSS overflow-x rule
    */
-  overflowY: types.overflow,
+  overflowX: t.oneOfType([
+    t.oneOf(['hidden', 'visible', 'auto', 'scroll']),
+    t.arrayOf(t.oneOf(['hidden', 'visible', 'auto', 'scroll'])),
+  ]),
   /**
-   * Applies a set height
+   * Applies CSS overflow-y rule
    */
-  height: types.spacing,
+  overflowY: t.oneOfType([
+    t.oneOf(['hidden', 'visible', 'auto', 'scroll']),
+    t.arrayOf(t.oneOf(['hidden', 'visible', 'auto', 'scroll'])),
+  ]),
   /**
-   * Applies a set width
+   * [spacing] Applies a min-height
    */
-  width: types.spacing,
+  minHeight: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies flex wrapping (only applies to flex display)
+   * [spacing] Applies height
    */
-  wrap: t.bool,
+  height: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies flex grow value
+   * [spacing] Applies max-height
    */
-  flexGrow: t.number,
+  maxHeightt: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [spacing] Applies min-width
+   */
+  minWidth: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [spacing] Applies width
+   */
+  width: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [spacing] Applies max-height
+   */
+  maxWidth: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * Applies count of repeating columns at 1fr
+   */
+  gridTemplateColumns: t.number,
+  /**
+   * [spacing] Applies grid-gap
+   */
+  gridGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [spacing] Applies grid-row-gao
+   */
+  gridRowGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [spacing] Applies grid-column-gap
+   */
+  gridColumnGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
 }
 
 Box.displayName = 'Box'

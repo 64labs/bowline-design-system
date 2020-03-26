@@ -45,14 +45,9 @@ const DocLayout = props => {
             </MDXProvider>
           )}
 
-          <Stack space="large">
-            <Text weight="strong" size="large">
-              Component Props
-            </Text>
+          <PropsTable component={component} />
 
-            <PropsTable component={component} />
-
-            <Stack space="small" background="subtle" padding="gutter">
+          {/* <Stack space="small" background="subtle" padding="gutter">
               {inheritBoxProps && (
                 <Inline space="xsmall">
                   <Icon name="info" size="small" />
@@ -86,8 +81,7 @@ const DocLayout = props => {
                   </Text>
                 </Inline>
               )}
-            </Stack>
-          </Stack>
+            </Stack> */}
         </Stack>
       </Stack>
     </Box>

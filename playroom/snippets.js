@@ -1,5 +1,94 @@
 export default [
   {
+    group: 'Cards',
+    name: 'Pretty',
+    code: `
+    <Box
+      style={{
+        background: "linear-gradient(43deg, rgba(34,193,195,1) 0%, rgba(231,45,253,1) 100%)"
+      }}
+      padding="gutter"
+      minHeight="fullvh"
+    >
+      <Box borderRadius="medium" style={{ maxWidth: 375, margin: "0 auto" }}>
+        <Box
+          borderRadius="medium"
+          overflow="hidden"
+          style={{ filter: "drop-shadow(0 0 20px rgba(0,0,0,0.1))" }}
+        >
+          <Image
+            src="https://picsum.photos/600/850"
+            fluid
+            height={850}
+            width={600}
+          />
+        </Box>
+        <Box
+          background="white"
+          position="relative"
+          borderRadius="medium"
+          padding="gutter"
+          marginX="smallish"
+          style={{
+            transform: "translateY(-66%)",
+            boxShadow: "0 0 30px rgba(0,0,0,0.3)"
+          }}
+        >
+          <Stack>
+            <Stack space="medium">
+              <Stack space="smallish">
+                <Text tone="promote" weight="strong" size="xsmall">
+                  Editor's Pick
+                </Text>
+
+                <Inline justify="space-between">
+                  <Text heading weight="medium">
+                    Pretty Picture
+                  </Text>
+                  <Text weight="strong" size="xlarge">
+                    $39
+                  </Text>
+                </Inline>
+
+                <Text tone="secondary" size="small">
+                  354 Bowline St, Tampa, FL
+                </Text>
+              </Stack>
+
+              <Inline spread dividers>
+                <Stack align="center" space="xsmall">
+                  <Icon name="award" tone="secondary" />
+                  <Text size="xsmall" tone="secondary">
+                    Winner
+                  </Text>
+                </Stack>
+
+                <Stack align="center" space="xsmall">
+                  <Icon name="moon" tone="secondary" />
+                  <Text size="xsmall" tone="secondary">
+                    24 hrs
+                  </Text>
+                </Stack>
+
+                <Stack align="center" space="xsmall">
+                  <Icon name="wifi" tone="secondary" />
+                  <Text size="xsmall" tone="secondary">
+                    Wifi
+                  </Text>
+                </Stack>
+              </Inline>
+            </Stack>
+
+            <Button size="small" iconRight="arrow-right">
+              Book now
+            </Button>
+          </Stack>
+        </Box>
+      </Box>
+    </Box>
+    `,
+  },
+  {
     group: 'Box',
     name: 'Responsive padding',
     code: `
@@ -32,6 +121,56 @@ export default [
     group: 'Button',
     name: 'Icon only',
     code: `<Box padding="small"><Button icon="close"/></Box>`,
+  },
+  {
+    group: 'Text',
+    name: 'Baseline cropping',
+    code: `
+    <Stack padding="gutter">
+      <Box background="promote">
+        <Text heading size="xsmall">
+          Hellog Olego
+        </Text>
+      </Box>
+      <Box background="promote">
+        <Text heading size="small">
+          Hellog Olego
+        </Text>
+      </Box>
+      <Box background="promote">
+        <Text heading size="standard">
+          Hellog Olego
+        </Text>
+      </Box>
+      <Box background="promote">
+        <Text heading size="large">
+          Hellog Olego
+        </Text>
+      </Box>
+      <Box background="promote">
+        <Text heading size="xlarge">
+          Hellog Olego
+        </Text>
+      </Box>
+
+      <Box background="promote">
+        <Text size="xsmall">Hellog Olego</Text>
+      </Box>
+      <Box background="promote">
+        <Text size="small">Hellog Olego</Text>
+      </Box>
+      <Box background="promote">
+        <Text size="standard">Hellog Olego</Text>
+      </Box>
+      <Box background="promote">
+        <Text size="large">Hellog Olego</Text>
+      </Box>
+      <Box background="promote">
+        <Text size="xlarge">Hellog Olego</Text>
+      </Box>
+    </Stack>
+
+    `,
   },
   {
     group: 'Columns',
