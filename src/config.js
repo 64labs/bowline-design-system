@@ -86,15 +86,15 @@ const colors = {
 module.exports = {
   fontFamily: {
     text:
-      'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
+      '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
     heading:
-      'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
+      '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
   },
 
   fontWeights: {
     regular: 400,
-    medium: 500,
-    strong: 600,
+    medium: 600,
+    strong: 700,
   },
 
   'thin-font-weight': 100,
@@ -121,12 +121,12 @@ module.exports = {
 
   'font-scale': {
     text: {
-      descenderHeightScale: 0.16,
-      capHeight: 0.7,
+      descenderHeightScale: 0.1155,
+      capHeight: 0.725,
     },
     heading: {
-      descenderHeightScale: 0.16,
-      capHeight: 0.7,
+      descenderHeightScale: 0.1155,
+      capHeight: 0.725,
     },
   },
 
@@ -253,7 +253,7 @@ module.exports = {
     },
     xlarge: {
       mobile: {
-        size: 23,
+        size: 22,
         rows: 7,
       },
       tablet: {
