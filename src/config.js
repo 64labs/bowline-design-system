@@ -191,11 +191,11 @@ module.exports = {
     large: {
       mobile: {
         size: 18,
-        rows: 6,
+        rows: 8,
       },
       tablet: {
         size: 18,
-        rows: 6,
+        rows: 8,
       },
     },
     xlarge: {
