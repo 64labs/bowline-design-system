@@ -1,7 +1,6 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import * as types from '../types'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'

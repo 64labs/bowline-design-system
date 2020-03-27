@@ -25,11 +25,11 @@ const spacingMap = {
 }
 
 const baseColors = {
-  brand: "#7F6A93",
+  brand: "#54494B",
   brandAccent: "#7F6A93",
   brandLight: "#D3D5D4",
   brandAccentAccessible: "#ce0c80",
-  formAccent: "#7F6A93",
+  formAccent: "#4F83A3",
   white: "#fff",
   focus: "rebeccapurple",
   positive: "#A2C5AC",

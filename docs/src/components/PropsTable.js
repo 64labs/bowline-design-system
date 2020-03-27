@@ -25,12 +25,12 @@ const PropValue = ({ value, token }) => {
         style={{ border: `1px solid ${theme["base-colors"].promoteLight}` }}
       >
         <Box paddingX="xsmall" paddingY="xxsmall" background="promoteLight">
-          <Text block size="small">
+          <Text block size="small" tone="brandAccent">
             {value}
           </Text>
         </Box>
         <Box paddingX="xsmall" paddingY="xxsmall" background="white">
-          <Text block size="small">
+          <Text block size="small" tone="brandAccent">
             {token}
           </Text>
         </Box>
@@ -44,7 +44,7 @@ const PropValue = ({ value, token }) => {
       borderRadius="standard"
       background="promoteLight"
     >
-      <Text block size="small">
+      <Text block size="small" tone="brandAccent">
         {value}
       </Text>
     </Box>
@@ -146,7 +146,7 @@ const Prop = ({ prop, name }) => {
               background="promoteLight"
               style={{ borderRadius: "0 3px 3px 0" }}
             >
-              <Text block size="small">
+              <Text block size="small" tone="brandAccent">
                 {namespace}
               </Text>
             </Box>
