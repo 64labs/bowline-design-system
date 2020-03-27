@@ -104,6 +104,21 @@
     }
   }
 
+  @each $value $label in (0: 0, half: 50%, full: 100%) {
+    .top-#{$label} {
+      top: $value;
+    }
+    .right-#{$label} {
+      right: $value;
+    }
+    .bottom-#{$label} {
+      bottom: $value;
+    }
+    .left-#{$label} {
+      left: $value;
+    }
+  }
+
   @each $alignValue in (flex-start, flex-end, center, baseline, stretch) {
     .flex-alignItems-#{$alignValue} {
       align-items: $alignValue;
@@ -124,6 +139,13 @@
   @for $k from 1 through 5 {
     .flex-grow-#{$k} {
       flex-grow: $k;
+    }
+  }
+
+  /* prettier-ignore */
+  @each $value $label in (initial: 0 1 auto, 1: 1 1 0%, auto: 1 1 auto, none: none) {
+    .flex-#{$label} {
+      flex: $value;
     }
   }
 

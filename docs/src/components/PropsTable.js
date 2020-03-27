@@ -13,13 +13,36 @@ import {
   useTheme,
 } from "@64labs/bowline-design-system"
 
-const PropValue = ({ value }) => {
+const PropValue = ({ value, token }) => {
+  const theme = useTheme()
+
+  if (token) {
+    return (
+      <Inline
+        space="none"
+        borderRadius="standard"
+        overflow="hidden"
+        style={{ border: `1px solid ${theme["base-colors"].promoteLight}` }}
+      >
+        <Box paddingX="xsmall" paddingY="xxsmall" background="promoteLight">
+          <Text block size="small">
+            {value}
+          </Text>
+        </Box>
+        <Box paddingX="xsmall" paddingY="xxsmall" background="white">
+          <Text block size="small">
+            {token}
+          </Text>
+        </Box>
+      </Inline>
+    )
+  }
   return (
     <Box
       paddingX="xsmall"
       paddingY="xxsmall"
       borderRadius="standard"
-      background="subtle"
+      background="promoteLight"
     >
       <Text block size="small">
         {value}
@@ -29,19 +52,40 @@ const PropValue = ({ value }) => {
 }
 
 const Prop = ({ prop, name }) => {
-  const theme = useTheme()
   const descriptionMatch =
     prop.description && prop.description.match(/\[(.*)?\]/)
+  const tokenMatch = prop.description && prop.description.match(/\{(\{.*\})\}/)
 
   const responsive = prop.type.name === "union"
   const hasDefaultValue = prop.defaultValue && prop.defaultValue.value
   let description = prop.description
   let namespace
+  let tokens
 
   if (descriptionMatch) {
     description = description.replace(descriptionMatch[0], "").trim()
     namespace = descriptionMatch[1]
   }
+
+  if (tokenMatch) {
+    try {
+      description = description.replace(tokenMatch[0], "").trim()
+      tokens = JSON.parse(tokenMatch[1])
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const responsiveType =
+    responsive &&
+    prop.type.value.find(item => {
+      if (["string", "number", "enum"].includes(item.name)) {
+        return true
+      }
+      return false
+    })
+
+  const type = responsiveType ? responsiveType.name : prop.type.name
 
   return (
     <Box>
@@ -65,7 +109,7 @@ const Prop = ({ prop, name }) => {
                   tone={prop.required ? "critical" : "secondary"}
                 >
                   {prop.required ? "required " : ""}
-                  {prop.type.name}
+                  {type}
                 </Text>
                 {hasDefaultValue && (
                   <Icon name="chevron-right" size="small" tone="secondary" />
@@ -99,7 +143,7 @@ const Prop = ({ prop, name }) => {
             <Box
               paddingX="xsmall"
               paddingY="xxsmall"
-              background="subtle"
+              background="promoteLight"
               style={{ borderRadius: "0 3px 3px 0" }}
             >
               <Text block size="small">
@@ -112,23 +156,43 @@ const Prop = ({ prop, name }) => {
         {!namespace &&
           prop.type.value &&
           prop.type.value[0].name === "enum" && (
-            <Enum name={name} values={prop.type.value[0].value} />
+            <Enum
+              name={name}
+              values={prop.type.value[0].value}
+              tokens={tokens}
+            />
           )}
 
         {!namespace && prop.type.name === "enum" && (
-          <Enum name={name} values={prop.type.value} />
+          <Enum name={name} values={prop.type.value} tokens={tokens} />
         )}
       </Stack>
     </Box>
   )
 }
 
-const Enum = ({ name, values }) => {
+const Enum = ({ name, values, tokens = {} }) => {
+  let range =
+    typeof values === "string" &&
+    values.includes("range") &&
+    values.replace(/range/, "").replace("_", "...")
+
   return (
     <Inline space="xsmall">
-      {values.map(({ value }) => (
-        <PropValue key={`${name}-${value}`} value={value.replace(/'/g, "")} />
-      ))}
+      {Array.isArray(values) ? (
+        values.map(({ value }) => {
+          const displayValue = value.replace(/'/g, "")
+          return (
+            <PropValue
+              key={`${name}-${value}`}
+              value={displayValue}
+              token={tokens[displayValue]}
+            />
+          )
+        })
+      ) : (
+        <PropValue value={range || values} />
+      )}
     </Inline>
   )
 }

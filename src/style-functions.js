@@ -10,10 +10,6 @@ export const isLight = (color, c1, c2) => {
     return c2
   }
 
-  console.warn(
-    `Inaccessible colors for ${c1} and ${c2} against ${color}. Using ${c1}.`
-  )
-
   return c1
 }
 

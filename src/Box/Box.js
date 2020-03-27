@@ -33,10 +33,15 @@ const Box = React.forwardRef(
       justifyContent,
       align,
       justify,
+      flex,
       flexGrow,
       flexShrink,
       flexBasis,
       position,
+      top,
+      right,
+      bottom,
+      left,
       size,
       minHeight,
       height,
@@ -83,10 +88,15 @@ const Box = React.forwardRef(
       justifyContent,
       align,
       justify,
+      flex,
       flexGrow,
       flexShrink,
       flexBasis,
       position,
+      top,
+      right,
+      bottom,
+      left,
       size,
       minHeight,
       height,
@@ -112,6 +122,8 @@ const Box = React.forwardRef(
     return renderBackgroundProvider(background, element)
   }
 )
+
+const range1_24 = new Array(24).fill(0).map((_, i) => i + 1)
 
 Box.propTypes = {
   /**
@@ -197,6 +209,46 @@ Box.propTypes = {
     t.arrayOf(t.oneOf(['static', 'relative', 'absolute', 'fixed', 'sticky'])),
   ]),
   /**
+   * Applies a predefined CSS top value
+   * {{"0": "0px", "half": "50%", "full": "100%"}}
+   */
+  top: t.oneOfType([
+    t.oneOf([0, 'half', 'full']),
+    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+  ]),
+  /**
+   * Applies a predefined CSS right value
+   * {{"0": "0px", "half": "50%", "full": "100%"}}
+   */
+  right: t.oneOfType([
+    t.oneOf([0, 'half', 'full']),
+    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+  ]),
+  /**
+   * Applies a predefined CSS bottom value
+   * {{"0": "0px", "half": "50%", "full": "100%"}}
+   */
+  bottom: t.oneOfType([
+    t.oneOf([0, 'half', 'full']),
+    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+  ]),
+  /**
+   * Applies a predefined CSS left value
+   * {{"0": "0px", "half": "50%", "full": "100%"}}
+   */
+  left: t.oneOfType([
+    t.oneOf([0, 'half', 'full']),
+    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+  ]),
+  /**
+   * Applies a predefined CSS flex value shorthand
+   * {{"initial": "0 1 auto", "1": "1 1 0%", "auto": "1 1 auto", "none": "none"}}
+   */
+  flex: t.oneOfType([
+    t.oneOf(['initial', 1, 'auto', 'none']),
+    t.arrayOf(t.oneOf(['initial', 1, 'auto', 'none'])),
+  ]),
+  /**
    * Applies CS flex-grow rule
    */
   flexGrow: t.oneOfType([
@@ -257,11 +309,11 @@ Box.propTypes = {
   /**
    * [shadows] Applies shadow styles and/or borders
    */
-  boxShadow: t.string,
+  boxShadow: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
    * [border.radius] Applies border-radius
    */
-  borderRadius: t.string,
+  borderRadius: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
    * Applies CSS overflow rule
    */
@@ -310,7 +362,10 @@ Box.propTypes = {
   /**
    * Applies count of repeating columns at 1fr
    */
-  gridTemplateColumns: t.number,
+  gridTemplateColumns: t.oneOfType([
+    t.oneOf(range1_24),
+    t.arrayOf(t.oneOf(range1_24)),
+  ]),
   /**
    * [spacing] Applies grid-gap
    */

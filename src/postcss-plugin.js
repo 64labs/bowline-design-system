@@ -7,7 +7,6 @@ import nesting from 'postcss-nesting'
 import mapGet from 'postcss-map-get'
 import functions from 'postcss-functions'
 import cssImports from 'postcss-import'
-import contrast from 'postcss-contrast'
 import colorFunctions from 'postcss-color-function'
 import {resolveSpacingAtRules, resolveResponsiveAtRules} from './lib/atrules'
 
@@ -16,7 +15,6 @@ import {isLight, mod, baseliner, themeFunction} from './style-functions'
 export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
   // process css with all plugins
   return (root, result) => {
-    console.log(__dirname, process.cwd())
     const defaultConfigPath = path.resolve(__dirname, 'themes/baseTheme.js')
     const configPath = rawopts.configPath
       ? path.join(rawopts.configPath, 'bowline.config.js')
@@ -58,7 +56,6 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       }),
       resolveSpacingAtRules(theme),
       resolveResponsiveAtRules(theme),
-      contrast(),
       nesting(),
       colorFunctions(),
     ]

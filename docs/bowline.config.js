@@ -33,11 +33,12 @@ const baseColors = {
   white: "#fff",
   focus: "rebeccapurple",
   positive: "#A2C5AC",
+  positiveLight: "#EEF4EF",
   critical: "#f44336",
-  info: "#1e468c",
+  info: "#9DB5B2",
   infoLight: "#1e468c",
   promote: "#7F6A93",
-  promoteLight: "#f5ebff",
+  promoteLight: "#efeaf3",
   neutral: "#1c1c1c",
   neutralInverted: "#ffffff",
   black: "#1c1c1c",
@@ -47,7 +48,7 @@ const baseColors = {
   secondaryInverted: "#ffffff",
   subtle: "#eee",
   featureSlider: "#0093b4",
-  gray: "#f5f5f5",
+  gray: "#D3D5D4",
 }
 
 const colors = {
