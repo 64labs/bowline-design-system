@@ -1,6 +1,5 @@
 import React from "react"
 import Helmet from "react-helmet"
-import { MDXProvider } from "@mdx-js/react"
 import { Link } from "gatsby"
 import {
   ContentBlock,
@@ -11,10 +10,8 @@ import {
   Icon,
 } from "@64labs/bowline-design-system"
 import DefaultLayout from "./default-layout"
-import Showcase from "./Showcase"
+import MDXProvider from "./MDXProvider"
 import PropsTable from "./PropsTable"
-
-const shortcodes = { Showcase }
 
 const DocLayout = props => {
   if (props.path === "/components/") {
@@ -47,7 +44,7 @@ const DocLayout = props => {
 
         <Stack space="xxlarge">
           {children && (
-            <MDXProvider components={shortcodes}>
+            <MDXProvider>
               <Stack>{children}</Stack>
             </MDXProvider>
           )}

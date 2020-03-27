@@ -4,7 +4,7 @@ import theme from "prism-react-renderer/themes/github"
 import { Box, Text } from "@64labs/bowline-design-system"
 import "./code-block.css"
 
-export default ({ children, className }) => {
+export default ({ children, className = "jsx" }) => {
   const language = className.replace(/language-/, "")
 
   return (
@@ -43,19 +43,15 @@ export default ({ children, className }) => {
       <Box
         position="absolute"
         background="brand"
-        paddingX="xsmall"
-        paddingY="xsmall"
+        paddingX="xxsmall"
+        paddingY="xxsmall"
         style={{
           top: 0,
           left: 24,
           borderRadius: "0 0 4px 4px",
         }}
       >
-        <Text
-          size="xsmall"
-          weight="medium"
-          style={{ textTransform: "uppercase", letterSpacing: "0.1em" }}
-        >
+        <Text size="xsmall" style={{ letterSpacing: "0.1em" }}>
           {language}
         </Text>
       </Box>
