@@ -2,7 +2,6 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import * as types from '../types'
 import './columns.css'
 
 const Columns = ({
@@ -43,19 +42,19 @@ Columns.propTypes = {
   /**
    * Amount of columns in the grid
    */
-  cols: t.oneOfType([t.arrayOf(t.number), t.number]),
+  cols: t.oneOfType([t.number, t.arrayOf(t.number)]),
   /**
-   * Sets even spacing for columns and rows
+   * [spacing] Sets even spacing for columns and rows
    */
-  gap: types.spacing,
+  gap: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Sets even spacing for columns and rows
+   * [spacing] Sets even spacing for columns and rows
    */
-  colGap: types.spacing,
+  colGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Sets even spacing for columns and rows
+   * [spacing] Sets even spacing for columns and rows
    */
-  rowGap: types.spacing,
+  rowGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
 }
 
 export default Columns

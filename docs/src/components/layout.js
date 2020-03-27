@@ -86,7 +86,7 @@ const Layout = ({ children, ...props }) => {
 
           <Column span={[6, 6, 5]}>
             <ScrollBox scrollY className="content-area">
-              <ContentBlock width="medium">{children}</ContentBlock>
+              {children}
             </ScrollBox>
           </Column>
         </Columns>

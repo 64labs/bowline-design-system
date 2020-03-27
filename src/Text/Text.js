@@ -54,17 +54,17 @@ const Text = ({
 
 Text.propTypes = {
   /**
-   * Set size and line-height
+   * [textSizes] Set size and line-height
    */
-  size: t.oneOf(types.tokens.textSizes),
+  size: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Set the font weight
+   * [fontWeights] Set the font weight
    */
-  weight: t.oneOf(['regular', 'medium', 'strong']),
+  weight: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Set the text color
+   * [colors.foreground] Set the text color
    */
-  tone: t.oneOf(types.tokens.foreground),
+  tone: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
    * Set text alignment
    */

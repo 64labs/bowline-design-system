@@ -1,4 +1,5 @@
 import React from 'react'
+import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
 import Inline from '../Inline/Inline'
@@ -37,6 +38,21 @@ const Radio = ({
       </Inline>
     </Box>
   )
+}
+
+Radio.propTypes = {
+  /**
+   * Sets the input label
+   */
+  label: t.string.isRequired,
+  /**
+   * Sets the size of the radio
+   */
+  size: t.oneOf(['small', 'regular', 'large']),
+  /**
+   * [colors.foreground] Sets the accent color
+   */
+  tone: t.oneOfType([t.string, t.arrayOf(t.string)]),
 }
 
 export default Radio

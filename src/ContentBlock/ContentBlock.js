@@ -12,9 +12,9 @@ const ContentBlock = ({width = 'large', className, ...props}) => {
 
 ContentBlock.propTypes = {
   /**
-   * Sets the maximum width of the element
+   * [contentWidth] Sets the maximum width of the element
    */
-  width: t.oneOf(['medium', 'large', 'max']),
+  width: t.oneOfType([t.string, t.arrayOf(t.string)]),
 }
 
 export default ContentBlock

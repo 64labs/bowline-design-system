@@ -25,24 +25,25 @@ const spacingMap = {
 }
 
 const baseColors = {
-  brand: "#445560",
-  brandAccent: "#d80a86",
-  brandLight: "#fff8fc",
+  brand: "#7F6A93",
+  brandAccent: "#7F6A93",
+  brandLight: "#D3D5D4",
   brandAccentAccessible: "#ce0c80",
-  formAccent: "#d80a86",
+  formAccent: "#7F6A93",
   white: "#fff",
   focus: "rebeccapurple",
-  positive: "#138a08",
+  positive: "#A2C5AC",
   critical: "#f44336",
   info: "#1e468c",
-  promote: "rebeccapurple",
+  infoLight: "#1e468c",
+  promote: "#7F6A93",
   promoteLight: "#f5ebff",
   neutral: "#1c1c1c",
   neutralInverted: "#ffffff",
   black: "#1c1c1c",
   link: "rebeccapurple",
   linkVisited: "rebeccapurple",
-  secondary: "#a0a0a0",
+  secondary: "#878E99",
   secondaryInverted: "#ffffff",
   subtle: "#eee",
   featureSlider: "#0093b4",
@@ -111,9 +112,9 @@ module.exports = {
   },
 
   contentWidth: {
-    medium: 940,
-    large: 1280,
-    max: 1440,
+    medium: 640,
+    large: 720,
+    max: 1280,
   },
 
   "font-scale": {

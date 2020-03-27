@@ -125,6 +125,7 @@ const useBoxStyles = ({
     classes(gridGap, 'gap'),
     classes(gridRowGap, 'row-gap'),
     classes(gridColumnGap, 'col-gap'),
+    classes(borderRadius, 'radius'),
     ...(background ? [].concat(classes(background, 'bg')) : []),
     {
       [`flex-wrap`]: wrap || flexWrap,

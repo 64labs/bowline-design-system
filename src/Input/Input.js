@@ -1,4 +1,5 @@
 import React, {useState, useCallback, useEffect} from 'react'
+import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
@@ -12,7 +13,7 @@ const Input = ({
   message,
   tone,
   onChange,
-  outline,
+  outline = true,
   ...props
 }) => {
   const [isEmpty, setIsEmpty] = useState(!props.value)
@@ -71,6 +72,29 @@ const Input = ({
       )}
     </Box>
   )
+}
+
+Input.propTypes = {
+  /**
+   * Sets the HTML input type attribute
+   */
+  type: t.string,
+  /**
+   * Sets the input label
+   */
+  label: t.string.isRequired,
+  /**
+   * Renders a message below the field. Useful for validation.
+   */
+  message: t.string,
+  /**
+   * Controls the style of the given message prop.
+   */
+  tone: t.oneOf(['critical', 'positive', 'neutral']),
+  /**
+   * Render the field with full border around input
+   */
+  outline: t.bool,
 }
 
 export default Input

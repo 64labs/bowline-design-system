@@ -145,9 +145,9 @@ Button.propTypes = {
    */
   iconRight: t.string,
   /**
-   * Sets the dimensions (width/height) of the icon
+   * [spacing] the dimensions (width/height) of the icon
    */
-  iconSize: types.spacing,
+  iconSize: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
    * Justifies/spaces text and icon at each end (space-between).
    */

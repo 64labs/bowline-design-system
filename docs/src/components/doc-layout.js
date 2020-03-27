@@ -2,7 +2,14 @@ import React from "react"
 import Helmet from "react-helmet"
 import { MDXProvider } from "@mdx-js/react"
 import { Link } from "gatsby"
-import { Box, Text, Stack, Inline, Icon } from "@64labs/bowline-design-system"
+import {
+  ContentBlock,
+  Box,
+  Text,
+  Stack,
+  Inline,
+  Icon,
+} from "@64labs/bowline-design-system"
 import DefaultLayout from "./default-layout"
 import Showcase from "./Showcase"
 import PropsTable from "./PropsTable"
@@ -25,7 +32,7 @@ const DocLayout = props => {
   } = metadata
 
   return (
-    <Box paddingY={["xlarge", "xxlarge"]}>
+    <ContentBlock width="large" paddingY={["xlarge", "xxlarge"]}>
       <Helmet>
         <title>{name} | Bowline Design System</title>
       </Helmet>
@@ -84,7 +91,7 @@ const DocLayout = props => {
             </Stack> */}
         </Stack>
       </Stack>
-    </Box>
+    </ContentBlock>
   )
 }
 

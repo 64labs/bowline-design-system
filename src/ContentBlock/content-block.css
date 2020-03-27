@@ -2,8 +2,10 @@
   margin: 0 auto;
 }
 
-@each $width $size in $contentWidth {
-  .u-content-block--#{$size} {
-    max-width: #{$width}px;
+@responsive {
+  @each $width $size in $contentWidth {
+    .u-content-block--#{$size} {
+      max-width: #{$width}px;
+    }
   }
 }

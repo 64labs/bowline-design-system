@@ -35,6 +35,7 @@ const baseColors = {
   positive: '#138a08',
   critical: '#f44336',
   info: '#1e468c',
+  infoLight: '#1e468c',
   promote: 'orange',
   neutral: '#1c1c1c',
   neutralInverted: '#ffffff',
@@ -114,9 +115,9 @@ module.exports = {
   },
 
   contentWidth: {
-    medium: 940,
-    large: 1280,
-    max: 1440,
+    medium: 640,
+    large: 960,
+    max: 1280,
   },
 
   'font-scale': {

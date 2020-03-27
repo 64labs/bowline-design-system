@@ -73,9 +73,17 @@ const Inline = ({
 
 Inline.propTypes = {
   /**
-   * Applies spacing between child elements
+   * [spacing] Applies spacing between child elements
    */
-  space: types.spacing,
+  space: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * Renders child elements with equal flex grow. Overrides 'space' prop.
+   */
+  spread: t.bool,
+  /**
+   * Render a divider between elements
+   */
+  dividers: t.bool,
 }
 
 export default Inline

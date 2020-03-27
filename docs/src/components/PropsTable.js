@@ -8,17 +8,35 @@ import {
   Icon,
   Inline,
   Stack,
+  VerticalDivider,
   tokens,
   useTheme,
 } from "@64labs/bowline-design-system"
 
-const UnionProp = ({ prop, name }) => {
-  const theme = useTheme()
-  const descriptionMatch = prop.description.match(/\[(.*)?\]/)
+const PropValue = ({ value }) => {
+  return (
+    <Box
+      paddingX="xsmall"
+      paddingY="xxsmall"
+      borderRadius="standard"
+      background="subtle"
+    >
+      <Text block size="small">
+        {value}
+      </Text>
+    </Box>
+  )
+}
 
+const Prop = ({ prop, name }) => {
+  const theme = useTheme()
+  const descriptionMatch =
+    prop.description && prop.description.match(/\[(.*)?\]/)
+
+  const responsive = prop.type.name === "union"
+  const hasDefaultValue = prop.defaultValue && prop.defaultValue.value
   let description = prop.description
   let namespace
-  let responsive = true
 
   if (descriptionMatch) {
     description = description.replace(descriptionMatch[0], "").trim()
@@ -28,37 +46,37 @@ const UnionProp = ({ prop, name }) => {
   return (
     <Box>
       <Stack space="small">
-        <Stack space="smallish">
+        <Stack space="xsmall">
           <Inline justify="space-between">
             <Inline space="xsmall">
               <Text weight="medium">{name}</Text>
+            </Inline>
+
+            <Inline space="smallish">
+              {responsive && (
+                <Inline space="xxsmall">
+                  <Icon name="smartphone" size="small" tone="brandAccent" />
+                  <Icon name="monitor" size="small" tone="brandAccent" />
+                </Inline>
+              )}
               <Inline space="xxsmall">
-                {namespace && (
-                  <Box
-                    paddingX="xxsmall"
-                    borderRadius="standard"
-                    style={{
-                      boxShadow: `0 0 0 1px inset ${theme["base-colors"].promote}`,
-                    }}
-                  >
-                    <Text
-                      size="xsmall"
-                      tone="promote"
-                      weight="medium"
-                      baseline={false}
-                    >
-                      {namespace}
-                    </Text>
-                  </Box>
+                <Text
+                  size="xsmall"
+                  tone={prop.required ? "critical" : "secondary"}
+                >
+                  {prop.required ? "required " : ""}
+                  {prop.type.name}
+                </Text>
+                {hasDefaultValue && (
+                  <Icon name="chevron-right" size="small" tone="secondary" />
+                )}
+                {hasDefaultValue && (
+                  <Text size="xsmall" tone="brand" weight="medium">
+                    {prop.defaultValue.value}
+                  </Text>
                 )}
               </Inline>
             </Inline>
-            {responsive && (
-              <Inline space="xxsmall">
-                <Icon name="smartphone" size="small" tone="brandAccent" />
-                <Icon name="monitor" size="small" tone="brandAccent" />
-              </Inline>
-            )}
           </Inline>
 
           <Text size="small" tone="secondary">
@@ -66,40 +84,52 @@ const UnionProp = ({ prop, name }) => {
           </Text>
         </Stack>
 
-        {/* {namespace && (
-          <Inline>
+        {namespace && (
+          <Inline space="none">
             <Box
-              paddingX="xxsmall"
-              borderRadius="standard"
-              background="promoteLight"
+              paddingX="xsmall"
+              paddingY="xxsmall"
+              background="brandAccent"
+              style={{ borderRadius: "3px 0 0 3px" }}
             >
-              <Text as="code" block size="small" baseline={false}>
+              <Text block size="small">
+                theme
+              </Text>
+            </Box>
+            <Box
+              paddingX="xsmall"
+              paddingY="xxsmall"
+              background="subtle"
+              style={{ borderRadius: "0 3px 3px 0" }}
+            >
+              <Text block size="small">
                 {namespace}
               </Text>
             </Box>
           </Inline>
-        )} */}
+        )}
 
-        {!namespace && prop.type.value[0].name === "enum" && (
-          <Inline space="xsmall">
-            {prop.type.value[0].value.map(({ value }) => (
-              <Box
-                key={`${name}-${value}`}
-                paddingX="xxsmall"
-                borderRadius="standard"
-                style={{
-                  boxShadow: `0 0 0 1px inset #dfdfdfdf`,
-                }}
-              >
-                <Text as="code" block size="small" baseline={false}>
-                  {value.replace(/'/g, "")}
-                </Text>
-              </Box>
-            ))}
-          </Inline>
+        {!namespace &&
+          prop.type.value &&
+          prop.type.value[0].name === "enum" && (
+            <Enum name={name} values={prop.type.value[0].value} />
+          )}
+
+        {!namespace && prop.type.name === "enum" && (
+          <Enum name={name} values={prop.type.value} />
         )}
       </Stack>
     </Box>
+  )
+}
+
+const Enum = ({ name, values }) => {
+  return (
+    <Inline space="xsmall">
+      {values.map(({ value }) => (
+        <PropValue key={`${name}-${value}`} value={value.replace(/'/g, "")} />
+      ))}
+    </Inline>
   )
 }
 
@@ -125,9 +155,7 @@ const PropsTable = ({ component }) => {
 
           return (
             <React.Fragment key={propName}>
-              {propType.name === "union" && (
-                <UnionProp prop={prop} name={propName} />
-              )}
+              <Prop prop={prop} name={propName} />
             </React.Fragment>
           )
         })}

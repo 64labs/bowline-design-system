@@ -1,7 +1,13 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { MDXProvider } from "@mdx-js/react"
-import { Box, Inline, Text, Stack } from "@64labs/bowline-design-system"
+import {
+  ContentBlock,
+  Box,
+  Inline,
+  Text,
+  Stack,
+} from "@64labs/bowline-design-system"
 import CodeBlock from "./code-block"
 
 const textWithProps = textProps => props => (
@@ -104,10 +110,7 @@ const DefaultLayout = ({ children, metadata = {}, ...props }) => {
   const title = props.pageContext.frontmatter.title || metadata.title
 
   return (
-    <Box
-      paddingY={["xlarge", "xxlarge"]}
-      style={{ maxWidth: 680, margin: "0 auto" }}
-    >
+    <ContentBlock width="medium" paddingY={["xlarge", "xxlarge"]}>
       <Helmet>
         <title>{title || "MDX Page"} | Bowline Design System</title>
       </Helmet>
@@ -117,7 +120,7 @@ const DefaultLayout = ({ children, metadata = {}, ...props }) => {
           <Stack>{children}</Stack>
         </MDXProvider>
       )}
-    </Box>
+    </ContentBlock>
   )
 }
 

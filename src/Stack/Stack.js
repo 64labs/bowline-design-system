@@ -58,9 +58,9 @@ const Stack = ({
 
 Stack.propTypes = {
   /**
-   * Applies spacing between child elements
+   * [spacing] Applies spacing between child elements
    */
-  space: types.spacing,
+  space: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
    * Render a divider between elements
    */

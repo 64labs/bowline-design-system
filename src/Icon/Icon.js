@@ -53,16 +53,18 @@ Icon.propTypes = {
    * SVG symbol ID from sprite
    */
   name: t.string,
-
   /**
    * SVG sprite url
    */
   url: t.string,
-
   /**
-   * Sets the dimension (width/height) of the icon (passed to Box)
+   * [colors.foreground] Sets the color of the icon
    */
-  size: types.spacing,
+  tone: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [spacing] Sets the dimension (width/height) of the icon (passed to Box)
+   */
+  size: t.oneOfType([t.string, t.arrayOf(t.string)]),
 }
 
 export default Icon
