@@ -31,16 +31,16 @@ Check out the [full documentation](https://bowline-design-system.netlify.com) an
 
 2.  **Install dependencies**
 
-### Authenticate with GitHub
+    ### Authenticate with GitHub
 
-Bowline is hosted on [GitHub Packages](https://help.github.com/en/packages) which requires some tweaks to your npm configuration. You'll need to point the `64labs` namespace to the GitHub Packages registry and add your personal GitHub token to your own `~/.npmrc`.
+    Bowline is hosted on [GitHub Packages](https://help.github.com/en/packages) which requires some tweaks to your npm configuration. You'll need to point the `64labs` namespace to the GitHub Packages registry and add your personal GitHub token to your own `~/.npmrc`.
 
-```sh
-//npm.pkg.github.com/:_authToken={PERSONAL_ACCESS_TOKEN}
-@64labs:registry=https://npm.pkg.github.com/
-```
+    ```sh
+    //npm.pkg.github.com/:_authToken={PERSONAL_ACCESS_TOKEN}
+    @64labs:registry=https://npm.pkg.github.com/
+    ```
 
-For a detailed explanation visit [Configuring npm for use with GitHub Packages](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages).
+    For a detailed explanation visit [Configuring npm for use with GitHub Packages](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages).
 
     ```bash
     cd bowline-design-system
