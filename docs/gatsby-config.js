@@ -36,7 +36,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `components`,
+        name: `sections`,
         path: `${__dirname}/src/sections/`,
       },
     },
@@ -51,7 +51,7 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: require.resolve("./src/components/default-layout.js"),
-          components: require.resolve("./src/components/doc-layout.js"),
+          // sections: require.resolve("./src/components/doc-layout.js"),
         },
       },
     },

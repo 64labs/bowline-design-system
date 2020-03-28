@@ -1,4 +1,4 @@
-@responsive {
+@responsive bp {
   @spacing space {
     .p {
       padding: $space;
@@ -87,6 +87,26 @@
       @each $i $j in $v {
         .radius-#{$j} {
           border-radius: $i;
+        }
+      }
+    }
+
+    @if $k == style {
+      @each $i $j in $v {
+        .border-#{$j} {
+          border: $i;
+        }
+        .border-top-#{$j} {
+          border: $i;
+        }
+        .border-right-#{$j} {
+          border: $i;
+        }
+        .border-bottom-#{$j} {
+          border: $i;
+        }
+        .border-left-#{$j} {
+          border: $i;
         }
       }
     }
@@ -187,6 +207,9 @@
     .grid-template-cols-#{$j} {
       grid-template-columns: repeat($j, 1fr);
     }
+    .grid-column-#{$j} {
+      grid-column: span $j;
+    }
   }
 }
 
@@ -194,24 +217,15 @@
   flex-wrap: wrap;
 }
 
-/* 
-@each $color $tone in $base-colors {
+@each $value $label in $shadows {
+  .shadow-#{$label} {
+    box-shadow: theme('shadows.$label.style') theme('shadows.$label.color');
+  }
 
-
-  .shadow--borderStandard-on-#{$tone} {
-    box-shadow: inset
-      0
-      0
-      0
-      2px
-      isLight(
-        $color,
-        map-get($base-colors, subtle),
-        map-get($base-colors, white)
-      );
+  /* prettier-ignore */
+  @each $color $tone in $base-colors {
+    .shadow-#{$label}-on-#{$tone} {
+      box-shadow: theme('shadows.$label.style') isLight($color, theme('shadows.$label.color'), theme('shadows.$label.colorInverted', white));
+    }
   }
 }
-
-.shadow--borderStandard {
-  box-shadow: inset 0 0 0 2px map-get($base-colors, subtle);
-} */

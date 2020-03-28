@@ -22,6 +22,10 @@
   }
 }
 
+.nav-link-expander {
+  transition: background 0.3s;
+}
+
 .selected-nav-link.selected-nav-link {
   position: relative;
   &:before {

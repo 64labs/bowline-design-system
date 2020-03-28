@@ -262,11 +262,24 @@ module.exports = {
     },
   },
 
+  shadows: {
+    borderStandard: {
+      style: `0px 0px 0px 2px inset`,
+      color: baseColors.promoteLight,
+      colorInverted: "white",
+    },
+  },
+
   border: {
     radius: {
       standard: "3px",
       medium: "6px",
       large: "9px",
+    },
+    style: {
+      none: 0,
+      standard: "1px solid",
+      double: "2px solid",
     },
   },
 }

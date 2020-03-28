@@ -1,9 +1,4 @@
 .u-button {
-  display: block;
-  border: 0;
-  width: 100%;
-  border-radius: map-get(map-get($border, radius), standard);
-
   &.u-button--icon-only {
     width: auto;
 

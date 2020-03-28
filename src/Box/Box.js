@@ -1,7 +1,6 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import * as types from '../types'
 import {renderBackgroundProvider} from '../util/BackgroundContext'
 import useBoxStyles from './useBoxStyles'
 
@@ -58,6 +57,13 @@ const Box = React.forwardRef(
       gridGap,
       gridRowGap,
       gridColumnGap,
+      gridColumn,
+      border,
+      borderTop,
+      borderRight,
+      borderBottom,
+      borderLeft,
+      borderColor,
       borderRadius,
       ...props
     },
@@ -66,6 +72,7 @@ const Box = React.forwardRef(
     const boxStyles = useBoxStyles({
       as,
       background,
+      border,
       padding,
       paddingTop,
       paddingRight,
@@ -110,6 +117,8 @@ const Box = React.forwardRef(
       gridGap,
       gridRowGap,
       gridColumnGap,
+      gridColumn,
+      borderColor,
       borderRadius,
     })
 
@@ -311,7 +320,31 @@ Box.propTypes = {
    */
   boxShadow: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [border.radius] Applies border-radius
+   * [border.style] Applies CSS border shorthand
+   */
+  border: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [border.style] Applies CSS border-top shorthand
+   */
+  borderTop: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [border.style] Applies CSS border-right shorthand
+   */
+  borderRight: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [border.style] Applies CSS border-bottom shorthand
+   */
+  borderBottom: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [border.style] Applies CSS border-left shorthand
+   */
+  borderLeft: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [colors.background] Applies CSS border-color
+   */
+  borderColor: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * [border.radius] Applies CSS border-radius
    */
   borderRadius: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
@@ -336,48 +369,52 @@ Box.propTypes = {
     t.arrayOf(t.oneOf(['hidden', 'visible', 'auto', 'scroll'])),
   ]),
   /**
-   * [spacing] Applies a min-height
+   * [spacing] Applies CSS min-height
    */
   minHeight: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies height
+   * [spacing] Applies CSS height
    */
   height: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies max-height
+   * [spacing] Applies CSS max-height
    */
   maxHeightt: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies min-width
+   * [spacing] Applies CSS min-width
    */
   minWidth: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies width
+   * [spacing] Applies CSS width
    */
   width: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies max-height
+   * [spacing] Applies CSS max-height
    */
   maxWidth: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Applies count of repeating columns at 1fr
+   * Sets count of repeating columns at 1fr
    */
   gridTemplateColumns: t.oneOfType([
     t.oneOf(range1_24),
     t.arrayOf(t.oneOf(range1_24)),
   ]),
   /**
-   * [spacing] Applies grid-gap
+   * [spacing] Applies CSS grid-gap
    */
   gridGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies grid-row-gao
+   * [spacing] Applies CSS grid-row-gao
    */
   gridRowGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies grid-column-gap
+   * [spacing] Applies CSS grid-column-gap
    */
   gridColumnGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  /**
+   * Applies CSS grid column span
+   */
+  gridColumn: t.oneOfType([t.oneOf(range1_24), t.arrayOf(t.oneOf(range1_24))]),
 }
 
 Box.displayName = 'Box'

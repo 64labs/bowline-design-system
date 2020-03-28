@@ -1,4 +1,5 @@
 import {useTheme} from '../Provider'
+import {useBackground} from '../util/BackgroundContext'
 import {responsiveClassnames} from '../util'
 
 const useBoxStyles = ({
@@ -51,9 +52,17 @@ const useBoxStyles = ({
   gridGap,
   gridRowGap,
   gridColumnGap,
+  gridColumn,
+  border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  borderColor,
   borderRadius,
 }) => {
   const theme = useTheme()
+  const parentBackground = useBackground()
 
   const classes = (value, label) =>
     responsiveClassnames(theme ? theme.breakpoints : {}, value, label)
@@ -135,14 +144,23 @@ const useBoxStyles = ({
     classes(gridGap, 'gap'),
     classes(gridRowGap, 'row-gap'),
     classes(gridColumnGap, 'col-gap'),
+    classes(gridColumn, 'grid-column'),
+    classes(border, 'border'),
+    classes(borderTop, 'border-top'),
+    classes(borderRight, 'border-right'),
+    classes(borderBottom, 'border-bottom'),
+    classes(borderLeft, 'border-left'),
+    classes(borderColor, 'border-color'),
     classes(borderRadius, 'radius'),
     ...(background ? [].concat(classes(background, 'bg')) : []),
     {
       [`flex-wrap`]: wrap || flexWrap,
-      [`shadow-${boxShadow}`]:
-        boxShadow && (!background || background === 'transparent'),
-      [`shadow-${boxShadow}-on-${background}`]:
-        boxShadow && background && background !== 'transparent',
+      [`shadow-${boxShadow}`]: boxShadow,
+      [`shadow-${boxShadow}-on-${
+        !background || background === 'transparent'
+          ? parentBackground
+          : background
+      }`]: boxShadow && (background || parentBackground),
     },
   ]
 }

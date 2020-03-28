@@ -11,10 +11,104 @@ import {
 } from "@64labs/bowline-design-system"
 import "./navigation.css"
 
+const Section = ({
+  title,
+  pathname,
+  sectionPath,
+  onNavigate,
+  isOpen,
+  pages,
+  closeSection,
+  openSection,
+}) => {
+  return (
+    <Box
+      className={cx({
+        "active-nav-section": pathname.includes(sectionPath),
+      })}
+    >
+      <Box display="flex">
+        <Button
+          className={cx("nav-link", {
+            "selected-nav-link": pathname === sectionPath,
+          })}
+          as={Link}
+          to={sectionPath}
+          onClick={onNavigate}
+          innerJustify
+          background="transparent"
+        >
+          <Text
+            as="span"
+            size="small"
+            weight={pathname.includes(sectionPath) ? "medium" : "regular"}
+            tone={pathname.includes(sectionPath) ? "brandAccent" : "neutral"}
+          >
+            {title}
+          </Text>
+        </Button>
+        <Button
+          className="nav-link nav-link-expander"
+          icon={isOpen(sectionPath) ? "minus" : "plus"}
+          tone="neutral"
+          background="transparent"
+          onClick={() =>
+            isOpen(sectionPath)
+              ? closeSection(sectionPath)
+              : openSection(sectionPath)
+          }
+          style={{ flexShrink: 0 }}
+        />
+      </Box>
+
+      <Box display={isOpen(sectionPath) ? "block" : "none"}>
+        <Box as="ul">
+          {pages.map(pg => {
+            return (
+              <li key={pg.path}>
+                <Button
+                  className={cx("nav-link", {
+                    "selected-nav-link": pathname === pg.path,
+                  })}
+                  as={Link}
+                  position="relative"
+                  innerJustify
+                  background="transparent"
+                  to={pg.path}
+                  onClick={onNavigate}
+                >
+                  <Text
+                    as="span"
+                    size="small"
+                    weight={pathname === pg.path ? "medium" : "regular"}
+                    tone={pathname === pg.path ? "brandAccent" : "neutral"}
+                  >
+                    {pg.context.frontmatter.title}
+                  </Text>
+                </Button>
+              </li>
+            )
+          })}
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
 const Navigation = ({ onNavigate }) => {
   const data = useStaticQuery(graphql`
     query pages {
       components: allSitePage(filter: { path: { glob: "/components/*" } }) {
+        nodes {
+          path
+          context {
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+      themingSection: allSitePage(filter: { path: { glob: "/theming/*" } }) {
         nodes {
           path
           context {
@@ -73,80 +167,27 @@ const Navigation = ({ onNavigate }) => {
           })}
         </Box>
 
-        <Box
-          className={cx({
-            "active-nav-section": pathname.includes("/components/"),
-          })}
-        >
-          <Box display="flex">
-            <Button
-              className={cx("nav-link", {
-                "selected-nav-link": pathname === "/components/",
-              })}
-              as={Link}
-              to="/components/"
-              onClick={onNavigate}
-              innerJustify
-              background="transparent"
-            >
-              <Text
-                as="span"
-                size="small"
-                weight={
-                  pathname.includes("/components/") ? "medium" : "regular"
-                }
-                tone={
-                  pathname.includes("/components/") ? "brandAccent" : "neutral"
-                }
-              >
-                Components
-              </Text>
-            </Button>
-            <Button
-              className="nav-link nav-link-expander"
-              icon={isOpen("/components/") ? "minus" : "plus"}
-              tone="neutral"
-              background="transparent"
-              onClick={() =>
-                isOpen("/components/")
-                  ? closeSection("/components/")
-                  : openSection("/components/")
-              }
-              style={{ flexShrink: 0 }}
-            />
-          </Box>
+        <Section
+          title="Theming"
+          pathname={pathname}
+          sectionPath="/theming/"
+          pages={data.themingSection.nodes}
+          isOpen={isOpen}
+          openSection={openSection}
+          closeSection={closeSection}
+          onNavigate={onNavigate}
+        />
 
-          <Box display={isOpen("/components/") ? "block" : "none"}>
-            <Box as="ul">
-              {data.components.nodes.map(pg => {
-                return (
-                  <li key={pg.path}>
-                    <Button
-                      className={cx("nav-link", {
-                        "selected-nav-link": pathname === pg.path,
-                      })}
-                      as={Link}
-                      position="relative"
-                      innerJustify
-                      background="transparent"
-                      to={pg.path}
-                      onClick={onNavigate}
-                    >
-                      <Text
-                        as="span"
-                        size="small"
-                        weight={pathname === pg.path ? "medium" : "regular"}
-                        tone={pathname === pg.path ? "brandAccent" : "neutral"}
-                      >
-                        {pg.context.frontmatter.title}
-                      </Text>
-                    </Button>
-                  </li>
-                )
-              })}
-            </Box>
-          </Box>
-        </Box>
+        <Section
+          title="Components"
+          pathname={pathname}
+          sectionPath="/components/"
+          pages={data.components.nodes}
+          isOpen={isOpen}
+          openSection={openSection}
+          closeSection={closeSection}
+          onNavigate={onNavigate}
+        />
       </Stack>
 
       <Divider />

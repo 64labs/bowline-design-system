@@ -1,42 +1,51 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
+import {renderColumnsProvider} from '../util/ColumnsContext'
 import Box from '../Box/Box'
 import './columns.css'
 
-const Columns = ({
-  cols = 12,
-  gap = 'gutter',
-  colGap,
-  rowGap,
-  collapse,
-  collapseBelowTablet,
-  className,
-  children,
-  ...props
-}) => {
-  const classes = cx(
+const Columns = React.forwardRef(
+  (
     {
-      'u-cols--collapse-0': collapse || collapseBelowTablet,
-      'u-cols--collapse-1': collapseBelowTablet,
+      cols = 12,
+      gap = 'gutter',
+      colGap,
+      rowGap,
+      collapse,
+      collapseBelowTablet,
+      className,
+      children,
+      ...props
     },
-    className
-  )
+    ref
+  ) => {
+    const classes = cx(
+      {
+        'u-cols--collapse-0': collapse || collapseBelowTablet,
+        'u-cols--collapse-1': collapseBelowTablet,
+      },
+      className
+    )
 
-  return (
-    <Box
-      display="grid"
-      gridTemplateColumns={cols}
-      gridGap={gap}
-      gridColumnGap={colGap}
-      gridRowGap={rowGap}
-      className={classes}
-      {...props}
-    >
-      {children}
-    </Box>
-  )
-}
+    const element = (
+      <Box
+        display="grid"
+        gridTemplateColumns={cols}
+        gridGap={gap}
+        gridColumnGap={colGap}
+        gridRowGap={rowGap}
+        className={classes}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Box>
+    )
+
+    return renderColumnsProvider(cols, element)
+  }
+)
 
 Columns.propTypes = {
   /**

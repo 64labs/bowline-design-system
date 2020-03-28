@@ -18,8 +18,8 @@
       color: $color;
     }
 
-    .borderColor-#{$tone} {
-      border-color: $color;
+    [class*='border-'].border-color-#{$tone} {
+      border-color: $color !important;
     }
 
     .tone-neutral.tone-neutral-on-#{$tone} {

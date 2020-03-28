@@ -89,8 +89,8 @@ const Prop = ({ prop, name }) => {
 
   return (
     <Box>
-      <Stack space="small">
-        <Stack space="xsmall">
+      <Stack space="gutter">
+        <Stack space="smallish">
           <Inline justify="space-between">
             <Inline space="xsmall">
               <Text weight="medium">{name}</Text>
@@ -204,7 +204,8 @@ const PropsTable = ({ component }) => {
 
   const doc = component.__docgenInfo
 
-  console.log(doc.props)
+  const propKeys = Object.keys(doc.props)
+  const sortedPropKeys = [...propKeys].sort()
 
   return (
     <Stack space="xlarge">
@@ -213,7 +214,7 @@ const PropsTable = ({ component }) => {
       </Text>
 
       <Stack dividers>
-        {Object.keys(doc.props).map(propName => {
+        {propKeys.map(propName => {
           const prop = doc.props[propName]
           return (
             <React.Fragment key={propName}>

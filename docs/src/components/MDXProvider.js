@@ -34,7 +34,7 @@ const components = {
     heading: true,
     size: "xlarge",
     weight: "strong",
-    marginBottom: ["gutter", "large"],
+    marginBottom: ["small"],
   }),
   h2: textWithProps({
     as: "h2",
