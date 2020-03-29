@@ -97,16 +97,16 @@
           border: $i;
         }
         .border-top-#{$j} {
-          border: $i;
+          border-top: $i;
         }
         .border-right-#{$j} {
-          border: $i;
+          border-right: $i;
         }
         .border-bottom-#{$j} {
-          border: $i;
+          border-bottom: $i;
         }
         .border-left-#{$j} {
-          border: $i;
+          border-left: $i;
         }
       }
     }

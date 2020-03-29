@@ -118,6 +118,10 @@ const Box = React.forwardRef(
       gridRowGap,
       gridColumnGap,
       gridColumn,
+      borderTop,
+      borderRight,
+      borderBottom,
+      borderLeft,
       borderColor,
       borderRadius,
     })

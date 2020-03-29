@@ -1,5 +1,0 @@
-@each $color $tone in $base-colors {
-  .u-divider-#{$tone} {
-    border-top: 1px solid $color;
-  }
-}

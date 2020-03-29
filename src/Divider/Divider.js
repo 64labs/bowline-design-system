@@ -1,16 +1,25 @@
 import React from 'react'
+import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import './divider.css'
 
 const Divider = ({tone = 'subtle', className, ...props}) => {
   return (
     <Box
       aria-hidden
-      className={cx(`u-divider-${tone}`, className)}
+      className={className}
+      borderTop="standard"
+      borderColor={tone}
       {...props}
     />
   )
+}
+
+Divider.propTypes = {
+  /**
+   * [colors.background] The color tone of the border
+   */
+  tone: t.string,
 }
 
 export default Divider
