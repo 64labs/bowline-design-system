@@ -4,11 +4,7 @@ import { Box, Inline, Text, Stack } from "@64labs/bowline-design-system"
 import CodeBlock from "./code-block"
 import Showcase from "./Showcase"
 
-const textWithProps = textProps => props => (
-  <Box>
-    <Text {...props} {...textProps} />
-  </Box>
-)
+const textWithProps = textProps => props => <Text {...props} {...textProps} />
 
 const components = {
   Text,
@@ -73,15 +69,14 @@ const components = {
     />
   ),
   ul: props => (
-    <Stack
-      space="smallish"
+    <Box
       as="ul"
       marginBottom={["small", "small"]}
       className="bullets"
       {...props}
     />
   ),
-  li: textWithProps({ as: "li" }),
+  li: textWithProps({ as: "li", marginBottom: "small" }),
   code: props => (
     <Box marginBottom={["small", "small"]}>
       <CodeBlock {...props} />

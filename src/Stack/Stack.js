@@ -36,6 +36,7 @@ const Stack = ({
                   })}
                   marginTop={space}
                   width="full"
+                  className="_stack-item _stack-divider"
                 />
               )}
 
@@ -46,6 +47,7 @@ const Stack = ({
                 })}
                 marginTop={i > 0 ? space : undefined}
                 maxWidth="full"
+                className="_stack-item"
               >
                 {child}
               </Box>

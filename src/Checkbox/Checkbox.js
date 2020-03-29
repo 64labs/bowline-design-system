@@ -25,12 +25,13 @@ const Checkbox = ({
       )}
       {...wrapperProps}
     >
-      <Inline
+      <Box
         as="label"
-        space="small"
+        display="flex"
+        alignItems="center"
         htmlFor={props.id || `input_${props.name}`}
       >
-        <Box position="relative">
+        <Box position="relative" marginRight="small">
           <input
             id={props.id || `input_${props.name}`}
             type="checkbox"
@@ -44,7 +45,7 @@ const Checkbox = ({
         </Box>
 
         <Text>{label}</Text>
-      </Inline>
+      </Box>
     </Box>
   )
 }

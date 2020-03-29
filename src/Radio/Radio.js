@@ -24,18 +24,21 @@ const Radio = ({
       )}
       {...wrapperProps}
     >
-      <Inline
+      <Box
         as="label"
-        space="small"
+        display="flex"
+        alignItems="center"
         htmlFor={props.id || `input_${props.name}_${props.value}`}
       >
-        <input
+        <Box
+          as="input"
           id={props.id || `input_${props.name}_${props.value}`}
           type="radio"
+          marginRight="small"
           {...props}
         />
         <Text>{label}</Text>
-      </Inline>
+      </Box>
     </Box>
   )
 }
