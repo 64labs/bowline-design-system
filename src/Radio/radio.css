@@ -18,7 +18,7 @@
       left: 3px;
       width: calc(100% - 6px);
       height: calc(100% - 6px);
-      background: map-get($backgroundColors, formAccent);
+      background: theme('colors.background.formAccent');
       border-radius: 50%;
       transform: scale(0.8);
       opacity: 0;
@@ -41,7 +41,7 @@
 
     &.focus-visible {
       outline: none;
-      box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+      box-shadow: 0 0 0 3px color(theme('colors.background.formAccent') a(40%));
     }
 
     &::-ms-check {
@@ -55,34 +55,37 @@
 
   &:hover {
     & input:not(:checked) {
-      border-color: map-get($backgroundColors, formAccent);
+      border-color: theme('colors.background.formAccent');
     }
   }
 
   &.u-input--tone-critical {
     & input {
-      border-color: map-get($foregroundColors, critical);
+      border-color: theme('colors.background.critical');
     }
   }
 }
 
+/* prettier-ignore */
 .u-input--radio--small {
   & input {
-    width: #{$space-small}px;
-    height: #{$space-small}px;
+    width: theme('spacing.small')px;
+    height: theme('spacing.small')px;
   }
 }
 
+/* prettier-ignore */
 .u-input--radio--regular {
   & input {
-    width: #{$space-gutter}px;
-    height: #{$space-gutter}px;
+    width: theme('spacing.gutter')px;
+    height: theme('spacing.gutter')px;
   }
 }
 
+/* prettier-ignore */
 .u-input--radio--large {
   & input {
-    width: #{$space-medium}px;
-    height: #{$space-medium}px;
+    width: theme('spacing.medium')px;
+    height: theme('spacing.medium')px;
   }
 }

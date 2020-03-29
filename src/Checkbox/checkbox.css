@@ -6,7 +6,7 @@
     display: block;
     /* TODO: border color theme configs */
     border: 1px solid #cccccc;
-    border-radius: map-get(map-get($border, radius), standard);
+    border-radius: theme('border.radius.standard');
     background: transparent;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -19,8 +19,8 @@
       left: -1px;
       width: calc(100% + 2px);
       height: calc(100% + 2px);
-      background: map-get($backgroundColors, formAccent);
-      border-radius: map-get(map-get($border, radius), standard);
+      background: theme('colors.background.formAccent');
+      border-radius: theme('border.radius.standard');
       opacity: 0;
       transition: opacity 0.1s ease-in-out;
     }
@@ -40,7 +40,7 @@
 
     &.focus-visible {
       outline: none;
-      box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+      box-shadow: 0 0 0 3px color(theme('colors.background.formAccent') a(40%));
     }
 
     &::-ms-check {
@@ -68,10 +68,10 @@
 
   &:hover {
     & input:not(:checked) {
-      border-color: map-get($backgroundColors, formAccent);
+      border-color: theme('colors.background.formAccent');
     }
     & input:not(:checked) + .u-input--checkbox__check {
-      color: map-get($backgroundColors, formAccent);
+      color: theme('colors.background.formAccent');
       display: block;
       opacity: 0.3;
     }
@@ -79,28 +79,28 @@
 
   &.u-input--tone-critical {
     & input {
-      border-color: map-get($foregroundColors, critical);
+      border-color: theme('colors.background.crtitical');
     }
   }
 }
-
+/* prettier-ignore */
 .u-input--checkbox--small {
   & input {
-    width: #{$space-small}px;
-    height: #{$space-small}px;
+    width: theme('spacing.small')px;
+    height: theme('spacing.small')px;
   }
 }
-
+/* prettier-ignore */
 .u-input--checkbox--regular {
   & input {
-    width: #{$space-gutter}px;
-    height: #{$space-gutter}px;
+    width: theme('spacing.gutter')px;
+    height: theme('spacing.gutter')px;
   }
 }
-
+/* prettier-ignore */
 .u-input--checkbox--large {
   & input {
-    width: #{$space-medium}px;
-    height: #{$space-medium}px;
+    width: theme('spacing.medium')px;
+    height: theme('spacing.medium')px;
   }
 }

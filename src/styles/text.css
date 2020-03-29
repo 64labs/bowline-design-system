@@ -63,6 +63,6 @@
   }
   &.focus-visible:not(.baseline-crop) {
     border-radius: 3px;
-    box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
+    box-shadow: 0 0 0 3px color(theme('colors.background.focus') a(40%));
   }
 }

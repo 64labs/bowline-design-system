@@ -1,6 +1,6 @@
 .u-input {
   position: relative;
-  font-weight: $regular-font-weight;
+  font-weight: theme('fontWeights.regular');
 
   & label {
     display: block;
@@ -47,12 +47,13 @@
 
     &.focus-visible {
       outline: none;
-      border-color: map-get($base-colors, formAccent);
+      border-color: theme('colors.background.formAccent');
     }
   }
 
+  /* prettier-ignore */
   & select {
-    padding-right: #{$space-medium}px;
+    padding-right: theme('spacing.medium')px;
   }
 
   & .u-input--select__chevron {
@@ -64,25 +65,28 @@
   }
 
   &.u-input--outline {
+    /* prettier-ignore */
     & label {
-      margin-bottom: #{$space-xsmall}px;
-      font-weight: $bold-font-weight;
+      margin-bottom: theme('spacing.xsmall')px;
+      font-weight: theme('fontWeights.strong');
     }
     & input,
     & textarea {
       padding: 7px 10px;
       border: 1px solid #e1e1e1;
-      border-radius: map-get(map-get($border, radius), standard);
+      border-radius: theme('border.radius.standard');
       &.focus-visible {
-        box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+        box-shadow: 0 0 0 3px
+          color(theme('colors.background.formAccent') a(40%));
       }
     }
+    /* prettier-ignore */
     & select {
-      border-radius: map-get(map-get($border, radius), standard);
-      padding: 7px #{$space-large}px 7px 10px;
+      border-radius: theme('border.radius.standard');
+      padding: 7px theme('spacing.large')px 7px 10px;
       border: 1px solid #e1e1e1;
       &.focus-visible {
-        box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+        box-shadow: 0 0 0 3px color(theme('colors.background.formAccent') a(40%));
       }
     }
     & .u-input--select__chevron {
@@ -94,7 +98,7 @@
     & input,
     & select {
       &:not(:focus) {
-        border-color: map-get($foregroundColors, critical);
+        border-color: theme('colors.background.critical');
       }
     }
   }

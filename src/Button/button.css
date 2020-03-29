@@ -2,24 +2,28 @@
   &.u-button--icon-only {
     width: auto;
 
+    /* prettier-ignore */
     &.u-button--size-large {
-      width: #{$space-xxlarge}px;
-      height: #{$space-xxlarge}px;
+      width: theme('spacing.xxlarge')px;
+      height: theme('spacing.xxlarge')px;
     }
 
+    /* prettier-ignore */
     &.u-button--size-regular {
-      width: #{$space-xlarge}px;
-      height: #{$space-xlarge}px;
+      width: theme('spacing.xlarge')px;
+      height: theme('spacing.xlarge')px;
     }
 
+    /* prettier-ignore */
     &.u-button--size-small {
-      width: #{$space-largeish}px;
-      height: #{$space-largeish}px;
+      width: theme('spacing.largeish')px;
+      height: theme('spacing.largeish')px;
     }
 
+    /* prettier-ignore */
     &.u-button--size-xsmall {
-      width: #{$space-large}px;
-      height: #{$space-large}px;
+      width: theme('spacing.large')px;
+      height: theme('spacing.large')px;
     }
   }
 
@@ -27,20 +31,23 @@
     line-height: 1;
   }
 
+  /* prettier-ignore */
   &.u-button--size-large .u-button__inner {
-    height: #{$space-xxlarge}px;
+    height: theme('spacing.xxlarge')px;
   }
 
+  /* prettier-ignore */
   &.u-button--size-regular .u-button__inner {
-    height: #{$space-xlarge}px;
+    height: theme('spacing.xlarge')px;
   }
 
+  /* prettier-ignore */
   &.u-button--size-small .u-button__inner {
-    height: #{$space-largeish}px;
+    height: theme('spacing.largeish')px;
   }
 }
 
-@each $color $tone in $base-colors {
+@each $color $tone in $backgroundColors {
   .u-button.bg--#{$tone} {
     &.focus-visible {
       outline: none;
@@ -52,7 +59,7 @@
 .u-button.bg--transparent {
   &.focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
+    box-shadow: 0 0 0 3px color(theme('colors.background.focus') a(40%));
   }
 }
 

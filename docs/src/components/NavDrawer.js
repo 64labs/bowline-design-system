@@ -31,7 +31,15 @@ const NavDrawer = ({ isOpen, close, children, ...props }) => {
     transitions.map(
       ({ item, key, props }) =>
         item && (
-          <Box key={key} className="nav-drawer">
+          <Box
+            key={key}
+            position="fixed"
+            top={0}
+            right={0}
+            bottom={0}
+            left={0}
+            style={{ zIndex: 999 }}
+          >
             <animated.div style={scrimStyle} key={key}>
               <Box className="nav-drawer-scrim" onClick={close} />
             </animated.div>

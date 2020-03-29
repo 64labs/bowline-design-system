@@ -9,13 +9,15 @@
 }
 
 @responsive {
-  @each $color $tone in $base-colors {
-    .bg-#{$tone} {
-      background-color: $color;
-    }
-
+  @each $color $tone in $foregroundColors {
     .tone-#{$tone} {
       color: $color;
+    }
+  }
+
+  @each $color $tone in $backgroundColors {
+    .bg-#{$tone} {
+      background-color: $color;
     }
 
     [class*='border-'].border-color-#{$tone} {
@@ -25,16 +27,16 @@
     .tone-neutral.tone-neutral-on-#{$tone} {
       color: isLight(
         $color,
-        map-get($base-colors, neutral),
-        map-get($base-colors, neutralInverted)
+        theme('colors.foreground.neutral', black),
+        theme('colors.foreground.neutralInverted', white)
       );
     }
 
     .tone-secondary.tone-secondary-on-#{$tone} {
       color: isLight(
         $color,
-        map-get($base-colors, secondary),
-        map-get($base-colors, secondaryInverted)
+        theme('colors.foreground.secondary', black),
+        theme('colors.foreground.secondaryInverted', white)
       );
     }
   }

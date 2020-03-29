@@ -223,7 +223,7 @@
   }
 
   /* prettier-ignore */
-  @each $color $tone in $base-colors {
+  @each $color $tone in $backgroundColors {
     .shadow-#{$label}-on-#{$tone} {
       box-shadow: theme('shadows.$label.style') isLight($color, theme('shadows.$label.color'), theme('shadows.$label.colorInverted', white));
     }
