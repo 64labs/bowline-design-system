@@ -22,7 +22,7 @@ const PropValue = ({ value, token }) => {
         space="none"
         borderRadius="standard"
         overflow="hidden"
-        style={{ border: `1px solid ${theme["base-colors"].promoteLight}` }}
+        style={{ border: `1px solid ${theme.colors.background.promoteLight}` }}
       >
         <Box paddingX="xsmall" paddingY="xxsmall" background="promoteLight">
           <Text block size="small" tone="brandAccent">

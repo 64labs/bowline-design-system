@@ -262,7 +262,7 @@ Box.propTypes = {
     t.arrayOf(t.oneOf(['initial', 1, 'auto', 'none'])),
   ]),
   /**
-   * Applies CS flex-grow rule
+   * Applies CSS flex-grow rule
    */
   flexGrow: t.oneOfType([
     t.oneOf([0, 1, 2, 3, 4, 5]),
@@ -408,7 +408,7 @@ Box.propTypes = {
    */
   gridGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [spacing] Applies CSS grid-row-gao
+   * [spacing] Applies CSS grid-row-gap
    */
   gridRowGap: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
