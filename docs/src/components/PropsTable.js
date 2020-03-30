@@ -1,15 +1,10 @@
 import React from "react"
 import {
   Box,
-  Columns,
-  Divider,
-  Column,
   Text,
   Icon,
   Inline,
   Stack,
-  VerticalDivider,
-  tokens,
   useTheme,
 } from "@64labs/bowline-design-system"
 
