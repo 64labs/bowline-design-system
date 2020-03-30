@@ -230,7 +230,7 @@
   }
 }
 
-// Stack
+/* Stack */
 
 @media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
   .display-none + ._stack-item {

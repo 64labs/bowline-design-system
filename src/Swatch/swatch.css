@@ -11,9 +11,6 @@
 .u-swatch:not(.u-swatch--selected) {
   border: 1px solid #ccc;
   padding: 1px;
-
-  .u-swatch__inner {
-  }
 }
 
 .u-swatch--selected {

@@ -33,6 +33,14 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
 
     const theme = Object.assign({}, defaultConfig, userConfig)
 
+    // create a special 'spacingNumbers' objects from theme spacing to only include int value (not vh or %)
+    theme.spacingNumbers = Object.keys(theme.spacing).reduce((a, b) => {
+      if (typeof theme.spacing[b] === 'string') {
+        return a
+      }
+      return {...a, [b]: theme.spacing[b]}
+    }, {})
+
     result.messages.push({
       type: 'dependency',
       parent: root.source.input.file,

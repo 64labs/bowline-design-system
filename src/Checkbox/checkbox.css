@@ -79,7 +79,7 @@
 
   &.u-input--tone-critical {
     & input {
-      border-color: theme('colors.background.crtitical');
+      border-color: theme('colors.background.critical');
     }
   }
 }
