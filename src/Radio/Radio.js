@@ -4,7 +4,6 @@ import cx from 'classnames'
 import Box from '../Box/Box'
 import Inline from '../Inline/Inline'
 import Text from '../Text/Text'
-import './radio.css'
 
 const Radio = ({
   label,

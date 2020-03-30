@@ -3,7 +3,6 @@ import t from 'prop-types'
 import cx from 'classnames'
 import {renderColumnsProvider} from '../util/ColumnsContext'
 import Box from '../Box/Box'
-import './columns.css'
 
 const Columns = React.forwardRef(
   (

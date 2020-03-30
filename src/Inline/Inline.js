@@ -1,12 +1,9 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import * as types from '../types'
 import {resolveResponsiveClassnames} from '../util'
 import Box from '../Box/Box'
 import VerticalDivider from '../VerticalDivider/VerticalDivider'
-
-import './inline.css'
 
 const Inline = ({
   space = 'gutter',

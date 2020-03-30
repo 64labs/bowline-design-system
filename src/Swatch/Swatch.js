@@ -1,7 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import './swatch.css'
 
 const Swatch = ({
   name,
@@ -18,14 +17,12 @@ const Swatch = ({
   return (
     <Box
       className={classes}
-      role='button'
+      role="button"
       aria-label={name}
       size={size}
       {...props}
     >
-      <Box className='u-swatch__inner'>
-        {children}
-      </Box>
+      <Box className="u-swatch__inner">{children}</Box>
     </Box>
   )
 }

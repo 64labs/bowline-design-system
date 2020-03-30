@@ -2,7 +2,6 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import './scrollbox.css'
 
 const ScrollBox = ({
   className,

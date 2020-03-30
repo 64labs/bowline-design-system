@@ -2,7 +2,6 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import './content-block.css'
 
 const ContentBlock = ({width = 'large', className, ...props}) => {
   const classes = cx('u-content-block', `u-content-block--${width}`, className)

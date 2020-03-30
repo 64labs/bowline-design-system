@@ -20,6 +20,12 @@
   }
 }
 
+@each $v in (capitalize, uppercase, lowercase, none, inherit) {
+  .text-transform-#{$v} {
+    text-transform: $v;
+  }
+}
+
 @each $mqs $label in $textSizes {
   $mobile: map-get($mqs, mobile);
   $tablet: map-get($mqs, tablet);

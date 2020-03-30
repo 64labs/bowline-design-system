@@ -2,7 +2,6 @@ import React, {useCallback, useRef, useState, useEffect} from 'react'
 import t from 'prop-types'
 import {useSpring, animated} from 'react-spring'
 import Box from '../Box/Box'
-import './image.css'
 
 const _useIntersectionObserver = (options = {}) => {
   const targetRef = useRef(null)

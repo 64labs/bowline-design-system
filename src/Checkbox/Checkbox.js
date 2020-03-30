@@ -5,7 +5,6 @@ import Box from '../Box/Box'
 import Inline from '../Inline/Inline'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
-import './checkbox.css'
 
 const Checkbox = ({
   label,

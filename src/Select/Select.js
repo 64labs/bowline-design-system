@@ -4,7 +4,6 @@ import Box from '../Box/Box'
 import FieldMessage from '../FieldMessage/FieldMessage'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
-import './select.css'
 
 const Select = ({
   label,

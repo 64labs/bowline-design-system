@@ -10,6 +10,7 @@ const Text = ({
   tone = 'neutral',
   weight = 'regular',
   align = 'left',
+  transform,
   heading = false,
   baseline = true,
   block = false,
@@ -39,6 +40,7 @@ const Text = ({
       heading: heading,
       'baseline-crop': baseline,
       'display-block': block,
+      [`text-transform-${transform}`]: transform,
       [`tone-${tone}-on-${background}`]: background,
       [`tone-${tone}`]: tone,
       [`text-weight-${weight}`]: weight !== 'regular',
@@ -69,6 +71,16 @@ Text.propTypes = {
    * Set text alignment
    */
   align: t.oneOf(['left', 'center', 'right']),
+  /**
+   * Sets CSS text-transform
+   */
+  transform: t.oneOf([
+    'capitalize',
+    'uppercase',
+    'lowercase',
+    'none',
+    'inherit',
+  ]),
   /**
    * Use heading font styles
    */

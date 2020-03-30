@@ -13,6 +13,7 @@ module.exports = {
   openBrowser: false,
   snippets: './playroom/snippets.js',
   frameComponent: './playroom/Frame.js',
+  themes: './playroom/themes.js',
   exampleCode: `
     <Stack padding={["large", "xlarge"]} align="center">
       <Text heading size="large">
@@ -61,7 +62,15 @@ module.exports = {
           ],
         },
         {
-          test: /\.css?$/,
+          test: /playroom\.css?$/,
+          exclude: /node_modules/,
+          use: [
+            'style-loader',
+            {loader: 'css-loader', options: {importLoaders: 1}},
+          ],
+        },
+        {
+          test: /defaultTheme\.css?$/,
           exclude: /node_modules/,
           use: [
             'style-loader',
@@ -72,6 +81,26 @@ module.exports = {
                 syntax: 'postcss-scss',
                 plugins: [
                   bowline({
+                    from: path.resolve(__dirname, '../'),
+                  }),
+                ],
+              },
+            },
+          ],
+        },
+        {
+          test: /mkgEcommTheme\.css?$/,
+          exclude: /node_modules/,
+          use: [
+            'style-loader',
+            {loader: 'css-loader', options: {importLoaders: 1}},
+            {
+              loader: 'postcss-loader',
+              options: {
+                syntax: 'postcss-scss',
+                plugins: [
+                  bowline({
+                    configPath: path.resolve(__dirname, 'playroom/mkgEcomm'),
                     from: path.resolve(__dirname, '../'),
                   }),
                 ],
