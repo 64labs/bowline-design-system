@@ -6,7 +6,7 @@ import Box from '../Box/Box'
 const ContentBlock = ({width = 'large', className, ...props}) => {
   const classes = cx('u-content-block', `u-content-block--${width}`, className)
 
-  return <Box className={classes} paddingX="gutter" {...props} />
+  return <Box className={classes} paddingX="gutter" marginX="auto" {...props} />
 }
 
 ContentBlock.propTypes = {

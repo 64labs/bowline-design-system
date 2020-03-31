@@ -1,7 +1,3 @@
-.u-content-block {
-  margin: 0 auto;
-}
-
 @responsive {
   @each $width $size in $contentWidth {
     .u-content-block--#{$size} {

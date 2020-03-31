@@ -8,7 +8,7 @@ module.exports = {
 
   // Optional:
   title: 'Bowline Design System',
-  widths: [375, 768, 1024],
+  widths: [375, 768, 1024, 1280, 1440],
   port: 9000,
   openBrowser: false,
   snippets: './playroom/snippets.js',

@@ -89,6 +89,274 @@ export default [
     `,
   },
   {
+    group: 'Ecommerce',
+    name: 'Full PDP',
+    code: `<Columns cols={[1, 2, 2]}>
+    <Box>
+      <Image
+        src="https://www.mackage.com/on/demandware.static/-/Sites-app-master-catalog/default/dw345433b0/images/ANDREA-RL-OFWH_1.jpg?sw=500&sh=800&q=70"
+        fluid
+        width={417}
+        height={704}
+      />
+    </Box>
+  
+    <ContentBlock paddingY={["none", "large", "large"]}>
+      <Stack space="large">
+        <Stack>
+          <Inline justify="space-between">
+            <Text
+              as="h1"
+              heading
+              size="large"
+              weight="medium"
+              transform="uppercase"
+            >
+              Andrea Jacket
+            </Text>
+            <Box display={["block", "none"]}>
+              <Text weight="medium" size="large">
+                $650.00
+              </Text>
+            </Box>
+          </Inline>
+  
+          <Text>Lightweight down jacket with signature collar</Text>
+  
+          <Box display={["none", "block"]}>
+            <Text weight="strong" size="large">
+              $650.00
+            </Text>
+          </Box>
+  
+          <Divider />
+  
+          <Inline>
+            <Inline space="xxsmall">
+              <Icon name="star" size="small" />
+              <Icon name="star" size="small" />
+              <Icon name="star" size="small" />
+              <Icon name="star" size="small" />
+              <Icon name="star" size="small" />
+            </Inline>
+            <Text size="xsmall">Write a review</Text>
+            <Text size="xsmall">Read all reviews</Text>
+          </Inline>
+  
+          <Divider />
+  
+          <Stack space="small">
+            <Inline space="xsmall">
+              <Text weight="medium" transform="uppercase">
+                Select color
+              </Text>
+              <Text size="xsmall" tone="secondary">
+                Off white
+              </Text>
+            </Inline>
+            <Inline>
+              <Stack space="smallish" align="center">
+                <Swatch size="large">
+                  <Image
+                    src="https://www.mackage.com/on/demandware.static/-/Sites-app-master-catalog/default/dw029bd40a/images/BLAC_SW.jpg"
+                    fluid
+                    width={1}
+                    height={1}
+                  />
+                </Swatch>
+                <Text size="xsmall">Black</Text>
+              </Stack>
+              <Stack space="smallish" align="center">
+                <Swatch size="large" selected>
+                  <Image
+                    src="https://www.mackage.com/on/demandware.static/-/Sites-app-master-catalog/default/dwf94164cc/images/OFWH_SW.png"
+                    fluid
+                    width={1}
+                    height={1}
+                  />
+                </Swatch>
+                <Text size="xsmall">Off White</Text>
+              </Stack>
+              <Stack space="smallish" align="center">
+                <Swatch size="large">
+                  <Image
+                    src="https://www.mackage.com/on/demandware.static/-/Sites-app-master-catalog/default/dw6538e60e/images/PETA_SW.jpg"
+                    fluid
+                    width={1}
+                    height={1}
+                  />
+                </Swatch>
+                <Text size="xsmall">Petal</Text>
+              </Stack>
+            </Inline>
+          </Stack>
+  
+          <Divider />
+  
+          <Stack space="small">
+            <Text weight="medium" transform="uppercase">
+              Select size
+            </Text>
+            <Inline space="none">
+              <Button
+                boxShadow="none"
+                paddingX="none"
+                width="xlarge"
+                border="standard"
+                borderRadius="none"
+                borderColor="subtle"
+                weight="weak"
+              >
+                <Text size="small" weight="medium" baseline={false}>
+                  XXS
+                </Text>
+              </Button>
+              <Button
+                boxShadow="none"
+                paddingX="none"
+                width="xlarge"
+                border="standard"
+                borderRadius="none"
+                borderColor="subtle"
+                weight="weak"
+              >
+                <Text size="small" weight="medium" baseline={false}>
+                  XXS
+                </Text>
+              </Button>
+              <Button
+                boxShadow="none"
+                paddingX="none"
+                width="xlarge"
+                border="standard"
+                borderRadius="none"
+                borderColor="subtle"
+                weight="weak"
+              >
+                <Text size="small" weight="medium" baseline={false}>
+                  XS
+                </Text>
+              </Button>
+              <Button
+                boxShadow="none"
+                paddingX="none"
+                width="xlarge"
+                border="standard"
+                borderRadius="none"
+                borderColor="subtle"
+                weight="weak"
+              >
+                <Text size="small" weight="medium" baseline={false}>
+                  M
+                </Text>
+              </Button>
+              <Button
+                weight="weak"
+                boxShadow="none"
+                paddingX="none"
+                width="xlarge"
+                border="standard"
+                borderRadius="none"
+                borderColor="brand"
+                background="brand"
+              >
+                <Text size="small" weight="medium" baseline={false}>
+                  L
+                </Text>
+              </Button>
+              <Button
+                boxShadow="none"
+                paddingX="none"
+                width="xlarge"
+                border="standard"
+                borderRadius="none"
+                borderColor="subtle"
+                weight="weak"
+              >
+                <Text size="small" weight="medium" baseline={false}>
+                  XL
+                </Text>
+              </Button>
+            </Inline>
+  
+            <Text size="small">
+              FITTED – Our signature fit, closest to the body. Designed to be
+              worn with light layers, all while keeping you warm. For heavier
+              layering, we recommend sizing up.
+            </Text>
+          </Stack>
+  
+          <Divider />
+  
+          <Button background="brand" borderRadius="none" size="large">
+            <Text baseline={false} weight="strong">
+              ADD TO BAG
+            </Text>
+          </Button>
+        </Stack>
+  
+        <Stack space="none">
+          <Divider />
+          <Box>
+            <Button
+              background="transparent"
+              innerJustify
+              paddingX="none"
+              iconRight="plus"
+              iconSize="gutter"
+            >
+              <Text baseline={false} weight="medium" transform="uppercase">
+                Description
+              </Text>
+            </Button>
+  
+            <Box paddingTop="xsmall" paddingBottom="gutter">
+              <Text size="small">
+                ANDREA by MACKAGE is a sleek, fitted lightweight down coat made
+                with two-way stretch nylon for ease of movement. Leather details
+                at the front zipper closure and zippered welt pockets give
+                ANDREA an edge. Featuring Mackage’s signature collar and hood
+                for an iconic silhouette, ANDREA will protect you from the
+                elements and keep you looking sharp.
+              </Text>
+            </Box>
+          </Box>
+  
+          <Divider />
+  
+          <Box>
+            <Button
+              background="transparent"
+              innerJustify
+              paddingX="none"
+              iconRight="plus"
+              iconSize="gutter"
+            >
+              <Text baseline={false} weight="medium" transform="uppercase">
+                Product Details
+              </Text>
+            </Button>
+          </Box>
+          <Divider />
+          <Box>
+            <Button
+              background="transparent"
+              innerJustify
+              paddingX="none"
+              iconRight="plus"
+              iconSize="gutter"
+            >
+              <Text baseline={false} weight="medium" transform="uppercase">
+                Free Shiiping & Returns
+              </Text>
+            </Button>
+          </Box>
+        </Stack>
+      </Stack>
+    </ContentBlock>
+  </Columns>`,
+  },
+  {
     group: 'Box',
     name: 'Responsive padding',
     code: `
