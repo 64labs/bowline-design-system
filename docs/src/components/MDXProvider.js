@@ -43,7 +43,7 @@ const components = {
     as: "h2",
     heading: true,
     size: "large",
-    weight: "strong",
+    weight: "medium",
     marginTop: ["small", "gutter"],
     marginBottom: ["small", "small"],
   }),

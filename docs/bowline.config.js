@@ -183,7 +183,7 @@ module.exports = {
         rows: 7,
       },
       sm: {
-        size: 28,
+        size: 26,
         rows: 9,
       },
     },

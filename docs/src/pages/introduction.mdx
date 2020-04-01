@@ -4,13 +4,13 @@ title: Introduction
 
 # Bowline Design System
 
-Bowline is a lightweight design system meant to accelerate the development of user interfaces with React. It is currently under active and caring development by the people at [64labs](https://www.64labs.com).
+Bowline is a lightweight design system meant to accelerate the development of user interfaces with React. Its currently under active and caring development by the people at [64labs](https://www.64labs.com).
 
-## Why?
+## Basics
 
-While there's no shortage of component libraries and design systems in the open source world to choose from, successfully navigating the tradeoffs for a given project means finding the right of balance of performance, configurability, developer ergonomics, support, compatibility, and more. Given the varying nature of our work, this meant that a library or solution we used on one project may not be able to be used on the next.
+At its core, Bowline is collection of React components backed by static CSS utility classes, with a PostCSS plugin that can be added to most existing CSS workflows.
 
-This was especially frustrating when it came to building front-ends with React. We needed a system we could invest in and truly enjoy across projects. So the team set out to bring together some of the best ideas and approaches from our favorite open source UI projects into a system that fit our needs.
+All component styles are authored in plain CSS files using a SCSS-like syntax and our own custom at-rule directives and functions. The resulting base stylesheet is compiled at build time against your own theme configuration.
 
 ## Goals
 
@@ -24,7 +24,7 @@ Because our projects typically focus on producing and auditing high-performance 
 
 #### Flexible constraints
 
-By enforcing flexible design contraints, we become more confident in the consistency in our interfaces. We want to ensure project-level design decisions can be easily codified into the underlying system via a centralized theme.
+By enforcing flexible design contraints, we become more confident in the consistency of our interfaces. We want to ensure project-level design decisions can be easily codified into the underlying system via a centralized theme.
 
 #### Ergonomics
 
