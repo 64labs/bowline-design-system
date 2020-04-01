@@ -14,6 +14,8 @@ const Stack = ({
 }) => {
   const classes = cx(className)
 
+  const items = React.Children.toArray(children).filter((i) => i)
+
   return (
     <Box
       className={classes}
@@ -23,39 +25,69 @@ const Stack = ({
       justify="flex-start"
       {...props}
     >
-      {React.Children.toArray(children)
-        .filter((i) => i)
-        .map((child, i) => {
-          return (
-            <React.Fragment key={child.key}>
-              {i > 0 && dividers && (
-                <Divider
-                  {...(child.props.display && {display: child.props.display})}
-                  {...(child.props.alignSelf && {
-                    alignSelf: child.props.alignSelf,
-                  })}
-                  marginTop={space}
-                  width="full"
-                  className="_stack-item _stack-divider"
-                />
-              )}
+      {items.map((child, i) => {
+        const marginTop =
+          i === 1 ? getSpace(space, items[i - 1].props.display) : space
 
-              <Box
+        return (
+          <React.Fragment key={child.key}>
+            {i > 0 && dividers && (
+              <Divider
                 {...(child.props.display && {display: child.props.display})}
                 {...(child.props.alignSelf && {
                   alignSelf: child.props.alignSelf,
                 })}
-                marginTop={i > 0 ? space : undefined}
-                maxWidth="full"
-                className="_stack-item"
-              >
-                {child}
-              </Box>
-            </React.Fragment>
-          )
-        })}
+                marginTop={marginTop}
+                width="full"
+              />
+            )}
+
+            <Box
+              {...(child.props.display && {display: child.props.display})}
+              {...(child.props.alignSelf && {
+                alignSelf: child.props.alignSelf,
+              })}
+              marginTop={i > 0 ? marginTop : undefined}
+              maxWidth="full"
+            >
+              {child}
+            </Box>
+          </React.Fragment>
+        )
+      })}
     </Box>
   )
+}
+
+function getSpace(space, display) {
+  if (Array.isArray(display) && !Array.isArray(space)) {
+    return display.map((token) => {
+      return token === 'none' ? 'none' : space
+    })
+  }
+
+  if (Array.isArray(display) && Array.isArray(space)) {
+    if (space.length > display.length) {
+      return space.map((token, i) => {
+        return display[i] === 'none' ? 'none' : token
+      })
+    }
+    return display.map((token, i) => {
+      return token === 'none' ? 'none' : space[i] || space[space.length - 1]
+    })
+  }
+
+  if (!Array.isArray(display) && Array.isArray(space)) {
+    return space.map((token, i) => {
+      return display === 'none' ? 'none' : token
+    })
+  }
+
+  if (display === 'none') {
+    return 'none'
+  }
+
+  return space
 }
 
 Stack.propTypes = {

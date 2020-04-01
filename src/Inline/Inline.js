@@ -1,7 +1,8 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {resolveResponsiveClassnames} from '../util'
+import {responsiveClassnames} from '../util'
+import {useTheme} from '../Provider'
 import Box from '../Box/Box'
 import VerticalDivider from '../VerticalDivider/VerticalDivider'
 
@@ -9,36 +10,28 @@ const Inline = ({
   space = 'gutter',
   spread,
   dividers,
-  collapseBelow,
   className,
   children,
   ...props
 }) => {
-  const classes = cx(
-    'u-inline',
-    resolveResponsiveClassnames('inline', spread ? 'none' : space, 'space'),
-    {
-      'u-inline--collapse-1': collapseBelow === 'tablet',
-      'u-inline--collapse-2': collapseBelow === 'desktop',
-    },
+  const theme = useTheme()
+
+  const classes = (value, label) =>
+    responsiveClassnames(theme ? theme.breakpoints : {}, value, label)
+
+  const allClassNames = cx(
+    classes(spread ? 'none' : space, 'inline'),
     className
   )
 
   return (
-    <Box
-      className={cx(
-        resolveResponsiveClassnames(
-          'inline',
-          spread ? 'none' : space,
-          'container'
-        )
-      )}
-    >
+    <Box className={classes(spread ? 'none' : space, 'inline-container')}>
       <Box
+        display="flex"
         align="center"
         justify="flex-start"
         wrap
-        className={classes}
+        className={allClassNames}
         {...props}
       >
         {React.Children.toArray(children)
@@ -46,10 +39,6 @@ const Inline = ({
           .map((child, i) => {
             return (
               <React.Fragment key={child.key + i}>
-                {dividers &&
-                  i !== 0 &&
-                  ((child.props && child.props.display !== 'none') ||
-                    !child.props) && <VerticalDivider alignSelf="stretch" />}
                 <Box
                   paddingLeft={spread ? 'none' : space}
                   paddingTop={spread ? 'none' : space}
@@ -77,10 +66,6 @@ Inline.propTypes = {
    * Renders child elements with equal flex grow. Overrides 'space' prop.
    */
   spread: t.bool,
-  /**
-   * Render a divider between elements
-   */
-  dividers: t.bool,
 }
 
 export default Inline

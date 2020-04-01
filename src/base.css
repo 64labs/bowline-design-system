@@ -3,7 +3,6 @@
 @import './styles/utils';
 @import './styles/text';
 
-@import './Columns/columns.css';
 @import './Button/button.css';
 @import './ContentBlock/content-block.css';
 @import './Inline/inline.css';

@@ -41,6 +41,23 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       return {...a, [b]: theme.spacing[b]}
     }, {})
 
+    const bps = Object.keys(theme.screens).map((bpName) => ({
+      name: bpName,
+      value: theme.screens[bpName],
+    }))
+
+    theme.breakpoints = [...bps].sort((a, b) => {
+      if (a.value < b.value) {
+        return -1
+      }
+      if (a.value > b.value) {
+        return 1
+      }
+      return 0
+    })
+
+    theme.lastBreakpointIndex = theme.breakpoints.length - 1
+
     result.messages.push({
       type: 'dependency',
       parent: root.source.input.file,

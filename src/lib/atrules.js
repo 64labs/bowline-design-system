@@ -11,15 +11,19 @@ export const resolveResponsiveAtRules = (config) => (css) => {
     atRule.before(atRule.nodes)
     atRule.remove()
   })
-  Object.keys(config.breakpoints).forEach((bpName) => {
+  config.breakpoints.forEach((bp) => {
     const mediaQueryAtRule = postcss.atRule({
       name: 'media',
-      params: `(min-width: ${config.breakpoints[bpName]}px)`,
+      params: `(min-width: ${bp.value}px)`,
     })
     const clonedRoot = responsiveRules.clone()
-    const regex = new RegExp('\\$__bp__', 'g')
     clonedRoot.walkRules((rule) => {
-      rule.selectors = [`${rule.selectors}\\:${bpName}`.replace(regex, bpName)]
+      rule.selectors = rule.selectors.map((sel) => {
+        if (/^\./.test(sel)) {
+          return sel.replace(/^\./, `.${bp.name}\\:`)
+        }
+        return sel
+      })
     })
     mediaQueryAtRule.append(clonedRoot)
     finalRules.push(mediaQueryAtRule)

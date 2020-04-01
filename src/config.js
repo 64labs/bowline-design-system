@@ -46,10 +46,10 @@ module.exports = {
 
   grid,
 
-  breakpoints: {
-    1: 480,
-    2: 960,
-    3: 1280,
+  screens: {
+    sm: 480,
+    md: 960,
+    lg: 1280,
   },
 
   contentWidth: {
@@ -93,51 +93,51 @@ module.exports = {
 
   textSizes: {
     xsmall: {
-      mobile: {
+      default: {
         size: 12,
         rows: 4,
       },
-      tablet: {
+      sm: {
         size: 12,
         rows: 4,
       },
     },
     small: {
-      mobile: {
+      default: {
         size: 14,
         rows: 5,
       },
-      tablet: {
+      sm: {
         size: 14,
         rows: 5,
       },
     },
     standard: {
-      mobile: {
+      default: {
         size: 16,
         rows: 6,
       },
-      tablet: {
+      sm: {
         size: 16,
         rows: 6,
       },
     },
     large: {
-      mobile: {
+      default: {
         size: 18,
         rows: 8,
       },
-      tablet: {
+      sm: {
         size: 18,
         rows: 8,
       },
     },
     xlarge: {
-      mobile: {
+      default: {
         size: 22,
         rows: 8,
       },
-      tablet: {
+      sm: {
         size: 22,
         rows: 8,
       },
@@ -146,55 +146,61 @@ module.exports = {
 
   headingSizes: {
     xsmall: {
-      mobile: {
+      default: {
         size: 14,
         rows: 5,
       },
-      tablet: {
+      sm: {
         size: 14,
         rows: 5,
       },
     },
     small: {
-      mobile: {
+      default: {
         size: 15,
         rows: 5,
       },
-      tablet: {
+      sm: {
         size: 15,
         rows: 5,
       },
     },
     standard: {
-      mobile: {
+      default: {
         size: 18,
         rows: 6,
       },
-      tablet: {
+      sm: {
         size: 21,
         rows: 6,
       },
     },
     large: {
-      mobile: {
+      default: {
         size: 21,
         rows: 7,
       },
-      tablet: {
+      sm: {
         size: 28,
         rows: 8,
       },
     },
     xlarge: {
-      mobile: {
+      default: {
         size: 22,
         rows: 7,
       },
-      tablet: {
+      sm: {
         size: 34,
         rows: 9,
       },
     },
+  },
+
+  letterSpacing: {
+    small: '0.025em',
+    medium: '0.05em',
+    large: '0.075em',
   },
 
   shadows: {
@@ -215,6 +221,21 @@ module.exports = {
       none: 0,
       standard: '1px solid',
       double: '2px solid',
+    },
+  },
+
+  components: {
+    Text: {
+      variants: {
+        heading: {
+          size: 'xlarge',
+          kerning: 'medium',
+          weight: 'strong',
+          transform: 'uppercase',
+          heading: true,
+          tone: 'brandAccent',
+        },
+      },
     },
   },
 }

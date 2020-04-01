@@ -60,7 +60,6 @@ const Button = React.forwardRef(
     }
 
     let paddingX = paddings[size].x
-    let paddingY = paddings[size].y
 
     const text = hasChildren && (
       <Text

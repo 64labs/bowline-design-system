@@ -26,37 +26,48 @@
   }
 }
 
-@each $mqs $label in $textSizes {
-  $mobile: map-get($mqs, mobile);
-  $tablet: map-get($mqs, tablet);
-
-  .text-#{$label} {
-    $size: map-get($mobile, size);
-    $rows: map-get($mobile, rows);
-    @include textAdjust($size, $rows, text);
+@each $v $k in $letterSpacing {
+  .kern-#{$k} {
+    letter-spacing: $v;
   }
-  @media (min-width: map-get($breakpoints, 1)px) {
-    .text-#{$label} {
-      $size: map-get($tablet, size);
-      $rows: map-get($tablet, rows);
-      @include textAdjust($size, $rows, text);
+}
+
+@each $mqs $label in $textSizes {
+  @each $s $v in $mqs {
+    @if $v == default {
+      .text-#{$label} {
+        $size: map-get($s, size);
+        $rows: map-get($s, rows);
+        @include textAdjust($size, $rows, text);
+      }
+    } @else {
+      @media (min-width: theme('screens.$v')px) {
+        .text-#{$label} {
+          $size: map-get($s, size);
+          $rows: map-get($s, rows);
+          @include textAdjust($size, $rows, text);
+        }
+      }
     }
   }
 }
 
 @each $mqs $label in $headingSizes {
-  $mobile: map-get($mqs, mobile);
-  $tablet: map-get($mqs, tablet);
-  .heading-#{$label} {
-    $size: map-get($mobile, size);
-    $rows: map-get($mobile, rows);
-    @include textAdjust($size, $rows, heading);
-  }
-  @media (min-width: map-get($breakpoints, 1)px) {
-    .heading-#{$label} {
-      $size: map-get($tablet, size);
-      $rows: map-get($tablet, rows);
-      @include textAdjust($size, $rows, heading);
+  @each $s $v in $mqs {
+    @if $v == default {
+      .heading-#{$label} {
+        $size: map-get($s, size);
+        $rows: map-get($s, rows);
+        @include textAdjust($size, $rows, heading);
+      }
+    } @else {
+      @media (min-width: theme('screens.$v')px) {
+        .heading-#{$label} {
+          $size: map-get($s, size);
+          $rows: map-get($s, rows);
+          @include textAdjust($size, $rows, heading);
+        }
+      }
     }
   }
 }

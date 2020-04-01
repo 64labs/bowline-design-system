@@ -2,70 +2,76 @@ import {useTheme} from '../Provider'
 import {useBackground} from '../util/BackgroundContext'
 import {responsiveClassnames} from '../util'
 
-const useBoxStyles = ({
-  as,
-  background,
-  boxShadow,
-  display,
-  flexDirection,
-  alignItems,
-  alignSelf,
-  justifyContent,
-  align,
-  justify,
-  flex,
-  flexGrow,
-  flexShrink,
-  flexBasis,
-  padding,
-  paddingTop,
-  paddingRight,
-  paddingBottom,
-  paddingLeft,
-  paddingX,
-  paddingY,
-  margin,
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
-  marginX,
-  marginY,
-  position,
-  top,
-  right,
-  bottom,
-  left,
-  size,
-  overflow,
-  overflowX,
-  overflowY,
-  minHeight,
-  height,
-  maxHeight,
-  minWidth,
-  width,
-  maxWidth,
-  flexWrap,
-  wrap,
-  gridTemplateColumns,
-  gridGap,
-  gridRowGap,
-  gridColumnGap,
-  gridColumn,
-  border,
-  borderTop,
-  borderRight,
-  borderBottom,
-  borderLeft,
-  borderColor,
-  borderRadius,
-}) => {
+const useBoxStyles = (properties) => {
+  const {
+    background,
+    boxShadow,
+    display,
+    flexDirection,
+    alignItems,
+    alignSelf,
+    justifyContent,
+    align,
+    justify,
+    flex,
+    flexGrow,
+    flexShrink,
+    flexBasis,
+    padding,
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
+    paddingX,
+    paddingY,
+    margin,
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+    marginX,
+    marginY,
+    position,
+    top,
+    right,
+    bottom,
+    left,
+    size,
+    overflow,
+    overflowX,
+    overflowY,
+    minHeight,
+    height,
+    maxHeight,
+    minWidth,
+    width,
+    maxWidth,
+    flexWrap,
+    wrap,
+    gridTemplateColumns,
+    gridGap,
+    gridRowGap,
+    gridColumnGap,
+    gridColumn,
+    border,
+    borderTop,
+    borderRight,
+    borderBottom,
+    borderLeft,
+    borderColor,
+    borderRadius,
+  } = properties.hover ? properties.hover : properties
+
   const theme = useTheme()
   const parentBackground = useBackground()
 
   const classes = (value, label) =>
-    responsiveClassnames(theme ? theme.breakpoints : {}, value, label)
+    responsiveClassnames(
+      theme ? theme.breakpoints : {},
+      value,
+      label,
+      properties.hover && 'hover'
+    )
 
   const resolvedPaddingTop = paddingTop || paddingY || padding
   const resolvedPaddingBottom = paddingBottom || paddingY || padding
@@ -160,7 +166,10 @@ const useBoxStyles = ({
         !background || background === 'transparent'
           ? parentBackground
           : background
-      }`]: boxShadow && (background || parentBackground),
+      }`]:
+        boxShadow &&
+        ((background && background !== 'transparent') ||
+          (parentBackground && parentBackground !== 'transparent')),
     },
   ]
 }

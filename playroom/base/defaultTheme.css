@@ -1,1 +1,17 @@
 @import '../../src/base.css';
+
+/* button hovers */
+
+.u-button {
+  &:hover {
+    &.bg-brand {
+      background-color: color(theme('backgroundColors.brand') l(25%));
+    }
+    &.bg-brandAccent {
+      background-color: color(theme('backgroundColors.brandAccent') l(42%));
+    }
+    &.bg-transparent {
+      background-color: color(theme('backgroundColors.subtle') l(90%));
+    }
+  }
+}

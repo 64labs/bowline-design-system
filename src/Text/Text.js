@@ -1,33 +1,26 @@
 import React from 'react'
 import t from 'prop-types'
-import * as types from '../types'
 import cx from 'classnames'
+import {useVariants} from '../Provider'
 import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
 
-const Text = ({
-  size = 'standard',
-  tone = 'neutral',
-  weight = 'regular',
-  align = 'left',
-  transform,
-  heading = false,
-  baseline = true,
-  block = false,
-  className,
-  ...props
-}) => {
+const Text = (props) => {
   const backgroundContext = useBackground()
 
-  if (process.env.NODE_ENV === 'development' && Object.keys(props).length > 0) {
-    Object.keys(props).forEach((prop) => {
-      if (prop.includes('padding') || prop.includes('margin')) {
-        console.warn(
-          `Warning: You've added ${prop} to a Text Component, this could cause issues with the component's baseline cropping`
-        )
-      }
-    })
-  }
+  const {
+    size = 'standard',
+    tone = 'neutral',
+    weight = 'regular',
+    align = 'left',
+    heading = false,
+    baseline = true,
+    block = false,
+    transform,
+    kerning,
+    className,
+    ...restProps
+  } = useVariants('Text', props)
 
   const background =
     backgroundContext && backgroundContext !== 'transparent'
@@ -41,6 +34,7 @@ const Text = ({
       'baseline-crop': baseline,
       'display-block': block,
       [`text-transform-${transform}`]: transform,
+      [`kern-${kerning}`]: kerning,
       [`tone-${tone}-on-${background}`]: background,
       [`tone-${tone}`]: tone,
       [`text-weight-${weight}`]: weight !== 'regular',
@@ -51,7 +45,17 @@ const Text = ({
     className
   )
 
-  return <Box className={classes} as="p" {...props} />
+  return <Box className={classes} as="p" {...restProps} />
+}
+
+Text.defaultProps = {
+  size: 'standard',
+  tone: 'neutral',
+  weight: 'regular',
+  align: 'left',
+  heading: false,
+  baseline: true,
+  block: false,
 }
 
 Text.propTypes = {
@@ -81,6 +85,10 @@ Text.propTypes = {
     'none',
     'inherit',
   ]),
+  /**
+   * [letterSpacing] Sets CSS letter-spacing
+   */
+  kerning: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
    * Use heading font styles
    */

@@ -1,68 +1,20 @@
-.u-inline {
-  display: flex;
+[class*='inline-container']:not([class*='inline-container-none']) {
+  padding-top: 1px;
+  &:before {
+    content: '';
+    display: block;
+  }
 }
 
-@each $bp $i in $breakpoints {
+@responsive {
   @each $value $space in $spacingNumbers {
-    @if $i == 1 {
-      .u-inline--container-#{$space}-0 {
-        padding-top: 1px;
-        &:before {
-          content: '';
-          display: block;
-          margin-top: calc(($value + 1) * -1px);
-        }
-      }
-      .u-inline--space-#{$space}-0 {
-        margin-left: -#{$value}px;
+    .inline-container-#{$space} {
+      &:before {
+        margin-top: calc(($value + 1) * -1px);
       }
     }
-
-    @media (min-width: #{$bp}px) {
-      .u-inline--container-#{$space}-#{$i} {
-        padding-top: 1px;
-        &:before {
-          content: '';
-          display: block;
-          margin-top: calc(($value + 1) * -1px);
-        }
-      }
-      .u-inline--space-#{$space}-#{$i} {
-        margin-left: -#{$value}px;
-      }
+    .inline-#{$space} {
+      margin-left: -#{$value}px;
     }
   }
-}
-
-@media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
-  .u-inline.u-inline--collapse-1 {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .u-inline.u-inline--collapse-2 {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-@media (min-width: calc(map-get($breakpoints, 1)px)) and (max-width: calc((map-get($breakpoints, 2) - 1))px) {
-  .u-inline.u-inline--collapse-1 {
-    flex-direction: row;
-  }
-  .u-inline.u-inline--collapse-2 {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-@media (min-width: calc(map-get($breakpoints, 2)px)) {
-  .u-inline.u-inline--collapse-1 {
-    flex-direction: row;
-  }
-  .u-inline.u-inline--collapse-2 {
-    flex-direction: row;
-  }
-}
-
-.u-inline__divider {
-  border-left: 1px solid map-get($backgroundColors, subtle);
-  min-height: 14px;
 }

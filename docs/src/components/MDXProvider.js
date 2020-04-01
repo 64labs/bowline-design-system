@@ -1,6 +1,12 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-import { Box, Inline, Text, Stack } from "@64labs/bowline-design-system"
+import {
+  Box,
+  Inline,
+  Text,
+  Stack,
+  Divider,
+} from "@64labs/bowline-design-system"
 import CodeBlock from "./code-block"
 import Showcase from "./Showcase"
 
@@ -11,6 +17,7 @@ const components = {
   Stack,
   Box,
   Inline,
+  Divider,
   Showcase,
   Info: props => (
     <Box

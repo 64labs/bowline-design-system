@@ -4,4 +4,56 @@ title: Inspiration
 
 # Inspiration
 
-...in progess
+Many of the ideas and features behind Bowline are inspired by and/or borrowed from some of our favorite open source projects.
+
+#### Tailwind CSS
+
+https://tailwindcss.com/
+
+Tailwind's approach to CSS relies on utility classes containing individual styling rules. It provides nearly every style you'd ever need, allowing you to quickly compose your UI from simple building blocks. With Bowline, we've built upon that same idea, using generated utility classes to provide granular styling to our own components.
+
+At the heart of Tailwind is a custom PostCSS plugin. It provides the ability to customize utility style values and generate new ones, all from a single theme configuration. It also enables several custom directives and functions that aid in authoring CSS. We borrowed heavily from this approach as it gave us the development experience we were after, with the confidence of PostCSS's robust and reliable CSS ecosystem.
+
+#### Braid Design System
+
+https://seek-oss.github.io/braid-design-system/
+
+The open-source work coming from the team at Seek has been major inspiration. In particular, their in-house design system, Braid, has helped inform our approach not just to design thinking, but also to how we bridge the gap between design and development. We recommend checking out our favorite industry meme king, [Mark Dalgleish](https://twitter.com/markdalgleish), as he walks us through his team's approach in his talk [Rethinking Design Practices](https://www.youtube.com/watch?v=jnV1u67_yVg) from ReactiveConf2019.
+
+#### Styled System
+
+https://styled-system.com/
+
+We love CSS-in-JS, which is why we love the work of [Brent Jackson](https://twitter.com/jxnblk). For many, Styled System's approach to styling in React was like an epiphany. With it, we were building solid, fully-responsive UIs faster than ever. It gave us the ability to quickly augment our components with a CSS-like prop API linked directly to a well-defined theme. Styling props were flexible, but constrained within a predictable system. It also introduced the idea of passing styling props as arrays that would be mapped automatically to your theme's breakpoints, which is something we've built heavily upon in Bowline.
+
+#### Theme UI
+
+https://theme-ui.com/
+
+Another project from Brent Jackson, Theme UI builds on the ideas behind Styled System by formalizing its theme-based approach with a proposed specification. It integrates with libraries like [styled-componnts](https://styled-components.com/) and [emotion](https://emotion.sh/docs/introduction), providing a special `sx` prop on any element or component for passing theme-aware styling props inline. While we absolutely love this approach and make use of it in some of our own projects, it comes with both setup and performance overhead that we didn't feel were in line with Bowline's goals. However, our theming implementation and configuration do borrow from Theme UI's broader ideas and patterns.
+
+#### Rebass
+
+https://rebassjs.org/
+
+Yet another great library from Brent Jackson, Rebass is collection of primitive React components built upon Styled System.
+
+#### Material-UI
+
+https://material-ui.com/
+
+#### Emotion
+
+https://emotion.sh/docs/introduction
+
+#### Linaria
+
+https://linaria.now.sh/
+
+#### Treat
+
+https://seek-oss.github.io/treat/
+
+#### Astroturf
+
+https://github.com/4Catalyzer/astroturf

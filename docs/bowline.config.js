@@ -48,10 +48,10 @@ module.exports = {
 
   grid,
 
-  breakpoints: {
-    1: 480,
-    2: 768,
-    3: 1024,
+  screens: {
+    sm: 480,
+    md: 960,
+    lg: 1280,
   },
 
   contentWidth: {
@@ -95,51 +95,51 @@ module.exports = {
 
   textSizes: {
     xsmall: {
-      mobile: {
+      default: {
         size: 12,
         rows: 4,
       },
-      tablet: {
+      sm: {
         size: 12,
         rows: 4,
       },
     },
     small: {
-      mobile: {
+      default: {
         size: 14,
         rows: 5,
       },
-      tablet: {
+      sm: {
         size: 14,
         rows: 5,
       },
     },
     standard: {
-      mobile: {
+      default: {
         size: 16,
         rows: 6,
       },
-      tablet: {
+      sm: {
         size: 16,
         rows: 6,
       },
     },
     large: {
-      mobile: {
+      default: {
         size: 18,
         rows: 7,
       },
-      tablet: {
+      sm: {
         size: 18,
         rows: 7,
       },
     },
     xlarge: {
-      mobile: {
+      default: {
         size: 20,
         rows: 8,
       },
-      tablet: {
+      sm: {
         size: 22,
         rows: 8,
       },
@@ -148,51 +148,51 @@ module.exports = {
 
   headingSizes: {
     xsmall: {
-      mobile: {
+      default: {
         size: 14,
         rows: 5,
       },
-      tablet: {
+      sm: {
         size: 14,
         rows: 5,
       },
     },
     small: {
-      mobile: {
+      default: {
         size: 16,
         rows: 5,
       },
-      tablet: {
+      sm: {
         size: 16,
         rows: 5,
       },
     },
     standard: {
-      mobile: {
+      default: {
         size: 23,
         rows: 6,
       },
-      tablet: {
+      sm: {
         size: 23,
         rows: 6,
       },
     },
     large: {
-      mobile: {
+      default: {
         size: 24,
         rows: 7,
       },
-      tablet: {
+      sm: {
         size: 28,
         rows: 9,
       },
     },
     xlarge: {
-      mobile: {
+      default: {
         size: 32,
         rows: 9,
       },
-      tablet: {
+      sm: {
         size: 34,
         rows: 9,
       },

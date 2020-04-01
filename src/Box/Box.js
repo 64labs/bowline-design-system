@@ -8,6 +8,7 @@ const Box = React.forwardRef(
   (
     {
       as = 'div',
+      hover,
       background,
       className,
       padding,
@@ -126,8 +127,10 @@ const Box = React.forwardRef(
       borderRadius,
     })
 
+    const hoverStyles = useBoxStyles({hover})
+
     const element = React.createElement(as, {
-      className: cx(boxStyles, className),
+      className: cx(boxStyles, hoverStyles, className),
       ref,
       ...props,
     })
