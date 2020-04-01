@@ -36,24 +36,36 @@ Another project from Brent Jackson, Theme UI builds on the ideas behind Styled S
 
 https://rebassjs.org/
 
-Yet another great library from Brent Jackson, Rebass is collection of primitive React components built upon Styled System.
+Yet another great library from Brent Jackson, Rebass is collection of primitive React components built upon Styled System. We really like the idea of using one or two 'primitive' components as building blocks for larger component systems. Bowline's Box component embraces this pattern, serving as the basis for all other components in our library.
 
 #### Material-UI
 
 https://material-ui.com/
 
+Material-UI is a UI library that implements Google's Material Design patterns in React. Its been consistently improved over the last few years and is one of the more popular UI solutions for React projects. Its approach to styling has changed somewhat between iterations, going from css preprocessors to more JS-centric solutions like JSS.
+
+While we have made use of it in our projects, we were mostly interested in the level of customization made possible by its theme implementation. Specifically, the ability to set default props and prop variants for its own components was something we wanted to allow for in Bowline. On the whole, Google's Material Design patterns continue to help guide our own conversations around interface design and usability.
+
 #### Emotion
 
 https://emotion.sh/docs/introduction
+
+Our favorite CSS-in-JS solution. Emotion has been the basis for many of our previous attempts at building a formalized component library. Emotion, like other CSS-in-JS solutions, allows you to write your styles both statically and _dynamically_. It's an extremely powerful approach to authoring CSS that comes with _some_ setup and runtime overhead. For many projects the tradeoff is well worth it. For much of our client work however, it was not. So while Bowline relies on statically written CSS with PostCSS, we still thought it was worth mentioning in this list as its been one of our favorite libraries of the last few years.
 
 #### Linaria
 
 https://linaria.now.sh/
 
-#### Treat
-
-https://seek-oss.github.io/treat/
+Zero-runtime CSS-in-JS. Linaria relies on CSS custom properties for its theming.
 
 #### Astroturf
 
 https://github.com/4Catalyzer/astroturf
+
+Another zero or near-zero runtime library for authoring themable CSS-in-JS.
+
+#### Treat
+
+https://seek-oss.github.io/treat/
+
+Also from the Seek OSS team, Treat is a library for authoring themable styles in JS with little or no runtime overhead.
