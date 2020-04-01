@@ -2,6 +2,8 @@
 title: Components
 ---
 
+import { Link } from "gatsby"
+
 # Components
 
 Get to know Bowline's React components.
@@ -11,31 +13,89 @@ Get to know Bowline's React components.
 - Straightforward layouts with Stack, Inline, and Columns
 - Auto-detected contrast ratio adapts text and other component styles to the current background color
 
+<Box />
+
 #### Primitives
 
-- [Box](/components/box)
-- [Text](/components/text)
+<Inline space="small" marginBottom="gutter">
+  {['Box','Stack'].map(item => (
+    <Box
+      as={Link}
+      to={`/components/${item.toLowerCase()}/`}
+      display="block"
+      boxShadow="borderStandard"
+      paddingY="gutter"
+      paddingX="large"
+      borderRadius="standard"
+    >
+      <Text weight="medium" tone="brand">
+        {item}
+      </Text>
+    </Box>
+  ))}
+</Inline>
 
 #### Layout
 
-- [Stack](/components/stack)
-- [Inline](/components/inline)
-- [Columns](/components/columns)
-- [Column](/components/column)
-- [ContentBlock](/components/contentblock)
-- [ScrollBox](/components/scrollbox)
-- [Divider](/components/scrollbdividerox)
-- [VerticalDivider](/components/verticaldivider)
+<Inline space="small" marginBottom="gutter">
+  {['Stack',
+    'Inline',
+    'Columns',
+    'Column',
+    'ContentBlock',
+    'ScrollBox',
+    'Divider',
+    'VerticalDivider'].map(item => (
+      <Box
+        as={Link}
+        to={`/components/${item.toLowerCase()}/`}
+        display="block"
+        boxShadow="borderStandard"
+        paddingY="gutter"
+        paddingX="large"
+        borderRadius="standard"
+      >
+        <Text weight="medium" tone="brand">
+          {item}
+        </Text>
+      </Box>
+    ))}
+</Inline>
 
 #### Interactive
 
-- [Button](/components/button)
-- [Checkbox](/components/checkbox)
-- [Input](/components/input)
-- [Radio](/components/radio)
-- [Select](/components/select)
-- [Textarea](/components/textarea)
+<Inline space="small" marginBottom="gutter">
+  {['Button', 'Checkbox', 'Input', 'Radio', 'Select', 'Textarea'].map(item => (
+    <Box
+      as={Link}
+      to={`/components/${item.toLowerCase()}/`}
+      display="block"
+      boxShadow="borderStandard"
+      paddingY="gutter"
+      paddingX="large"
+      borderRadius="standard"
+    >
+      <Text weight="medium" tone="brand">
+        {item}
+      </Text>
+    </Box>))}
+</Inline>
 
 #### Display
 
-- [Icon](/components/icon)
+<Inline space="small" marginBottom="gutter">
+  {['Icon'].map(item => (
+    <Box
+      as={Link}
+      to={`/components/${item.toLowerCase()}/`}
+      display="block"
+      boxShadow="borderStandard"
+      paddingY="gutter"
+      paddingX="large"
+      borderRadius="standard"
+    >
+      <Text weight="medium" tone="brand">
+        {item}
+      </Text>
+    </Box>))}
+</Inline>

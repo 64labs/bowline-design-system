@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import {
   Box,
@@ -18,6 +19,7 @@ const components = {
   Box,
   Inline,
   Divider,
+  Link,
   Showcase,
   Info: props => (
     <Box
