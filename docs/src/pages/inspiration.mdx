@@ -12,7 +12,7 @@ https://tailwindcss.com/
 
 Tailwind's approach to CSS relies on utility classes containing individual styling rules. It provides nearly every style you'd ever need, allowing you to quickly compose your UI from simple building blocks. With Bowline, we've built upon that same idea, using generated utility classes to provide granular styling to our own components.
 
-At the heart of Tailwind is a custom PostCSS plugin. It provides the ability to customize utility style values and generate new ones, all from a single theme configuration. It also enables several custom directives and functions that aid in authoring CSS. We borrowed heavily from this approach as it gave us the development experience we were after, with the confidence of PostCSS's robust and reliable CSS ecosystem.
+At the heart of Tailwind is a custom [PostCSS](https://postcss.org/) plugin. It provides the ability to customize utility style values and generate new ones, all from a single theme configuration. It also enables several custom directives and functions that aid in authoring CSS. We borrowed heavily from this approach as it gave us the development experience we were after, with the confidence of PostCSS's robust and reliable CSS ecosystem.
 
 #### Braid Design System
 
@@ -50,19 +50,21 @@ While we have made use of it in our projects, we were mostly interested in the l
 
 https://emotion.sh/docs/introduction
 
-Our favorite CSS-in-JS solution. Emotion has been the basis for many of our previous attempts at building a formalized component library. Emotion, like other CSS-in-JS solutions, allows you to write your styles both statically and _dynamically_. It's an extremely powerful approach to authoring CSS that comes with _some_ setup and runtime overhead. For many projects the tradeoff is well worth it. For much of our client work however, it was not. So while Bowline relies on statically written CSS with PostCSS, we still thought it was worth mentioning in this list as its been one of our favorite libraries of the last few years.
+Our favorite CSS-in-JS solution. Emotion has been the basis for many of our previous attempts at building a formalized component library. Emotion, like other CSS-in-JS solutions, allows you to write your styles both statically and _dynamically_, purely in Javascript. It's an extremely powerful approach to authoring CSS that comes with _some_ setup and runtime overhead. For many projects the tradeoff is well worth it. For much of our client work however, it was not. So while Bowline relies on statically written CSS with PostCSS, we still thought it was worth mentioning in this list as its been one of our favorite libraries of the last few years.
 
 #### Linaria
 
 https://linaria.now.sh/
 
-Zero-runtime CSS-in-JS. Linaria relies on CSS custom properties for its theming.
+Zero-runtime CSS-in-JS. Linaria relies on CSS custom properties for its theming, allowing for dynamic styling while still being entirely static. It also provides a 'styled-components'-like API for creating components with prop-driven CSS. We really like the approach, but CSS custom properties come with a few quirks and caveats of their own. Ultimately, we were mostly interested in the performance benefits of statically extracted CSS (who knew!?). Linaria served as a great example of what's possible.
 
 #### Astroturf
 
 https://github.com/4Catalyzer/astroturf
 
-Another zero or near-zero runtime library for authoring themable CSS-in-JS.
+Zero-runtime library for authoring static CSS in Javascript. Somewhat similar to Linaria, Astroturf is purely static. However, Astroturf extracts your CSS in JS and passes it through your existing CSS build pipeline. It's aim is more about the ergonomics of authoring CSS alongside JS components while maintaining a distinct seperation behind the scenes.
+
+Unlike Astroturf, Bowline's primary goal is not about _writing_ CSS. However, because they both rely on existing CSS tooling like [css-loader](https://webpack.js.org/loaders/css-loader/) and PostCSS, they could potentially be used together. This is something we're still interested in exploring so watch this space!
 
 #### Treat
 
