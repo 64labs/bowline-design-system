@@ -4,27 +4,9 @@ title: Introduction
 
 # Bowline Design System
 
-Bowline is a lightweight design system meant to accelerate the development of user interfaces with React. Its currently under active and caring development by the people at [64labs](https://www.64labs.com).
+Bowline is a lightweight, themable design system meant to accelerate the development of user interfaces with React. Its currently under active and caring development by the people at [64labs](https://www.64labs.com).
 
-## Basics
-
-At its core, Bowline is collection of React components backed by static CSS utility classes, with a PostCSS plugin that can be added to most existing CSS workflows.
-
-Styles are authored in plain CSS files using a SCSS-like syntax along with our own custom at-rule directives and functions. The resulting base stylesheet is compiled at build time against your own theme configuration.
-
-<Box />
-
-![Bowline CSS Pipeline](../images/postcss-theme-pipeline.png)
-
-## Components
-
-Bowline components implement a token-based styling prop API that maps to the global utility classes. The most foundational of these components is `Box`, with props that mirror common CSS properties. Components in the system all build upon Box – each employing its own higher-level styling API.
-
-<Box />
-
-![Bowline component flow](../images/high-low-level-components.png)
-
-## Goals
+## Guiding principles
 
 #### Accessibility
 
@@ -45,3 +27,7 @@ A pleasant and productive developer experience leads to better software. We shou
 #### Compatibility
 
 To create and maintain a design system that we can use across different projects, we must adapt to the technical requirements and limitations of each client's existing infrastructure and partner platforms.
+
+## How to get started
+
+To get started using Bowline, check out the [Getting started](/getting-started) guide. From there, take some time to explore the [components](/components) to get a sense of what's available. Finally, you'll want to check out Bowline's [Playroom](https://bowline-playroom.netlify.com) where you experiment, prototype, and collaborate with the system.

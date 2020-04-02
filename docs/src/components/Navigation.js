@@ -138,8 +138,13 @@ const Navigation = ({ onNavigate }) => {
     <Box paddingBottom="large">
       <Stack as="nav" space="none" dividers>
         <Box as="ul">
-          {["Introduction", "Getting started", "Inspiration"].map(page => {
-            const pagePath = `/${page.toLowerCase().replace(" ", "-")}/`
+          {[
+            "Introduction",
+            "Getting started",
+            "How it works",
+            "Inspiration",
+          ].map(page => {
+            const pagePath = `/${page.toLowerCase().replace(/ /g, "-")}/`
             return (
               <li key={pagePath}>
                 <Button

@@ -23,7 +23,8 @@ const components = {
   Showcase,
   Info: props => (
     <Box
-      padding="small"
+      paddingY="small"
+      paddingX="small"
       marginBottom={["small", "gutter"]}
       style={{
         background: "#fff5fb",
@@ -68,15 +69,19 @@ const components = {
     weight: "strong",
   }),
   p: textWithProps({ marginBottom: ["small", "small"] }),
-  a: props => (
-    <Text
-      as="a"
-      {...props}
-      baseline={false}
-      style={{ textDecoration: "underline" }}
-      tone="brandAccent"
-    />
-  ),
+  a: ({ href, ...restProps }) => {
+    const isExternalLink = /^http/.test(href)
+    const _props = { [isExternalLink ? "href" : "to"]: href, ...restProps }
+    return (
+      <Text
+        as={isExternalLink ? "a" : Link}
+        {..._props}
+        baseline={false}
+        style={{ textDecoration: "underline" }}
+        tone="brandAccent"
+      />
+    )
+  },
   ul: props => (
     <Box
       as="ul"
