@@ -71,9 +71,8 @@ const Box = React.forwardRef(
     ref
   ) => {
     const boxStyles = useBoxStyles({
-      as,
       background,
-      border,
+      className,
       padding,
       paddingTop,
       paddingRight,
@@ -108,7 +107,10 @@ const Box = React.forwardRef(
       size,
       minHeight,
       height,
+      maxHeight,
+      minWidth,
       width,
+      maxWidth,
       overflow,
       overflowX,
       overflowY,
@@ -119,6 +121,7 @@ const Box = React.forwardRef(
       gridRowGap,
       gridColumnGap,
       gridColumn,
+      border,
       borderTop,
       borderRight,
       borderBottom,

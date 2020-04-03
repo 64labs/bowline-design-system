@@ -4,7 +4,6 @@ import cx from 'classnames'
 import {responsiveClassnames} from '../util'
 import {useTheme} from '../Provider'
 import Box from '../Box/Box'
-import VerticalDivider from '../VerticalDivider/VerticalDivider'
 
 const Inline = ({
   space = 'gutter',

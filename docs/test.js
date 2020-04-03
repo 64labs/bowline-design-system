@@ -9,8 +9,8 @@ const css = `
 postcss([plugin])
   .process(css, { syntax: require("postcss-scss") })
   .then(result => {
-    // console.log(result.toString())
-    fs.writeFile("./test.css", result.css, () => true)
+    console.log(result.toString())
+    // fs.writeFile("./test.css", result.css, () => true)
     // if (result.map) {
     //   fs.writeFile("./test.css.map", result.map, () => true)
     // }

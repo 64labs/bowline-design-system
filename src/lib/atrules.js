@@ -53,13 +53,8 @@ export const resolveSpacingAtRules = (config) => (css) => {
 export const resolveMqAtRules = (config) => (css) => {
   css.walkAtRules('mq', (atRule) => {
     const screen = atRule.params
-
-    if (!_.has(theme.screens, screen)) {
-      throw atRule.error(`No \`${screen}\` screen found.`)
-    }
-
     atRule.name = 'media'
-    atRule.params = `(min-width: ${theme.screens[mq]}px)`
+    atRule.params = `(min-width: ${config.screens[screen]}px)`
   })
 }
 
@@ -79,8 +74,16 @@ export const resolveBowlineAtRules = ({coreStyles}) => (css) => {
       const nodes = postcss.root({nodes: coreStyles})
       const bowlineCssPath = path.resolve(__dirname, 'bowline.css')
       const bowlineCss = fs.readFileSync(bowlineCssPath)
+      const bowlineParsedStyles = postcss.parse(
+        `@components {
+          ${bowlineCss.toString()}
+        }`,
+        {
+          from: bowlineCssPath,
+        }
+      )
 
-      nodes.append(postcss.parse(bowlineCss, {from: bowlineCssPath}))
+      nodes.append(bowlineParsedStyles)
 
       nodes.walk((node) => {
         node.source = atRule.source
@@ -91,4 +94,17 @@ export const resolveBowlineAtRules = ({coreStyles}) => (css) => {
       atRule.remove()
     }
   })
+}
+
+export const resolveComponentAtRules = () => (css) => {
+  const componentRules = postcss.root()
+  const finalRules = []
+  css.walkAtRules('components', (atRule) => {
+    atRule.nodes.forEach((node) => {
+      const clonedNode = node.clone()
+      componentRules.append(clonedNode)
+    })
+    atRule.remove()
+  })
+  css.append(componentRules)
 }

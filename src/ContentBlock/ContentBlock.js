@@ -1,18 +1,17 @@
 import React from 'react'
 import t from 'prop-types'
+import cx from 'classnames'
+import {responsiveClassnames} from '../util/index'
 import {useTheme} from '../Provider'
 import Box from '../Box/Box'
 
-const ContentBlock = ({width = 'large', ...props}) => {
-  const {contentWidth} = useTheme()
-  return (
-    <Box
-      paddingX="gutter"
-      marginX="auto"
-      maxWidth={contentWidth[width]}
-      {...props}
-    />
+const ContentBlock = ({width = 'large', className, ...props}) => {
+  const theme = useTheme()
+  const classes = cx(
+    responsiveClassnames(theme.breakpoints, width, 'content-width'),
+    className
   )
+  return <Box className={classes} paddingX="gutter" marginX="auto" {...props} />
 }
 
 ContentBlock.propTypes = {

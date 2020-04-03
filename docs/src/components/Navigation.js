@@ -39,8 +39,9 @@ const Section = ({
           background="transparent"
         >
           <Text
-            as="span"
+            as="div"
             size="small"
+            baseline={false}
             weight={pathname.includes(sectionPath) ? "medium" : "regular"}
             tone={pathname.includes(sectionPath) ? "brandAccent" : "neutral"}
           >
@@ -78,8 +79,9 @@ const Section = ({
                   onClick={onNavigate}
                 >
                   <Text
-                    as="span"
+                    as="div"
                     size="small"
+                    baseline={false}
                     weight={pathname === pg.path ? "medium" : "regular"}
                     tone={pathname === pg.path ? "brandAccent" : "neutral"}
                   >
@@ -159,8 +161,9 @@ const Navigation = ({ onNavigate }) => {
                   onClick={onNavigate}
                 >
                   <Text
-                    as="span"
+                    as="div"
                     size="small"
+                    baseline={false}
                     weight={pathname === pagePath ? "medium" : "regular"}
                     tone={pathname === pagePath ? "brandAccent" : "neutral"}
                   >

@@ -123,11 +123,11 @@ module.exports = {
     large: {
       default: {
         size: 18,
-        rows: 8,
+        rows: 7,
       },
       sm: {
         size: 18,
-        rows: 8,
+        rows: 7,
       },
     },
     xlarge: {

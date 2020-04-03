@@ -24,6 +24,7 @@ import boxShadow from './plugins/boxShadow'
 import fontFamily from './plugins/fontFamily'
 import fontSize from './plugins/fontSize'
 import fontWeight from './plugins/fontWeight'
+import letterSpacing from './plugins/letterSpacing'
 import textAlign from './plugins/textAlign'
 import textTransform from './plugins/textTransform'
 import components from './plugins/components'
@@ -47,6 +48,7 @@ const plugins = [
   fontSize('text'),
   fontSize('heading'),
   fontWeight(),
+  letterSpacing(),
   textAlign(),
   textTransform(),
   components(),
@@ -61,6 +63,8 @@ const initPlugin = (root, theme, plugin) => {
 
   let result = styles
 
+  let atRules = {}
+
   if (pluginResult.variants && pluginResult.variants.includes('responsive')) {
     const rules = styles.nodes
     const clonedRules = (Array.isArray(rules) ? rules : [rules]).map((node) =>
@@ -69,11 +73,24 @@ const initPlugin = (root, theme, plugin) => {
     result = postcss.atRule({name: 'responsive'}).append(clonedRules)
   }
 
-  // result.walkRules((rule) => {
-  //   rule.selector = prefixSelectors('bwln_', rule.selector)
-  // })
+  const r = result.clone()
 
-  root.append(result)
+  r.walkAtRules('media', (atRule) => {
+    atRule.remove()
+    addToAtRules(atRule, atRules)
+  })
+
+  Object.keys(atRules).forEach((key) => {
+    r.append(atRules[key])
+  })
+
+  if (theme.prefix) {
+    r.walkRules((rule) => {
+      rule.selector = prefixSelectors(theme.prefix, rule.selector)
+    })
+  }
+
+  root.append(r)
 }
 
 export default ({theme}) => {
@@ -102,4 +119,17 @@ function prefixSelectors(prefix, selector) {
       classSelector.value = `${prefix}${classSelector.value}`
     })
   }).processSync(selector)
+}
+
+function addToAtRules(atRule, atRules) {
+  const key = atRule.params
+
+  if (!atRules[key]) {
+    atRules[key] = postcss.atRule({name: atRule.name, params: atRule.params})
+  }
+  atRule.nodes.forEach((node) => {
+    atRules[key].append(node.clone())
+  })
+
+  atRule.remove()
 }

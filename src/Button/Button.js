@@ -107,9 +107,6 @@ const Button = React.forwardRef(
         background={props.background || bg(weight)}
         className={classes}
         width={props.width || (iconOnly ? getIconSize(size) : 'full')}
-        height={
-          props.height || (iconOnly ? getIconSize(size) : getHeight(size))
-        }
         type="button"
         {...props}
       >
@@ -118,6 +115,9 @@ const Button = React.forwardRef(
           display="flex"
           align="center"
           justify={innerJustify ? 'space-between' : 'center'}
+          height={
+            props.height || (iconOnly ? getIconSize(size) : getHeight(size))
+          }
         >
           {icon && (
             <Icon

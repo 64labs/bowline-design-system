@@ -4,7 +4,6 @@ import postcss from 'postcss'
 import nesting from 'postcss-nesting'
 import functions from 'postcss-functions'
 import colorFunctions from 'postcss-color-function'
-import cssnano from 'cssnano'
 import get from 'lodash.get'
 import * as atRules from './lib/atrules'
 import core from './lib/core'
@@ -61,6 +60,7 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       atRules.resolveMqAtRules(theme),
       atRules.resolveSpacingAtRules(theme),
       atRules.resolveResponsiveAtRules(theme),
+      atRules.resolveComponentAtRules(theme),
 
       functions({
         functions: {
@@ -76,9 +76,6 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       }),
       colorFunctions(),
       nesting(),
-      cssnano({
-        preset: 'default',
-      }),
     ]
 
     return initializedPlugins.reduce(
