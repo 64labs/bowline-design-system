@@ -1,6 +1,5 @@
 import React from 'react'
 import Box from '../Box/Box'
-import './placeholder.css'
 
 const Placeholder = ({height, width, text, ...props}) => {
   return (
@@ -9,7 +8,12 @@ const Placeholder = ({height, width, text, ...props}) => {
       background="subtle"
       justify="center"
       {...props}
-      style={{width, height, padding: '0 12px'}}
+      style={{
+        width,
+        height,
+        padding: '0 12px',
+        backgroundImage: `repeating-linear-gradient(135deg,#eeeeee,#eeeeee 5px,#e3e3e3 5px,#e3e3e3 10px)`,
+      }}
     >
       {text}
     </Box>

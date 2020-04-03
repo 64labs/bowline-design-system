@@ -1,11 +1,3 @@
-@import './styles/mixins';
-@import './styles/color';
-@import './styles/utils';
-@import './styles/text';
-
-@import './Button/button.css';
-@import './ContentBlock/content-block.css';
-@import './Inline/inline.css';
 @import './Swatch/swatch.css';
 @import './Icon/icon.css';
 @import './Image/image.css';

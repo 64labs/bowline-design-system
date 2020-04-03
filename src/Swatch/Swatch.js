@@ -12,17 +12,24 @@ const Swatch = ({
   children,
   ...props
 }) => {
-  const classes = cx('u-swatch', {'u-swatch--selected': selected}, className)
+  const classes = cx({'swatch-selected': selected}, className)
 
   return (
     <Box
       className={classes}
       role="button"
+      padding={!selected ? 'nudge2' : 'nudge1'}
+      border={!selected ? 'standard' : undefined}
+      borderColor={!selected ? 'subtle' : undefined}
+      position="relative"
       aria-label={name}
       size={size}
+      borderRadius="half"
       {...props}
     >
-      <Box className="u-swatch__inner">{children}</Box>
+      <Box className="u-swatch__inner" overflow="hidden" borderRadius="half">
+        {children}
+      </Box>
     </Box>
   )
 }

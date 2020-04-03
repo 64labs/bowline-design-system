@@ -20,7 +20,7 @@ const ThemeViewer = () => {
         </Text>
 
         <Columns cols={[1, 2]}>
-          {Object.keys(theme.foregroundColors).map(colorName => (
+          {Object.keys(theme.colors.foreground).map(colorName => (
             <Box key={`fg-${colorName}`} align="center">
               <Inline space="small">
                 <Box size="xxlarge" background={colorName} />
@@ -39,7 +39,7 @@ const ThemeViewer = () => {
         </Text>
 
         <Columns cols={[1, 2]}>
-          {Object.keys(theme.backgroundColors).map(colorName => (
+          {Object.keys(theme.colors.background).map(colorName => (
             <Box key={`fg-${colorName}`} align="center">
               <Inline space="small">
                 <Box size="xxlarge" background={colorName} />

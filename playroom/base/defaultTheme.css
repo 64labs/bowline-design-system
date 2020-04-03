@@ -1,8 +1,7 @@
-@import '../../src/base.css';
+@bowline base;
 
 /* button hovers */
-
-.u-button {
+/* .u-button {
   &:hover {
     &.bg-brand {
       background-color: color(theme('backgroundColors.brand') l(25%));
@@ -14,4 +13,4 @@
       background-color: color(theme('backgroundColors.subtle') l(90%));
     }
   }
-}
+} */

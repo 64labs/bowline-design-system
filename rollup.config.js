@@ -32,7 +32,7 @@ const mainConfig = {
       modules: false,
       syntax: 'postcss-scss',
       plugins: [cssImports()],
-      extract: 'dist/base.css',
+      extract: 'dist/bowline.css',
     }),
     url(),
     babel({

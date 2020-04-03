@@ -6,7 +6,6 @@ const Provider = ctx.Provider
 
 export const ThemeProvider = ({value, ...props}) => {
   const breakpoints = useMemo(() => {
-    console.log('MEMOMOMO')
     if (!value || !value.screens) {
       return []
     }

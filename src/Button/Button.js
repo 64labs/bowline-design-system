@@ -4,7 +4,6 @@ import cx from 'classnames'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
-import './button.css'
 
 const bg = (weight) => {
   switch (weight) {
@@ -15,6 +14,22 @@ const bg = (weight) => {
     default:
       return 'transparent'
   }
+}
+
+const getIconSize = (size) => {
+  return {
+    small: 'largeish',
+    regular: 'largeish',
+    large: 'xxlarge',
+  }[size]
+}
+
+const getHeight = (size) => {
+  return {
+    small: 'largeish',
+    regular: 'xlarge',
+    large: 'xxlarge',
+  }[size]
 }
 
 const Button = React.forwardRef(
@@ -91,6 +106,10 @@ const Button = React.forwardRef(
         }
         background={props.background || bg(weight)}
         className={classes}
+        width={props.width || (iconOnly ? getIconSize(size) : 'full')}
+        height={
+          props.height || (iconOnly ? getIconSize(size) : getHeight(size))
+        }
         type="button"
         {...props}
       >

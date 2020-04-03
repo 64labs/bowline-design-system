@@ -1,3 +1,5 @@
+const path = require('path')
+const fs = require('fs')
 const postcss = require('postcss')
 
 export const resolveResponsiveAtRules = (config) => (css) => {
@@ -45,5 +47,48 @@ export const resolveSpacingAtRules = (config) => (css) => {
       })
     })
     atRule.remove()
+  })
+}
+
+export const resolveMqAtRules = (config) => (css) => {
+  css.walkAtRules('mq', (atRule) => {
+    const screen = atRule.params
+
+    if (!_.has(theme.screens, screen)) {
+      throw atRule.error(`No \`${screen}\` screen found.`)
+    }
+
+    atRule.name = 'media'
+    atRule.params = `(min-width: ${theme.screens[mq]}px)`
+  })
+}
+
+export const resolveBowlineAtRules = ({coreStyles}) => (css) => {
+  css.walkAtRules('import', (atRule) => {
+    if (
+      atRule.params === '"bowline/base"' ||
+      atRule.params === "'bowline/base'"
+    ) {
+      atRule.name = 'bowline'
+      atRule.params = 'base'
+    }
+  })
+
+  css.walkAtRules('bowline', (atRule) => {
+    if (atRule.params === 'base') {
+      const nodes = postcss.root({nodes: coreStyles})
+      const bowlineCssPath = path.resolve(__dirname, 'bowline.css')
+      const bowlineCss = fs.readFileSync(bowlineCssPath)
+
+      nodes.append(postcss.parse(bowlineCss, {from: bowlineCssPath}))
+
+      nodes.walk((node) => {
+        node.source = atRule.source
+      })
+
+      atRule.before(nodes)
+
+      atRule.remove()
+    }
   })
 }

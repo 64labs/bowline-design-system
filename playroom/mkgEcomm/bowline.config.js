@@ -58,7 +58,7 @@ module.exports = {
     max: 1280,
   },
 
-  'font-scale': {
+  fontScale: {
     text: {
       descenderHeightScale: 0.1122,
       capHeight: 0.75,
@@ -88,8 +88,6 @@ module.exports = {
   },
 
   colors,
-  foregroundColors: colors.foreground,
-  backgroundColors: colors.background,
 
   textSizes: {
     xsmall: {
@@ -210,6 +208,7 @@ module.exports = {
       standard: '3px',
       medium: '6px',
       large: '9px',
+      half: '50%',
     },
     style: {
       none: 0,
