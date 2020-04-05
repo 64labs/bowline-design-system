@@ -20,7 +20,7 @@ const bg = (weight) => {
 const getIconSize = (size) => {
   return {
     small: 'largeish',
-    regular: 'largeish',
+    regular: 'xlarge',
     large: 'xxlarge',
   }[size]
 }
@@ -36,29 +36,19 @@ const getHeight = (size) => {
 const Button = React.forwardRef((_props, ref) => {
   const {
     className,
-    weight = 'regular',
-    size = 'regular',
+    weight,
+    size,
     icon,
     iconRight,
-    iconSize = 'small',
-    innerJustify = false,
-    loading = false,
+    iconSize,
+    innerJustify,
+    loading,
     children,
     ...props
   } = useVariants('Button', _props)
 
   const hasChildren = React.Children.count(children) > 0
   const iconOnly = !hasChildren && (icon || iconRight)
-
-  const classes = cx(
-    'u-button',
-    `u-button--weight-${weight}`,
-    {
-      [`u-button--size-${size}`]: size,
-      [`u-button--icon-only`]: iconOnly,
-    },
-    className
-  )
 
   const paddings = {
     xsmall: {x: 'small', y: 'xxsmall'},
@@ -67,7 +57,6 @@ const Button = React.forwardRef((_props, ref) => {
     large: {x: 'medium', y: 'small'},
   }
   const fontSizes = {
-    xsmall: 'small',
     small: 'small',
     regular: 'standard',
     large: 'large',
@@ -77,7 +66,6 @@ const Button = React.forwardRef((_props, ref) => {
 
   const text = hasChildren && (
     <Text
-      className="u-button__text"
       as="div"
       baseline={true}
       size={fontSizes[size]}
@@ -94,6 +82,7 @@ const Button = React.forwardRef((_props, ref) => {
 
   return (
     <Box
+      className={className}
       ref={ref}
       as="button"
       display={props.display || 'block'}
@@ -105,7 +94,6 @@ const Button = React.forwardRef((_props, ref) => {
         props.boxShadow || (weight === 'weak' ? 'borderStandard' : undefined)
       }
       background={props.background || bg(weight)}
-      className={classes}
       width={props.width || (iconOnly ? getIconSize(size) : 'full')}
       type="button"
       {...props}
