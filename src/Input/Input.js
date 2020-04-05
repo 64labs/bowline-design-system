@@ -4,7 +4,7 @@ import cx from 'classnames'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
 import FieldMessage from '../FieldMessage/FieldMessage'
-import styles from './Input.module.css'
+import styles from './input.module.css'
 
 const Input = ({
   label,

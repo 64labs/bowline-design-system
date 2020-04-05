@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import styles from './Swatch.module.css'
+import styles from './swatch.module.css'
 
 const Swatch = ({
   name,
