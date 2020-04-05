@@ -1,4 +1,4 @@
-.swatch-selected:after {
+.selected:after {
   content: '';
   position: absolute;
   top: 0px;

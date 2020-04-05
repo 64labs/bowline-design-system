@@ -1,4 +1,4 @@
-.u-input {
+.input {
   position: relative;
   font-weight: theme('fontWeights.regular');
 
@@ -14,7 +14,7 @@
     }
   }
 
-  &.u-input--empty:not(.u-input--outline) {
+  &.empty:not(.outline) {
     & label {
       font-size: 16px;
       & span {
@@ -45,7 +45,7 @@
     border-bottom-style: solid;
     border-color: #e1e1e1;
 
-    &.focus-visible {
+    &:global(.focus-visible) {
       outline: none;
       border-color: theme('colors.background.formAccent');
     }
@@ -56,7 +56,7 @@
     padding-right: theme('spacing.medium')px;
   }
 
-  & .u-input--select__chevron {
+  & .chevron {
     position: absolute;
     top: 12px;
     right: 0px;
@@ -64,7 +64,7 @@
     z-index: 2;
   }
 
-  &.u-input--outline {
+  &.outline {
     /* prettier-ignore */
     & label {
       margin-bottom: theme('spacing.xsmall')px;
@@ -75,7 +75,7 @@
       padding: 7px 10px;
       border: 1px solid #e1e1e1;
       border-radius: theme('border.radius.standard');
-      &.focus-visible {
+      &:global(.focus-visible) {
         box-shadow: 0 0 0 3px
           color(theme('colors.background.formAccent') a(40%));
       }
@@ -85,16 +85,16 @@
       border-radius: theme('border.radius.standard');
       padding: 7px theme('spacing.large')px 7px 10px;
       border: 1px solid #e1e1e1;
-      &.focus-visible {
+       &:global(.focus-visible){
         box-shadow: 0 0 0 3px color(theme('colors.background.formAccent') a(40%));
       }
     }
-    & .u-input--select__chevron {
+    & .chevron {
       right: 10px;
     }
   }
 
-  &.u-input--tone-critical {
+  &.critical {
     & input,
     & select {
       &:not(:focus) {

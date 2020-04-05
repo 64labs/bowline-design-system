@@ -4,6 +4,7 @@ import Box from '../Box/Box'
 import FieldMessage from '../FieldMessage/FieldMessage'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
+import styles from '../Input/input.module.css'
 
 const Select = ({
   label,
@@ -40,11 +41,15 @@ const Select = ({
 
   return (
     <Box
-      className={cx('u-input', 'u-input--select', className, {
-        'u-input--empty': isEmpty || props.value === '',
-        'u-input--outline': outline,
-        [`u-input--tone-${tone}`]: tone,
-      })}
+      className={cx(
+        styles.input,
+        {
+          [styles.empty]: isEmpty || props.value === '',
+          [styles.outline]: outline,
+          [styles[tone]]: tone,
+        },
+        className
+      )}
     >
       <Text
         as="label"
@@ -65,11 +70,7 @@ const Select = ({
           {children}
         </select>
 
-        <Icon
-          name="chevron-down"
-          size="small"
-          className="u-input--select__chevron"
-        />
+        <Icon name="chevron-down" size="small" className={styles.chevron} />
       </Box>
 
       {message && (

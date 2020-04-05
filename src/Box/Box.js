@@ -133,7 +133,7 @@ const Box = React.forwardRef(
     const hoverStyles = useBoxStyles({hover})
 
     const element = React.createElement(as, {
-      className: cx(boxStyles, hoverStyles, className),
+      className: cx('__bl', boxStyles, hoverStyles, className),
       ref,
       ...props,
     })

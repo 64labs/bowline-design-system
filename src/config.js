@@ -224,15 +224,10 @@ module.exports = {
   },
 
   components: {
-    Text: {
+    Button: {
       variants: {
-        heading: {
-          size: 'xlarge',
-          kerning: 'medium',
-          weight: 'strong',
-          transform: 'uppercase',
-          heading: true,
-          tone: 'brandAccent',
+        example: {
+          weight: 'weak',
         },
       },
     },
