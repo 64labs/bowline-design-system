@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {useColumns} from '../util/ColumnsContext'
+import {useColumns} from '../../util/ColumnsContext'
 import Box from '../Box/Box'
 
 const Column = ({span = 1, className, children, ...props}) => {

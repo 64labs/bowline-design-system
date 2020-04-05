@@ -1,6 +1,5 @@
 import React, {useState, useCallback, useEffect} from 'react'
 import t from 'prop-types'
-import * as types from '../types'
 import cx from 'classnames'
 import Box from '../Box/Box'
 import Text from '../Text/Text'

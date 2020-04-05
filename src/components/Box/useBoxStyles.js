@@ -1,6 +1,6 @@
 import {useTheme} from '../Provider'
-import {useBackground} from '../util/BackgroundContext'
-import {responsiveClassnames} from '../util'
+import {useBackground} from '../../util/BackgroundContext'
+import {responsiveClassnames} from '../../util'
 
 const useBoxStyles = (properties) => {
   const {

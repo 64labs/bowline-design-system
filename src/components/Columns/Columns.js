@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {renderColumnsProvider} from '../util/ColumnsContext'
+import {renderColumnsProvider} from '../../util/ColumnsContext'
 import Box from '../Box/Box'
 
 const Columns = React.forwardRef(

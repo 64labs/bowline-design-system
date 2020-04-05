@@ -1,8 +1,8 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {responsiveClassnames} from '../util/index'
-import {useTheme} from '../Provider'
+import {responsiveClassnames} from '../../util'
+import {useTheme} from '../../Provider'
 import Box from '../Box/Box'
 
 const ContentBlock = ({width = 'large', className, ...props}) => {

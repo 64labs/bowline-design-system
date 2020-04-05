@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import t from 'prop-types'
 import Box from '../Box/Box'
 

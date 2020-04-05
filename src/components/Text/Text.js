@@ -1,8 +1,8 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {useVariants} from '../Provider'
-import {useBackground} from '../util/BackgroundContext'
+import {useVariants} from '../../Provider'
+import {useBackground} from '../../util/BackgroundContext'
 import Box from '../Box/Box'
 
 const Text = (props) => {

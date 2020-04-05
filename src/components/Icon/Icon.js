@@ -1,8 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
-import * as types from '../types'
 import classNames from 'classnames'
-import {useBackground} from '../util/BackgroundContext'
+import {useBackground} from '../../util/BackgroundContext'
 import Box from '../Box/Box'
 import styles from './icon.module.css'
 

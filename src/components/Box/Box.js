@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {renderBackgroundProvider} from '../util/BackgroundContext'
+import {renderBackgroundProvider} from '../../util/BackgroundContext'
 import useBoxStyles from './useBoxStyles'
 
 const Box = React.forwardRef(

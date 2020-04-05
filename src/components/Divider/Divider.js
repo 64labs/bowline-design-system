@@ -1,6 +1,5 @@
 import React from 'react'
 import t from 'prop-types'
-import cx from 'classnames'
 import Box from '../Box/Box'
 
 const Divider = ({tone = 'subtle', className, ...props}) => {
