@@ -3,12 +3,12 @@
   but it will still show up on keyboard focus.
 */
 /* prettier-ignore */
-.js-focus-visible :focus:not(.focus-visible) {
+:global(.js-focus-visible :focus:not(.focus-visible)) {
   outline: none;
 }
 
 /* global reset utility class */
-.__bl {
+:global(.__bl) {
   margin: 0;
   padding: 0;
   border: 0;

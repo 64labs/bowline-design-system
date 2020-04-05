@@ -1,4 +1,4 @@
-import {useTheme} from '../Provider'
+import {useTheme} from '../../Provider'
 import {useBackground} from '../../util/BackgroundContext'
 import {responsiveClassnames} from '../../util'
 
