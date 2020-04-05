@@ -4,7 +4,7 @@ import * as types from '../types'
 import classNames from 'classnames'
 import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
-import styles from './Icon.module.css'
+import styles from './icon.module.css'
 
 const Icon = ({
   name,
