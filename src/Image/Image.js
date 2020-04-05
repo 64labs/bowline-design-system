@@ -99,12 +99,23 @@ const Image = ({
   return (
     <animated.div style={style}>
       <Box
-        className="u-image"
+        position="relative"
+        overflow="hidden"
         ref={viewRef}
         style={{paddingTop: `${aspectRatio}%`}}
         {...props}
       >
-        <img
+        <Box
+          as="img"
+          display="block"
+          position="absolute"
+          top="0"
+          right="0"
+          bottom="0"
+          left="0"
+          width="full"
+          height="full"
+          maxWidth="full"
           ref={imageRef}
           alt={alt || ''}
           src={!lazy || inView ? src : undefined}

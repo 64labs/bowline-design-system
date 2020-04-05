@@ -1,7 +1,0 @@
-@responsive {
-  @each $width $size in $contentWidth {
-    .u-content-block--#{$size} {
-      max-width: #{$width}px;
-    }
-  }
-}

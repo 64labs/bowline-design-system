@@ -1,0 +1,20 @@
+/*
+  This will hide the focus indicator if the element receives focus via the mouse,
+  but it will still show up on keyboard focus.
+*/
+/* prettier-ignore */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* global reset utility class */
+.__bl {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-tap-highlight-color: transparent;
+}

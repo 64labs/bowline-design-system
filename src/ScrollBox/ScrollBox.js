@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
-import cx from 'classnames'
 import Box from '../Box/Box'
+import styles from './scrollbox.module.css'
 
 const ScrollBox = ({
   className,
@@ -10,14 +10,12 @@ const ScrollBox = ({
   children,
   ...props
 }) => {
-  const classes = cx('u-scrollbox', className)
-
   return (
     <Box
       width="full"
       position="relative"
       overflow="hidden"
-      className={classes}
+      className={className}
       {...props}
     >
       <Box
@@ -25,7 +23,7 @@ const ScrollBox = ({
         width="full"
         overflowX={scrollX ? 'scroll' : undefined}
         overflowY={scrollY ? 'scroll' : undefined}
-        className="u-scrollbox__wrapper"
+        className={styles.scrollboxInner}
       >
         <Box height="full">{children}</Box>
       </Box>

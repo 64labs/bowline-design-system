@@ -1,4 +1,4 @@
-import './base.css'
+import './bowline.css'
 
 export {default as Box} from './Box/Box'
 export {default as Text} from './Text/Text'

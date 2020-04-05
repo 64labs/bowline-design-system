@@ -1,4 +1,4 @@
-@import "@64labs/bowline-design-system/base.css";
+@bowline base;
 @import url("https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap");
 
 html {

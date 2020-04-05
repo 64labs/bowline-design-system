@@ -1,7 +1,6 @@
-.u-scrollbox__wrapper {
-  -ms-overflow-style: none; /* IE */
+.scrollboxInner {
+  -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
-
   &::-webkit-scrollbar {
     display: none;
   }

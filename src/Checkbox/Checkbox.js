@@ -2,9 +2,9 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import Inline from '../Inline/Inline'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
+import styles from './checkbox.module.css'
 
 const Checkbox = ({
   label,
@@ -17,9 +17,12 @@ const Checkbox = ({
   return (
     <Box
       className={cx(
-        'u-input--checkbox',
-        `u-input--checkbox--${size}`,
-        {'u-input--disabled': props.disabled, [`u-input--tone-${tone}`]: tone},
+        styles.checkbox,
+        styles[`checkbox-${size}`],
+        {
+          [styles.disabled]: props.disabled,
+          [styles[tone]]: tone,
+        },
         className
       )}
       {...wrapperProps}
@@ -36,11 +39,7 @@ const Checkbox = ({
             type="checkbox"
             {...props}
           />
-          <Icon
-            name="check"
-            className="u-input--checkbox__check"
-            size="small"
-          />
+          <Icon name="check" className={styles.checkIcon} size="small" />
         </Box>
 
         <Text>{label}</Text>

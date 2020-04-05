@@ -29,10 +29,13 @@ const mainConfig = {
     external(),
     json(),
     postcss({
-      modules: false,
+      modules: {
+        generateScopedName: '[emoji]-[hash:base64:5]',
+        hashPrefix: 'prefix',
+      },
       syntax: 'postcss-scss',
       plugins: [cssImports()],
-      extract: 'dist/base.css',
+      extract: 'dist/bowline.css',
     }),
     url(),
     babel({

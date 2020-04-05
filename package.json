@@ -70,7 +70,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "cssnano": "^4.1.10",
     "get-contrast": "^2.0.0",
+    "lodash.flatmap": "^4.5.0",
     "lodash.get": "^4.4.2",
     "postcss-advanced-variables": "^3.0.0",
     "postcss-calc": "^7.0.1",
@@ -79,8 +81,10 @@
     "postcss-functions": "^3.0.0",
     "postcss-import": "^12.0.1",
     "postcss-map-get": "^0.2.9",
+    "postcss-nested": "^4.2.1",
     "postcss-nesting": "^7.0.1",
     "postcss-scss": "^2.0.0",
+    "postcss-selector-parser": "^6.0.2",
     "typeface-montserrat-subrayada": "^0.0.63"
   },
   "publishConfig": {

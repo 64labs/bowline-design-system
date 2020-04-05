@@ -1,6 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import Box from '../Box/Box'
+import styles from './swatch.module.css'
 
 const Swatch = ({
   name,
@@ -12,17 +13,24 @@ const Swatch = ({
   children,
   ...props
 }) => {
-  const classes = cx('u-swatch', {'u-swatch--selected': selected}, className)
+  const classes = cx({[styles.selected]: selected}, className)
 
   return (
     <Box
       className={classes}
       role="button"
+      padding={!selected ? 'nudge2' : 'nudge1'}
+      border={!selected ? 'standard' : undefined}
+      borderColor={!selected ? 'subtle' : undefined}
+      position="relative"
       aria-label={name}
       size={size}
+      borderRadius="half"
       {...props}
     >
-      <Box className="u-swatch__inner">{children}</Box>
+      <Box overflow="hidden" borderRadius="half">
+        {children}
+      </Box>
     </Box>
   )
 }

@@ -1,4 +1,4 @@
-.u-input--radio {
+.radio {
   & input {
     position: relative;
     display: block;
@@ -39,7 +39,7 @@
       }
     }
 
-    &.focus-visible {
+    &:global(.focus-visible) {
       outline: none;
       box-shadow: 0 0 0 3px color(theme('colors.background.formAccent') a(40%));
     }
@@ -49,7 +49,7 @@
     }
   }
 
-  &.u-input--disabled {
+  &.disabled {
     opacity: 0.5;
   }
 
@@ -59,7 +59,7 @@
     }
   }
 
-  &.u-input--tone-critical {
+  &.critical {
     & input {
       border-color: theme('colors.background.critical');
     }
@@ -67,7 +67,7 @@
 }
 
 /* prettier-ignore */
-.u-input--radio--small {
+.radio-small {
   & input {
     width: theme('spacing.small')px;
     height: theme('spacing.small')px;
@@ -75,7 +75,7 @@
 }
 
 /* prettier-ignore */
-.u-input--radio--regular {
+.radio-regular {
   & input {
     width: theme('spacing.gutter')px;
     height: theme('spacing.gutter')px;
@@ -83,7 +83,7 @@
 }
 
 /* prettier-ignore */
-.u-input--radio--large {
+.radio-large {
   & input {
     width: theme('spacing.medium')px;
     height: theme('spacing.medium')px;

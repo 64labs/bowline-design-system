@@ -1,3 +1,5 @@
+const path = require('path')
+const fs = require('fs')
 const postcss = require('postcss')
 
 export const resolveResponsiveAtRules = (config) => (css) => {
@@ -46,4 +48,63 @@ export const resolveSpacingAtRules = (config) => (css) => {
     })
     atRule.remove()
   })
+}
+
+export const resolveMqAtRules = (config) => (css) => {
+  css.walkAtRules('mq', (atRule) => {
+    const screen = atRule.params
+    atRule.name = 'media'
+    atRule.params = `(min-width: ${config.screens[screen]}px)`
+  })
+}
+
+export const resolveBowlineAtRules = ({coreStyles}) => (css) => {
+  css.walkAtRules('import', (atRule) => {
+    if (
+      atRule.params === '"bowline/base"' ||
+      atRule.params === "'bowline/base'"
+    ) {
+      atRule.name = 'bowline'
+      atRule.params = 'base'
+    }
+  })
+
+  css.walkAtRules('bowline', (atRule) => {
+    if (atRule.params === 'base') {
+      const nodes = postcss.root({nodes: coreStyles})
+      const bowlineCssPath = path.resolve(__dirname, 'bowline.css')
+      const bowlineCss = fs.readFileSync(bowlineCssPath)
+      const bowlineParsedStyles = postcss.parse(
+        `@components {
+          ${bowlineCss.toString()}
+        }`,
+        {
+          from: bowlineCssPath,
+        }
+      )
+
+      nodes.append(bowlineParsedStyles)
+
+      nodes.walk((node) => {
+        node.source = atRule.source
+      })
+
+      atRule.before(nodes)
+
+      atRule.remove()
+    }
+  })
+}
+
+export const resolveComponentAtRules = () => (css) => {
+  const componentRules = postcss.root()
+  const finalRules = []
+  css.walkAtRules('components', (atRule) => {
+    atRule.nodes.forEach((node) => {
+      const clonedNode = node.clone()
+      componentRules.append(clonedNode)
+    })
+    atRule.remove()
+  })
+  css.append(componentRules)
 }

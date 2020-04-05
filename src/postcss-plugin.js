@@ -1,16 +1,12 @@
 import fs from 'fs'
 import path from 'path'
 import postcss from 'postcss'
-import scssVariables from 'postcss-advanced-variables'
-import calc from 'postcss-calc'
 import nesting from 'postcss-nesting'
-import mapGet from 'postcss-map-get'
 import functions from 'postcss-functions'
-import cssImports from 'postcss-import'
 import colorFunctions from 'postcss-color-function'
-import {resolveSpacingAtRules, resolveResponsiveAtRules} from './lib/atrules'
-
-import {isLight, mod, baseliner, themeFunction} from './style-functions'
+import get from 'lodash.get'
+import * as atRules from './lib/atrules'
+import core from './lib/core'
 
 export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
   // process css with all plugins
@@ -33,14 +29,6 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
 
     const theme = Object.assign({}, defaultConfig, userConfig)
 
-    // create a special 'spacingNumbers' objects from theme spacing to only include int value (not vh or %)
-    theme.spacingNumbers = Object.keys(theme.spacing).reduce((a, b) => {
-      if (typeof theme.spacing[b] === 'string') {
-        return a
-      }
-      return {...a, [b]: theme.spacing[b]}
-    }, {})
-
     const bps = Object.keys(theme.screens).map((bpName) => ({
       name: bpName,
       value: theme.screens[bpName],
@@ -56,7 +44,8 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       return 0
     })
 
-    theme.lastBreakpointIndex = theme.breakpoints.length - 1
+    theme.spacing.nudge1 = 1
+    theme.spacing.nudge2 = 2
 
     result.messages.push({
       type: 'dependency',
@@ -64,25 +53,29 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       file: configPath,
     })
 
+    const coreStyles = core({theme})
+
     const initializedPlugins = [
-      cssImports({
-        from: rawopts.from || process.cwd(),
-      }),
-      scssVariables({variables: theme, unresolved: 'ignore'}),
-      mapGet(),
-      calc({mediaQueries: true, selectors: true}),
+      atRules.resolveBowlineAtRules({theme, coreStyles}),
+      atRules.resolveMqAtRules(theme),
+      atRules.resolveSpacingAtRules(theme),
+      atRules.resolveResponsiveAtRules(theme),
+      atRules.resolveComponentAtRules(theme),
+
       functions({
         functions: {
-          isLight,
-          mod,
-          baseliner: baseliner(theme),
-          theme: themeFunction(theme),
+          theme: (path, ...defaultValue) => {
+            const value = get(
+              theme,
+              path.trim().replace(/('|")/g, ''),
+              defaultValue
+            )
+            return Array.isArray(value) ? value.join(', ') : value
+          },
         },
       }),
-      resolveSpacingAtRules(theme),
-      resolveResponsiveAtRules(theme),
-      nesting(),
       colorFunctions(),
+      nesting(),
     ]
 
     return initializedPlugins.reduce(

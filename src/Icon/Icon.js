@@ -4,6 +4,7 @@ import * as types from '../types'
 import classNames from 'classnames'
 import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
+import styles from './icon.module.css'
 
 const Icon = ({
   name,
@@ -24,7 +25,7 @@ const Icon = ({
     props.title && props.title.length ? {role: 'img'} : {'aria-hidden': 'true'}
 
   const classes = classNames(
-    'icon',
+    styles.icon,
     {
       ['tone-inherit']: !tone,
       [`tone-${tone}-on-${background}`]: background,

@@ -2,8 +2,8 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
-import Inline from '../Inline/Inline'
 import Text from '../Text/Text'
+import styles from './radio.module.css'
 
 const Radio = ({
   label,
@@ -16,9 +16,9 @@ const Radio = ({
   return (
     <Box
       className={cx(
-        'u-input--radio',
-        `u-input--radio--${size}`,
-        {'u-input--disabled': props.disabled, [`u-input--tone-${tone}`]: tone},
+        styles.radio,
+        styles[`radio-${size}`],
+        {[styles.disabled]: props.disabled, [styles[tone]]: tone},
         className
       )}
       {...wrapperProps}
