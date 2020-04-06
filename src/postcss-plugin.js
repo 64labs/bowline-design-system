@@ -60,6 +60,7 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
       atRules.resolveMqAtRules(theme),
       atRules.resolveSpacingAtRules(theme),
       atRules.resolveResponsiveAtRules(theme),
+      atRules.resolveComponentAtRules(),
 
       functions({
         functions: {

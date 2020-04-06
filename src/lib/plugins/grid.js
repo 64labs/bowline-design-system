@@ -3,7 +3,7 @@ import styleMap from '../utils/styleMap'
 export default () => ({theme}) => {
   const styles = {
     ...styleMap(
-      [...Array(16).keys()].map((x) => x + 1),
+      [...Array(12).keys()].map((x) => x + 1),
       (key, val) => ({
         [key('grid-template-cols')]: {
           gridTemplateColumns: `repeat(${val}, 1fr)`,

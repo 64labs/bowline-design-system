@@ -72,13 +72,29 @@ export const resolveBowlineAtRules = ({coreStyles}) => (css) => {
   css.walkAtRules('bowline', (atRule) => {
     if (atRule.params === 'base') {
       const nodes = postcss.root({nodes: coreStyles})
+
       const bowlineCssPath = path.resolve(__dirname, 'bowline.css')
       const bowlineCss = fs.readFileSync(bowlineCssPath)
       const bowlineParsedStyles = postcss.parse(bowlineCss.toString(), {
         from: bowlineCssPath,
       })
 
+      const componentsCssPath = path.resolve(__dirname, 'components.css')
+      const componentsCss = fs.readFileSync(componentsCssPath)
+      const componentsParsedStyles = postcss.parse(
+        `
+        @components {
+          ${componentsCss.toString()}
+        }
+      `,
+        {
+          from: componentsCssPath,
+        }
+      )
+
       nodes.prepend(bowlineParsedStyles)
+
+      nodes.append(componentsParsedStyles)
 
       nodes.walk((node) => {
         node.source = atRule.source
@@ -89,4 +105,16 @@ export const resolveBowlineAtRules = ({coreStyles}) => (css) => {
       atRule.remove()
     }
   })
+}
+
+export const resolveComponentAtRules = () => (css) => {
+  const componentRules = postcss.root()
+  css.walkAtRules('components', (atRule) => {
+    atRule.nodes.forEach((node) => {
+      const clonedNode = node.clone()
+      componentRules.append(clonedNode)
+    })
+    atRule.remove()
+  })
+  css.append(componentRules)
 }

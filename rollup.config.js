@@ -9,8 +9,6 @@ import json from '@rollup/plugin-json'
 import copy from 'rollup-plugin-copy'
 import pkg from './package.json'
 
-const isProduction = process.env.NODE_ENV === 'production'
-
 const mainConfig = {
   input: 'src/index.js',
   output: [
@@ -29,18 +27,24 @@ const mainConfig = {
     external(),
     json(),
     postcss({
+      exclude: /bowline\.css/,
       modules: {
         generateScopedName: '[emoji]-[hash:base64:5]',
         hashPrefix: 'prefix',
       },
-      syntax: 'postcss-scss',
+      plugins: [cssImports()],
+      extract: 'dist/components.css',
+    }),
+    postcss({
+      include: /bowline\.css/,
+      modules: false,
       plugins: [cssImports()],
       extract: 'dist/bowline.css',
     }),
     url(),
     babel({
       exclude: 'node_modules/**',
-      plugins: ['react-docgen'],
+      plugins: process.env.DOCS_BUILD ? ['react-docgen'] : [],
     }),
     resolve(),
     commonjs(),

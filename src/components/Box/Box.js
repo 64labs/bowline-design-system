@@ -142,7 +142,7 @@ const Box = React.forwardRef(
   }
 )
 
-const range1_24 = new Array(24).fill(0).map((_, i) => i + 1)
+const range1_12 = new Array(12).fill(0).map((_, i) => i + 1)
 
 Box.propTypes = {
   /**
@@ -406,8 +406,8 @@ Box.propTypes = {
    * Sets count of repeating columns at 1fr
    */
   gridTemplateColumns: t.oneOfType([
-    t.oneOf(range1_24),
-    t.arrayOf(t.oneOf(range1_24)),
+    t.oneOf(range1_12),
+    t.arrayOf(t.oneOf(range1_12)),
   ]),
   /**
    * [spacing] Applies CSS grid-gap
@@ -424,7 +424,7 @@ Box.propTypes = {
   /**
    * Applies CSS grid column span
    */
-  gridColumn: t.oneOfType([t.oneOf(range1_24), t.arrayOf(t.oneOf(range1_24))]),
+  gridColumn: t.oneOfType([t.oneOf(range1_12), t.arrayOf(t.oneOf(range1_12))]),
 }
 
 Box.displayName = 'Box'

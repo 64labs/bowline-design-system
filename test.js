@@ -1,20 +1,15 @@
+const fs = require('fs')
 const postcss = require('postcss')
+const cssnano = require('cssnano')
 const plugin = require('./dist/postcss-plugin')
 
 const css = `
-@each $v $k in $border {
-  @if $k == radius {
-    @each $i $j in $v {
-      .radius-#{$j} {
-        border-radius: $i;
-      }
-    }
-  }
-}
+  @bowline base;
 `
 
-postcss([plugin])
-  .process(css, {syntax: require('postcss-scss')})
-  .then((css) => {
-    console.log(css.toString())
+postcss([plugin()])
+  .process(css)
+  .then((result) => {
+    console.log(result.css)
+    // fs.writeFile('./test.css', result.css, () => true)
   })
