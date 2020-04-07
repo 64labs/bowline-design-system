@@ -44,7 +44,10 @@ const mainConfig = {
     url(),
     babel({
       exclude: 'node_modules/**',
-      plugins: process.env.DOCS_BUILD ? ['react-docgen'] : [],
+      plugins:
+        process.env.DOCS_BUILD || process.env.NODE_ENV !== 'production'
+          ? ['react-docgen']
+          : [],
     }),
     resolve(),
     commonjs(),

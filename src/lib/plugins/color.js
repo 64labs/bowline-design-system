@@ -3,25 +3,22 @@ import isLight from '../utils/isLight'
 
 export default () => ({theme}) => {
   const styles = {
-    ...styleMap(
-      {...theme.colors.foreground, inherit: 'inherit'},
-      (key, val) => ({
-        [key('tone')]: {color: val},
-      })
-    ),
-    ...styleMap(theme.colors.background, (key, val, rawKey) => ({
+    ...styleMap({...theme.colors, inherit: 'inherit'}, (key, val) => ({
+      [key('tone')]: {color: val, fill: val},
+    })),
+    ...styleMap(theme.colors, (key, val, rawKey) => ({
       [`.tone-neutral.tone-neutral-on-${rawKey}`]: {
         color: isLight(
           val,
-          theme.colors.foreground.neutral || 'black',
-          theme.colors.foreground.neutralInverted || 'white'
+          theme.colors.neutral || 'black',
+          theme.colors.neutralInverted || 'white'
         ),
       },
       [`.tone-secondary.tone-secondary-on-${rawKey}`]: {
         color: isLight(
           val,
-          theme.colors.foreground.secondary || 'black',
-          theme.colors.foreground.secondaryInverted || 'white'
+          theme.colors.secondary || 'black',
+          theme.colors.secondaryInverted || 'white'
         ),
       },
     })),

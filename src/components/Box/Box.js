@@ -9,6 +9,8 @@ const Box = React.forwardRef(
     {
       as = 'div',
       hover,
+      active,
+      focus,
       background,
       className,
       padding,
@@ -130,10 +132,19 @@ const Box = React.forwardRef(
       borderRadius,
     })
 
-    const hoverStyles = useBoxStyles({hover})
+    const hoverStyles = useBoxStyles({...hover}, 'hover')
+    const focusStyles = useBoxStyles({...focus}, 'focus')
+    const activeStyles = useBoxStyles({...active}, 'active')
 
     const element = React.createElement(as, {
-      className: cx('__bl', boxStyles, hoverStyles, className),
+      className: cx(
+        '__bl',
+        boxStyles,
+        hoverStyles,
+        focusStyles,
+        activeStyles,
+        className
+      ),
       ref,
       ...props,
     })
@@ -150,7 +161,7 @@ Box.propTypes = {
    */
   as: t.any,
   /**
-   * [colors.background] Applies background color
+   * [colors] Applies background color
    */
   background: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
@@ -350,9 +361,9 @@ Box.propTypes = {
    */
   borderLeft: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [colors.background] Applies CSS border-color
+   * [colors] Applies CSS border-color
    */
-  borderColor: t.oneOfType([t.string, t.arrayOf(t.string)]),
+  borderColor: t.string,
   /**
    * [border.radius] Applies CSS border-radius
    */

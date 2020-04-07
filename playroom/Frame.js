@@ -2,7 +2,6 @@ import React from 'react'
 import {BowlineProvider} from '../dist/index'
 
 import defaultTheme from '../dist/themes/baseTheme'
-import mkgEcommTheme from './mkgEcomm/bowline.config'
 
 import 'focus-visible'
 
@@ -13,16 +12,11 @@ svgIcons.keys().map(svgIcons)
 
 const themes = {
   defaultTheme,
-  mkgEcommTheme,
 }
 
 export default ({children, theme}) => {
   if (theme === 'defaultTheme') {
     require('./base/defaultTheme.css')
   }
-  if (theme === 'mkgEcommTheme') {
-    require('./mkgEcomm/mkgEcommTheme.css')
-  }
-
-  return <BowlineProvider value={themes[theme]}>{children}</BowlineProvider>
+  return <BowlineProvider theme={themes[theme]}>{children}</BowlineProvider>
 }

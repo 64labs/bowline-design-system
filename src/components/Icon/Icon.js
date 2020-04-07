@@ -57,7 +57,7 @@ Icon.propTypes = {
    */
   url: t.string,
   /**
-   * [colors.foreground] Sets the color of the icon
+   * [colors] Sets the color of the icon
    */
   tone: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**

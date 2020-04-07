@@ -52,7 +52,7 @@ Radio.propTypes = {
    */
   size: t.oneOf(['small', 'regular', 'large']),
   /**
-   * [colors.foreground] Sets the accent color
+   * [colors] Sets the accent color
    */
   tone: t.oneOfType([t.string, t.arrayOf(t.string)]),
 }

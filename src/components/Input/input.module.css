@@ -47,7 +47,7 @@
 
     &:global(.focus-visible) {
       outline: none;
-      border-color: theme('colors.background.formAccent');
+      border-color: theme('colors.formAccent');
     }
   }
 
@@ -76,8 +76,7 @@
       border: 1px solid #e1e1e1;
       border-radius: theme('border.radius.standard');
       &:global(.focus-visible) {
-        box-shadow: 0 0 0 3px
-          color(theme('colors.background.formAccent') a(40%));
+        box-shadow: 0 0 0 3px color(theme('colors.formAccent') a(40%));
       }
     }
     /* prettier-ignore */
@@ -86,7 +85,7 @@
       padding: 7px theme('spacing.large')px 7px 10px;
       border: 1px solid #e1e1e1;
        &:global(.focus-visible){
-        box-shadow: 0 0 0 3px color(theme('colors.background.formAccent') a(40%));
+        box-shadow: 0 0 0 3px color(theme('colors.formAccent') a(40%));
       }
     }
     & .chevron {
@@ -98,7 +97,7 @@
     & input,
     & select {
       &:not(:focus) {
-        border-color: theme('colors.background.critical');
+        border-color: theme('colors.critical');
       }
     }
   }

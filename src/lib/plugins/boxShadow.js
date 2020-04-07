@@ -5,7 +5,7 @@ export default () => ({theme}) => {
   const styles = {
     ...styleMap(theme.shadows, (key, val, rawKey) => ({
       [key('shadow')]: {boxShadow: `${val.style} ${val.color}`},
-      ...styleMap(theme.colors.background, (_key, _val, _rawKey) => ({
+      ...styleMap(theme.colors, (_key, _val, _rawKey) => ({
         [`${key('shadow')}-on-${rawKey}`]: {
           boxShadow: `${val.style} ${isLight(
             _val,

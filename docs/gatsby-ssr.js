@@ -1,10 +1,9 @@
 const React = require("react")
 const { BowlineProvider } = require("@64labs/bowline-design-system")
 const Layout = require("./src/components/layout").default
-const theme = require("./bowline.config")
 
 exports.wrapRootElement = ({ element }) => {
-  return <BowlineProvider value={theme}>{element}</BowlineProvider>
+  return <BowlineProvider>{element}</BowlineProvider>
 }
 
 exports.wrapPageElement = ({ element, props }) => {

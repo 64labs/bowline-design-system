@@ -5,6 +5,7 @@ import {useVariants} from '../../Provider'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
+import styles from './button.module.css'
 
 const bg = (weight) => {
   switch (weight) {
@@ -51,11 +52,11 @@ const Button = React.forwardRef((_props, ref) => {
   const iconOnly = !hasChildren && (icon || iconRight)
 
   const paddings = {
-    xsmall: {x: 'small', y: 'xxsmall'},
     small: {x: 'small', y: 'xsmall'},
     regular: {x: 'gutter', y: 'smallish'},
     large: {x: 'medium', y: 'small'},
   }
+
   const fontSizes = {
     small: 'small',
     regular: 'standard',

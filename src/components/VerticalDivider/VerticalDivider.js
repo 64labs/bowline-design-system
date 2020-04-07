@@ -17,7 +17,7 @@ const VerticalDivider = ({tone = 'subtle', size, ...props}) => {
 
 VerticalDivider.propTypes = {
   /**
-   * [colors.background] The color tone of the border
+   * [colors] The color tone of the border
    */
   tone: t.string,
   /**

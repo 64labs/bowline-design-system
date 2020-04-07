@@ -1,5 +1,5 @@
 .active-nav-section {
-  background: color(theme("colors.background.brandAccent") tint(98.5%));
+  background: color(theme("colors.brandAccent") tint(98.5%));
 }
 
 .nav-link:not(.nav-link-expander) {
@@ -14,7 +14,7 @@
     width: 10px;
     height: 6px;
     border-radius: 0 4px 4px 0;
-    background: theme("colors.background.brandAccent");
+    background: theme("colors.brandAccent");
     transition: all 0.2s ease-out;
     transform: scaleX(0) translatey(-50%);
     transform-origin: left top;
@@ -37,11 +37,11 @@
 
 .nav-link:not(.selected-nav-link):hover,
 .nav-link:not(.selected-nav-link):hover + .nav-link-expander {
-  background: color(theme("colors.background.brandAccent") tint(96%));
+  background: color(theme("colors.brandAccent") tint(96%));
 
   &:before {
     opacity: 1;
-    background: color(theme("colors.background.brandAccent") tint(80%));
+    background: color(theme("colors.brandAccent") tint(80%));
     transform: scaleX(0.8) translatey(-50%);
   }
 }

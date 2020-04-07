@@ -7,6 +7,7 @@ import {
   Text,
   Stack,
   Divider,
+  Icon,
 } from "@64labs/bowline-design-system"
 import CodeBlock from "./code-block"
 import Showcase from "./Showcase"
@@ -21,6 +22,7 @@ const components = {
   Divider,
   Link,
   Showcase,
+  Icon,
   Info: props => (
     <Box
       paddingY="small"

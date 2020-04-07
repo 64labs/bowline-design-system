@@ -1,15 +1,18 @@
 import React, {useContext, useMemo} from 'react'
+import defaultConfig from './config'
 
 export const ctx = React.createContext()
 
 const Provider = ctx.Provider
 
-export const ThemeProvider = ({value, ...props}) => {
-  const breakpoints = useMemo(() => {
+export const BowlineProvider = ({theme, ...props}) => {
+  const value = theme || defaultConfig
+
+  const _value = useMemo(() => {
     if (!value || !value.screens) {
       return []
     }
-    return Object.keys(value.screens)
+    const breakpoints = Object.keys(value.screens)
       .map((bpName) => ({
         name: bpName,
         value: value.screens[bpName],
@@ -23,12 +26,12 @@ export const ThemeProvider = ({value, ...props}) => {
         }
         return 0
       })
+    return {
+      ...value,
+      breakpoints,
+    }
   }, [])
 
-  const _value = {
-    ...value,
-    breakpoints,
-  }
   return <Provider value={_value} {...props} />
 }
 

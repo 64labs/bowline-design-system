@@ -19,7 +19,7 @@
       left: -1px;
       width: calc(100% + 2px);
       height: calc(100% + 2px);
-      background: theme('colors.background.formAccent');
+      background: theme('colors.formAccent');
       border-radius: theme('border.radius.standard');
       opacity: 0;
       transition: opacity 0.1s ease-in-out;
@@ -40,7 +40,7 @@
 
     &:global(.focus-visible) {
       outline: none;
-      box-shadow: 0 0 0 3px color(theme('colors.background.formAccent') a(40%));
+      box-shadow: 0 0 0 3px color(theme('colors.formAccent') a(40%));
     }
 
     &::-ms-check {
@@ -68,10 +68,10 @@
 
   &:hover {
     & input:not(:checked) {
-      border-color: theme('colors.background.formAccent');
+      border-color: theme('colors.formAccent');
     }
     & input:not(:checked) + .checkIcon {
-      color: theme('colors.background.formAccent');
+      color: theme('colors.formAccent');
       display: block;
       opacity: 0.3;
     }
@@ -79,7 +79,7 @@
 
   &.critical {
     & input {
-      border-color: theme('colors.background.critical');
+      border-color: theme('colors.critical');
     }
   }
 }

@@ -4,11 +4,13 @@ import MDXProvider from "./MDXProvider"
 import PropsTable from "./PropsTable"
 import { ContentBlock, Stack } from "@64labs/bowline-design-system"
 
-const DefaultLayout = ({ children, metadata = {}, component, ...props }) => {
-  const title = props.pageContext.frontmatter.title || metadata.title
-
+const DefaultLayout = ({ children, component, ...props }) => {
+  const { frontmatter } = props.pageContext
+  const title = frontmatter && frontmatter.title
+  const layoutWidth = (frontmatter && frontmatter.layout) || "medium"
+  console.log(frontmatter)
   return (
-    <ContentBlock width="medium" paddingY={["xlarge", "xxlarge"]}>
+    <ContentBlock width={layoutWidth} paddingY={["xlarge", "xxlarge"]}>
       <Helmet>
         <title>{title || "MDX Page"} | Bowline Design System</title>
       </Helmet>

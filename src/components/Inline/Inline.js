@@ -42,6 +42,7 @@ const Inline = ({
                   paddingLeft={spread ? 'none' : space}
                   paddingTop={spread ? 'none' : space}
                   display={child.props && child.props.display}
+                  flex={child.props && child.props.flex}
                   flexGrow={spread ? 1 : undefined}
                   flexShrink={spread ? 1 : 0}
                   flexBasis={spread ? 0 : undefined}

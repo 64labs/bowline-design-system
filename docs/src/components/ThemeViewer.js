@@ -20,33 +20,18 @@ const ThemeViewer = () => {
         </Text>
 
         <Columns cols={[1, 2]}>
-          {Object.keys(theme.colors.foreground).map(colorName => (
+          {Object.keys(theme.colors).map(colorName => (
             <Box key={`fg-${colorName}`} align="center">
-              <Inline space="small">
-                <Box size="xxlarge" background={colorName} />
+              <Stack
+                background={colorName}
+                align="center"
+                justify="center"
+                paddingY="small"
+              >
                 <Text size="small" weight="medium">
                   {colorName}
                 </Text>
-              </Inline>
-            </Box>
-          ))}
-        </Columns>
-      </Stack>
-
-      <Stack space="medium">
-        <Text size="large" weight="strong">
-          Background Colors
-        </Text>
-
-        <Columns cols={[1, 2]}>
-          {Object.keys(theme.colors.background).map(colorName => (
-            <Box key={`fg-${colorName}`} align="center">
-              <Inline space="small">
-                <Box size="xxlarge" background={colorName} />
-                <Text size="small" weight="medium">
-                  {colorName}
-                </Text>
-              </Inline>
+              </Stack>
             </Box>
           ))}
         </Columns>

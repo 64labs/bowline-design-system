@@ -68,7 +68,7 @@ Text.propTypes = {
    */
   weight: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [colors.foreground] Set the text color
+   * [colors] Set the text color
    */
   tone: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**

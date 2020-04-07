@@ -22,6 +22,5 @@ export {default as FieldMessage} from './components/FieldMessage/FieldMessage'
 export {default as Placeholder} from './components/Placeholder/Placeholder'
 export {default as VerticalDivider} from './components/VerticalDivider/VerticalDivider'
 
-export {ThemeProvider as BowlineProvider} from './Provider'
+export {BowlineProvider} from './Provider'
 export {useTheme} from './Provider'
-export {ctx as BowlineContext} from './Provider'

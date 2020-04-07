@@ -2,7 +2,7 @@ import {useTheme} from '../../Provider'
 import {useBackground} from '../../util/BackgroundContext'
 import {responsiveClassnames} from '../../util'
 
-const useBoxStyles = (properties) => {
+const useBoxStyles = (properties, modifier) => {
   const {
     background,
     boxShadow,
@@ -60,18 +60,13 @@ const useBoxStyles = (properties) => {
     borderLeft,
     borderColor,
     borderRadius,
-  } = properties.hover ? properties.hover : properties
+  } = properties
 
   const theme = useTheme()
   const parentBackground = useBackground()
 
   const classes = (value, label) =>
-    responsiveClassnames(
-      theme ? theme.breakpoints : {},
-      value,
-      label,
-      properties.hover && 'hover'
-    )
+    responsiveClassnames(theme ? theme.breakpoints : {}, value, label, modifier)
 
   const resolvedPaddingTop = paddingTop || paddingY || padding
   const resolvedPaddingBottom = paddingBottom || paddingY || padding

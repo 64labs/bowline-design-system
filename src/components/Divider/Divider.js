@@ -16,7 +16,7 @@ const Divider = ({tone = 'subtle', className, ...props}) => {
 
 Divider.propTypes = {
   /**
-   * [colors.background] The color tone of the border
+   * [colors] The color tone of the border
    */
   tone: t.string,
 }

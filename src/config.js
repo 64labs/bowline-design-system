@@ -1,49 +1,32 @@
 const grid = 4
 
-const baseColors = {
-  brand: '#445560',
-  brandAccent: '#d80a86',
-  brandLight: '#fff8fc',
-  brandAccentAccessible: '#ce0c80',
-  formAccent: '#d80a86',
-  white: '#fff',
-  focus: 'rebeccapurple',
-  positive: '#138a08',
+const colors = {
+  brand: '#54494B',
+  brandLight: '#D3D5D4',
+  brandAccent: '#7F6A93',
+  positive: 'green',
+  positiveLight: '#EEF4EF',
   critical: '#f44336',
-  info: '#1e468c',
+  info: '#9DB5B2',
   infoLight: '#1e468c',
-  promote: 'orange',
+  promote: '#7F6A93',
+  promoteLight: '#efeaf3',
   neutral: '#1c1c1c',
   neutralInverted: '#ffffff',
-  black: '#1c1c1c',
-  link: 'rebeccapurple',
-  linkVisited: 'rebeccapurple',
-  secondary: '#a0a0a0',
+  secondary: '#878E99',
   secondaryInverted: '#ffffff',
   subtle: '#eee',
-  featureSlider: '#0093b4',
-  gray: '#f5f5f5',
+  black: '#1c1c1c',
+  white: '#fff',
+
+  // applied colors
+  formAccent: '#4F83A3',
+  focus: 'rebeccapurple',
+  link: 'rebeccapurple',
+  linkVisited: 'rebeccapurple',
 }
 
-const colors = {
-  foreground: baseColors,
-  background: baseColors,
-}
-
-module.exports = {
-  fontFamily: {
-    text:
-      '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
-    heading:
-      '"Open Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Noto Sans", Ubuntu, "Droid Sans", "Helvetica Neue", Arial, sans-serif',
-  },
-
-  fontWeights: {
-    regular: 400,
-    medium: 600,
-    strong: 700,
-  },
-
+export default {
   grid,
 
   screens: {
@@ -52,10 +35,9 @@ module.exports = {
     lg: 1280,
   },
 
-  contentWidth: {
-    medium: 640,
-    large: 960,
-    max: 1280,
+  fontFamily: {
+    text: '"Open Sans", -apple-system, system-ui, sans-serif',
+    heading: '"Open Sans", -apple-system, system-ui, sans-serif',
   },
 
   fontScale: {
@@ -67,6 +49,18 @@ module.exports = {
       descenderHeightScale: 0.1155,
       capHeight: 0.725,
     },
+  },
+
+  fontWeights: {
+    regular: 400,
+    medium: 600,
+    strong: 700,
+  },
+
+  contentWidth: {
+    medium: 640,
+    large: 720,
+    max: 1280,
   },
 
   spacing: {
@@ -102,7 +96,7 @@ module.exports = {
     },
     small: {
       default: {
-        size: 14,
+        size: 13,
         rows: 5,
       },
       sm: {
@@ -123,16 +117,16 @@ module.exports = {
     large: {
       default: {
         size: 18,
-        rows: 8,
+        rows: 7,
       },
       sm: {
         size: 18,
-        rows: 8,
+        rows: 7,
       },
     },
     xlarge: {
       default: {
-        size: 22,
+        size: 20,
         rows: 8,
       },
       sm: {
@@ -155,38 +149,38 @@ module.exports = {
     },
     small: {
       default: {
-        size: 15,
+        size: 16,
         rows: 5,
       },
       sm: {
-        size: 15,
+        size: 16,
         rows: 5,
       },
     },
     standard: {
       default: {
-        size: 18,
+        size: 23,
         rows: 6,
       },
       sm: {
-        size: 21,
+        size: 23,
         rows: 6,
       },
     },
     large: {
       default: {
-        size: 21,
+        size: 24,
         rows: 7,
       },
       sm: {
-        size: 28,
-        rows: 8,
+        size: 26,
+        rows: 9,
       },
     },
     xlarge: {
       default: {
-        size: 22,
-        rows: 7,
+        size: 32,
+        rows: 9,
       },
       sm: {
         size: 34,
@@ -204,7 +198,7 @@ module.exports = {
   shadows: {
     borderStandard: {
       style: `0px 0px 0px 2px inset`,
-      color: colors.background.brand,
+      color: colors.promoteLight,
       colorInverted: 'white',
     },
   },
