@@ -44,6 +44,7 @@ const Button = React.forwardRef((_props, ref) => {
     iconSize,
     innerJustify,
     loading,
+    textProps,
     children,
     ...props
   } = useVariants('Button', _props)
@@ -75,7 +76,7 @@ const Button = React.forwardRef((_props, ref) => {
       weight="regular"
       display={children.props && children.props.display}
       block
-      {...props.textProps}
+      {...textProps}
     >
       {children}
     </Text>
