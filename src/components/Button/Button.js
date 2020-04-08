@@ -43,6 +43,7 @@ const Button = React.forwardRef((_props, ref) => {
     iconRight,
     iconSize,
     innerJustify,
+    justify,
     loading,
     textProps,
     children,
@@ -104,7 +105,7 @@ const Button = React.forwardRef((_props, ref) => {
         className="u-button__inner"
         display="flex"
         align="center"
-        justify={innerJustify ? 'space-between' : 'center'}
+        justify={innerJustify ? 'space-between' : justify}
         height={
           props.height || (iconOnly ? getIconSize(size) : getHeight(size))
         }
@@ -141,6 +142,7 @@ Button.defaultProps = {
   weight: 'regular',
   size: 'regular',
   iconSize: 'small',
+  justify: 'center',
   innerJustify: false,
   loading: false,
 }
@@ -167,7 +169,11 @@ Button.propTypes = {
    */
   iconSize: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * Justifies/spaces text and icon at each end (space-between).
+   * Allows for any justify-content value on the inner content.
+   */
+  justify: t.bool,
+  /**
+   * Justifies/spaces text and icon at each end (space-between). Same as `justify="space-between"`.
    */
   innerJustify: t.bool,
   /**
