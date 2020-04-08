@@ -11,7 +11,7 @@ export default () => ({theme}) => {
     ...styleMap({0: '0', half: '50%', full: '100%'}, (key, val) => ({
       [key('top')]: {top: val},
       [key('right')]: {right: val},
-      [key('right')]: {right: val},
+      [key('left')]: {left: val},
       [key('bottom')]: {bottom: val},
     })),
   }
