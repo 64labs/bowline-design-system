@@ -171,7 +171,26 @@ Button.propTypes = {
   /**
    * Allows for any justify-content value on the inner content.
    */
-  justify: t.bool,
+  justify: t.oneOfType([
+    t.oneOf([
+      'flex-start',
+      'flex-end',
+      'center',
+      'space-around',
+      'space-between',
+      'stretch',
+    ]),
+    t.arrayOf(
+      t.oneOf([
+        'flex-start',
+        'flex-end',
+        'center',
+        'space-around',
+        'space-between',
+        'stretch',
+      ])
+    ),
+  ]),
   /**
    * Justifies/spaces text and icon at each end (space-between). Same as `justify="space-between"`.
    */
