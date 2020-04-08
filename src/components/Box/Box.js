@@ -243,40 +243,40 @@ Box.propTypes = {
    * {{"0": "0px", "half": "50%", "full": "100%"}}
    */
   top: t.oneOfType([
-    t.oneOf([0, 'half', 'full']),
-    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+    t.oneOf([0, '0', 'half', 'full']),
+    t.arrayOf(t.oneOf([0, '0', 'half', 'full'])),
   ]),
   /**
    * Applies a predefined CSS right value
    * {{"0": "0px", "half": "50%", "full": "100%"}}
    */
   right: t.oneOfType([
-    t.oneOf([0, 'half', 'full']),
-    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+    t.oneOf([0, '0', 'half', 'full']),
+    t.arrayOf(t.oneOf([0, '0', 'half', 'full'])),
   ]),
   /**
    * Applies a predefined CSS bottom value
    * {{"0": "0px", "half": "50%", "full": "100%"}}
    */
   bottom: t.oneOfType([
-    t.oneOf([0, 'half', 'full']),
-    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+    t.oneOf([0, '0', 'half', 'full']),
+    t.arrayOf(t.oneOf([0, '0', 'half', 'full'])),
   ]),
   /**
    * Applies a predefined CSS left value
    * {{"0": "0px", "half": "50%", "full": "100%"}}
    */
   left: t.oneOfType([
-    t.oneOf([0, 'half', 'full']),
-    t.arrayOf(t.oneOf([0, 'half', 'full'])),
+    t.oneOf([0, '0', 'half', 'full']),
+    t.arrayOf(t.oneOf([0, '0', 'half', 'full'])),
   ]),
   /**
    * Applies a predefined CSS flex value shorthand
    * {{"initial": "0 1 auto", "1": "1 1 0%", "auto": "1 1 auto", "none": "none"}}
    */
   flex: t.oneOfType([
-    t.oneOf(['initial', 1, 'auto', 'none']),
-    t.arrayOf(t.oneOf(['initial', 1, 'auto', 'none'])),
+    t.oneOf(['initial', 1, '1', 'auto', 'none']),
+    t.arrayOf(t.oneOf(['initial', 1, '1', 'auto', 'none'])),
   ]),
   /**
    * Applies CSS flex-grow rule

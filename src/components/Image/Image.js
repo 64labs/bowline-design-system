@@ -109,10 +109,10 @@ const Image = ({
           as="img"
           display="block"
           position="absolute"
-          top="0"
-          right="0"
-          bottom="0"
-          left="0"
+          top={0}
+          right={0}
+          bottom={0}
+          left={0}
           width="full"
           height="full"
           maxWidth="full"
@@ -124,7 +124,11 @@ const Image = ({
           {...imageProps}
         />
 
-        <noscript>{`<img src="${src}" alt="${alt}" style="display: block; max-width: 100%;" />`}</noscript>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img src="${src}" alt="${alt}" style="display: block; max-width: 100%;" />`,
+          }}
+        ></noscript>
       </Box>
     </animated.div>
   )
