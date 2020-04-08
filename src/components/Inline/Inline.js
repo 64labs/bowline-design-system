@@ -24,7 +24,7 @@ const Inline = ({
   )
 
   return (
-    <Box className={classes(spread ? 'none' : space, 'inline-container')}>
+    <Box className={cx(classes(spread ? 'none' : space, 'inline-container'))}>
       <Box
         display="flex"
         align="center"
