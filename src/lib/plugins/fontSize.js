@@ -7,10 +7,14 @@ export default (type) => ({theme}) => {
       return {
         ...css,
         ...Object.keys(screenRules).reduce((a, label) => {
-          const {size, rows} = screenRules[label]
+          const {size, rows, descenderHeightScale, capHeight} = screenRules[
+            label
+          ]
           const {transform, marginTop} = baseliner(
             theme.grid,
-            theme.fontScale[type],
+            descenderHeightScale && capHeight
+              ? {descenderHeightScale, capHeight}
+              : theme.fontScale[type],
             size,
             rows
           )

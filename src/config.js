@@ -36,18 +36,18 @@ export default {
   },
 
   fontFamily: {
-    text: '"Open Sans", -apple-system, system-ui, sans-serif',
-    heading: '"Open Sans", -apple-system, system-ui, sans-serif',
+    text: '-apple-system, system-ui, sans-serif',
+    heading: '-apple-system, system-ui, sans-serif',
   },
 
   fontScale: {
     text: {
-      descenderHeightScale: 0.1155,
-      capHeight: 0.725,
+      descenderHeightScale: 0.125,
+      capHeight: 0.7125,
     },
     heading: {
-      descenderHeightScale: 0.1155,
-      capHeight: 0.725,
+      descenderHeightScale: 0.125,
+      capHeight: 0.7125,
     },
   },
 
@@ -84,6 +84,9 @@ export default {
   colors,
 
   textSizes: {
+    supertiny: {
+      default: {size: 10, rows: 3},
+    },
     xsmall: {
       default: {
         size: 12,
@@ -96,7 +99,7 @@ export default {
     },
     small: {
       default: {
-        size: 13,
+        size: 14,
         rows: 5,
       },
       sm: {
@@ -106,11 +109,11 @@ export default {
     },
     standard: {
       default: {
-        size: 16,
+        size: 15,
         rows: 6,
       },
       sm: {
-        size: 16,
+        size: 15,
         rows: 6,
       },
     },
@@ -118,10 +121,14 @@ export default {
       default: {
         size: 18,
         rows: 7,
+        descenderHeightScale: 0.19,
+        capHeight: 0.7125,
       },
       sm: {
         size: 18,
         rows: 7,
+        descenderHeightScale: 0.19,
+        capHeight: 0.7125,
       },
     },
     xlarge: {
@@ -141,50 +148,58 @@ export default {
       default: {
         size: 14,
         rows: 5,
+        descenderHeightScale: 0.15,
+        capHeight: 0.725,
       },
       sm: {
         size: 14,
         rows: 5,
+        descenderHeightScale: 0.15,
+        capHeight: 0.725,
       },
     },
     small: {
       default: {
-        size: 16,
-        rows: 5,
+        size: 18,
+        rows: 6,
       },
       sm: {
-        size: 16,
-        rows: 5,
+        size: 20,
+        rows: 6,
       },
     },
     standard: {
       default: {
         size: 23,
         rows: 6,
+        descenderHeightScale: 0.15,
+        capHeight: 0.725,
       },
       sm: {
         size: 23,
         rows: 6,
+        descenderHeightScale: 0.15,
+        capHeight: 0.725,
       },
     },
     large: {
       default: {
-        size: 24,
-        rows: 7,
+        size: 30,
+        rows: 8,
       },
-      sm: {
-        size: 26,
-        rows: 9,
+      md: {
+        size: 40,
+        rows: 10,
       },
     },
     xlarge: {
       default: {
-        size: 32,
-        rows: 9,
+        size: 40,
+        rows: 10,
       },
-      sm: {
-        size: 34,
-        rows: 9,
+      md: {
+        size: 64,
+        rows: 16,
       },
     },
   },
