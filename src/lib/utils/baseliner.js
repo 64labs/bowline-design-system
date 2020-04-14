@@ -13,8 +13,6 @@ const baseliner = (grid, scale, size, rows) => {
   // const r = Math.floor(size / 1.375)
   // const heightCorrection = lineHeight - r + 1
 
-  console.log(size, typeOffset * size, heightCorrection)
-
   return {
     transform: `translateY(${typeOffset}em)`,
     negativeTransform: `translateY(-${typeOffset}em)`,
