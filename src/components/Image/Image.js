@@ -68,8 +68,10 @@ const Image = ({
   fluid,
   width = '100%',
   height = '100%',
-  springConfig = () => ({}),
   lazy = true,
+  springConfig = () => ({}),
+  onRest = () => {},
+  onLoad = () => {},
   ...props
 }) => {
   const {viewRef, imageRef, inView, loaded} = useLazyImage(
@@ -87,12 +89,19 @@ const Image = ({
       friction: 30,
     },
     immediate: !lazy,
+    onRest: () => onRest({loaded, ready}),
   }
 
   const style = useSpring({
     ..._springConfig,
     ...springConfig(ready),
   })
+
+  useEffect(() => {
+    if (loaded) {
+      onLoad()
+    }
+  }, [loaded])
 
   const aspectRatio = (height / width) * 100
 
@@ -175,6 +184,14 @@ Image.propTypes = {
    * Custom function to control fade-in animation when `lazy` is true
    */
   springConfig: t.func,
+  /**
+   * callback fired when image is loaded
+   */
+  onLoad: t.func,
+  /**
+   * callback when animations comes to a rest
+   */
+  onRest: t.func,
 }
 
 export default Image

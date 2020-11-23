@@ -36,19 +36,24 @@ export default {
   },
 
   fontFamily: {
-    text: '-apple-system, system-ui, sans-serif',
-    heading: '-apple-system, system-ui, sans-serif',
+    text: 'Muli,  -apple-system, system-ui, sans-serif',
+    heading: 'Muli, -apple-system, system-ui, sans-serif',
   },
 
-  fontScale: {
-    text: {
-      descenderHeightScale: 0.125,
-      capHeight: 0.7125,
-    },
-    heading: {
-      descenderHeightScale: 0.125,
-      capHeight: 0.7125,
-    },
+  textFontMetrics: {
+    capHeight: 712,
+    ascent: 1005,
+    descent: -250,
+    lineGap: 0,
+    unitsPerEm: 1000,
+  },
+
+  headingFontMetrics: {
+    capHeight: 712,
+    ascent: 1005,
+    descent: -250,
+    lineGap: 0,
+    unitsPerEm: 1000,
   },
 
   fontWeights: {
@@ -85,122 +90,51 @@ export default {
 
   textSizes: {
     supertiny: {
-      default: {size: 10, rows: 3},
+      size: 10,
+      rows: 3,
     },
     xsmall: {
-      default: {
-        size: 12,
-        rows: 4,
-      },
-      sm: {
-        size: 12,
-        rows: 4,
-      },
+      size: 12,
+      rows: 4,
     },
     small: {
-      default: {
-        size: 14,
-        rows: 5,
-      },
-      sm: {
-        size: 14,
-        rows: 5,
-      },
+      size: 14,
+      rows: 5,
     },
     standard: {
-      default: {
-        size: 15,
-        rows: 6,
-      },
-      sm: {
-        size: 15,
-        rows: 6,
-      },
+      size: 15,
+      rows: 6,
     },
     large: {
-      default: {
-        size: 18,
-        rows: 7,
-        descenderHeightScale: 0.19,
-        capHeight: 0.7125,
-      },
-      sm: {
-        size: 18,
-        rows: 7,
-        descenderHeightScale: 0.19,
-        capHeight: 0.7125,
-      },
+      size: 18,
+      rows: 7,
     },
     xlarge: {
-      default: {
-        size: 20,
-        rows: 8,
-      },
-      sm: {
-        size: 22,
-        rows: 8,
-      },
+      size: 20,
+      rows: 8,
     },
   },
 
   headingSizes: {
     xsmall: {
-      default: {
-        size: 14,
-        rows: 5,
-        descenderHeightScale: 0.15,
-        capHeight: 0.725,
-      },
-      sm: {
-        size: 14,
-        rows: 5,
-        descenderHeightScale: 0.15,
-        capHeight: 0.725,
-      },
+      size: 14,
+      rows: 5,
     },
     small: {
-      default: {
-        size: 18,
-        rows: 6,
-      },
-      sm: {
-        size: 20,
-        rows: 6,
-      },
+      size: 18,
+      rows: 6,
     },
     standard: {
-      default: {
-        size: 23,
-        rows: 6,
-        descenderHeightScale: 0.15,
-        capHeight: 0.725,
-      },
-      sm: {
-        size: 23,
-        rows: 6,
-        descenderHeightScale: 0.15,
-        capHeight: 0.725,
-      },
+      size: 23,
+      rows: 6,
     },
     large: {
-      default: {
-        size: 30,
-        rows: 8,
-      },
-      md: {
-        size: 40,
-        rows: 10,
-      },
+      size: 30,
+      rows: 8,
     },
     xlarge: {
-      default: {
-        size: 40,
-        rows: 10,
-      },
-      md: {
-        size: 64,
-        rows: 16,
-      },
+      size: 40,
+      rows: 10,
     },
   },
 

@@ -53,14 +53,14 @@ module.exports = {
           default: require.resolve("./src/components/default-layout.js"),
           // sections: require.resolve("./src/components/doc-layout.js"),
         },
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 680,
-            },
-          },
-        ],
+        // gatsbyRemarkPlugins: [
+        //   {
+        //     resolve: `gatsby-remark-images`,
+        //     options: {
+        //       maxWidth: 680,
+        //     },
+        //   },
+        // ],
       },
     },
     `gatsby-transformer-sharp`,

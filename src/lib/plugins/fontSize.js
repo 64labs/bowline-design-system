@@ -1,53 +1,30 @@
-import baseliner from '../utils/baseliner'
+import capsize from 'capsize'
 
 export default (type) => ({theme}) => {
   const styles = {
     ...Object.keys(theme[`${type}Sizes`]).reduce((css, key) => {
-      const screenRules = theme[`${type}Sizes`][key]
+      const {size, rows} = theme[`${type}Sizes`][key]
+
+      const style = capsize({
+        fontMetrics: theme[`${type}FontMetrics`],
+        fontSize: size,
+        leading: theme.grid * rows,
+      })
+
       return {
         ...css,
-        ...Object.keys(screenRules).reduce((a, label) => {
-          const {size, rows, descenderHeightScale, capHeight} = screenRules[
-            label
-          ]
-          const {transform, marginTop} = baseliner(
-            theme.grid,
-            descenderHeightScale && capHeight
-              ? {descenderHeightScale, capHeight}
-              : theme.fontScale[type],
-            size,
-            rows
-          )
-          const rules = {
-            [`.${type}-${key}`]: {
-              fontSize: size,
-              lineHeight: `${theme.grid * rows}px`,
-              '&.baseline-crop': {
-                paddingTop: 1,
-                transform: transform,
-                '&:before': {
-                  content: '""',
-                  display: 'block',
-                  height: 0,
-                  marginTop: marginTop,
-                },
-              },
-            },
-          }
-          if (label === 'default') {
-            return {...a, ...rules}
-          }
-          return {
-            ...a,
-            [`@media (min-width: ${theme.screens[label]}px)`]: {
-              ...css[`@media (min-width: ${theme.screens[label]}px)`],
-              ...rules,
-            },
-          }
-        }, {}),
+        [`.${type}-${key}`]: {
+          fontSize: style.fontSize,
+          lineHeight: style.lineHeight,
+          '&.baseline-crop': {
+            padding: style.padding,
+            '&:before': style['::before'],
+            '&:after': style['::after'],
+          },
+        },
       }
     }, {}),
   }
 
-  return {styles}
+  return {styles, variants: ['responsive']}
 }

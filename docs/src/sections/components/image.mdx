@@ -2,33 +2,47 @@
 title: Image
 ---
 
-import { Image, Columns } from "@64labs/bowline-design-system"
+import {
+  Image,
+  TransitionImage,
+  Button,
+  Columns,
+} from "@64labs/bowline-design-system"
 
 export const component = Image
+
+export const Example = () => {
+  const set1 = [101, 102, 104]
+  const set2 = [106, 108, 109]
+  const sets = { set1, set2 }
+  const [selectedSet, setSelectedSet] = React.useState("set1")
+  return (
+    <Stack>
+      <Button
+        weight="weak"
+        onClick={() => setSelectedSet(selectedSet === "set1" ? "set2" : "set1")}
+      >
+        Change images
+      </Button>
+      <Columns cols={3}>
+        {sets[selectedSet].map((id, idx) => (
+          <TransitionImage
+            key={idx}
+            src={`https://picsum.photos/id/${id}/400/500`}
+            width={4}
+            height={5}
+            fluid
+          />
+        ))}
+      </Columns>
+    </Stack>
+  )
+}
 
 # Image
 
 An image with optional lazy loading and fade-in animation.
 
 <Showcase playroomPath="#?code=N4Igxg9gJgpiBcIA8BhCAbArgWwHYGcACSdfAXmAGYBfQgBwEMooBLXAczIB0R3MAXfjABOPAHxdchQkgCS2BuxiTp0-MLDcQAC0F188APSG6LMPhwA6Otoj8I+QyyiGAjAAZXhgCzv3hgFY-HhVVAHdnfm0Kb2pQ6W0YFnZdCgC4qVUAMyxnUMMJTLkFJXjCdU0eXX59IxMzC2xrW3tHZzd3ACYfP0DgkDKIqCiYjNVCROTU4HSynMw8zILQ4sVlTLUNLWra41NzKxs7BycXD28e-yD3EI3CIZHgWLLJlP40sezcqHzCpEM0Fg8PhCiBqEA">
-  <Columns cols={3}>
-    <Image
-      src="https://picsum.photos/id/101/400/500"
-      width={4}
-      height={5}
-      fluid
-    />
-    <Image
-      src="https://picsum.photos/id/102/400/500"
-      width={4}
-      height={5}
-      fluid
-    />
-    <Image
-      src="https://picsum.photos/id/104/400/500"
-      width={4}
-      height={5}
-      fluid
-    />
-  </Columns>
+  <Example />
 </Showcase>

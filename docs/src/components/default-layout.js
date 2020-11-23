@@ -8,7 +8,7 @@ const DefaultLayout = ({ children, component, ...props }) => {
   const { frontmatter } = props.pageContext
   const title = frontmatter && frontmatter.title
   const layoutWidth = (frontmatter && frontmatter.layout) || "medium"
-  console.log(frontmatter)
+
   return (
     <ContentBlock width={layoutWidth} paddingY={["xlarge", "xxlarge"]}>
       <Helmet>
