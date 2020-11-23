@@ -2,10 +2,13 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import {useVariants} from '../../Provider'
+import {responsiveClassnames} from '../../util'
+import {useTheme} from '../../Provider'
 import {useBackground} from '../../util/BackgroundContext'
 import Box from '../Box/Box'
 
 const Text = (props) => {
+  const theme = useTheme()
   const backgroundContext = useBackground()
 
   const {
@@ -38,10 +41,13 @@ const Text = (props) => {
       [`tone-${tone}-on-${background}`]: background,
       [`tone-${tone}`]: tone,
       [`text-weight-${weight}`]: weight !== 'regular',
-      [`text-${size}`]: !heading,
-      [`heading-${size}`]: heading,
     },
     `text-align-${align}`,
+    responsiveClassnames(
+      theme.breakpoints,
+      size,
+      !heading ? 'text' : 'heading'
+    ),
     className
   )
 
