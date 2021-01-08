@@ -66,26 +66,23 @@
   }
 }
 
-/* prettier-ignore */
 .radio-small {
   & input {
-    width: theme('spacing.small')px;
-    height: theme('spacing.small')px;
+    width: theme('spacing.small');
+    height: theme('spacing.small');
   }
 }
 
-/* prettier-ignore */
 .radio-regular {
   & input {
-    width: theme('spacing.gutter')px;
-    height: theme('spacing.gutter')px;
+    width: theme('spacing.gutter');
+    height: theme('spacing.gutter');
   }
 }
 
-/* prettier-ignore */
 .radio-large {
   & input {
-    width: theme('spacing.medium')px;
-    height: theme('spacing.medium')px;
+    width: theme('spacing.medium');
+    height: theme('spacing.medium');
   }
 }

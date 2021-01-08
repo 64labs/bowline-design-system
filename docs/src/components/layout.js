@@ -56,7 +56,7 @@ const Layout = ({ children, ...props }) => {
             tone="neutral"
             onClick={toggleNavDrawer}
           />
-          <Text heading weight="strong" size="standard" as={Link} to="/" block>
+          <Text family="heading" size="large" as={Link} to="/" block>
             Bowline
           </Text>
         </Inline>

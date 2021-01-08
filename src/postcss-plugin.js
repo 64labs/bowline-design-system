@@ -64,13 +64,18 @@ export default postcss.plugin('postcss-bowline', (rawopts = {}) => {
 
       functions({
         functions: {
-          theme: (path, ...defaultValue) => {
-            const value = get(
+          theme: (path, defaultValue, unit = '') => {
+            let value = get(
               theme,
               path.trim().replace(/('|")/g, ''),
               defaultValue
             )
-            return Array.isArray(value) ? value.join(', ') : value
+
+            if (!unit && typeof value === 'number') {
+              return `${value}px`
+            }
+
+            return Array.isArray(value) ? value.join(', ') : `${value}${unit}`
           },
         },
       }),

@@ -35,31 +35,83 @@ export default {
     lg: 1280,
   },
 
-  fontFamily: {
-    text: 'Muli,  -apple-system, system-ui, sans-serif',
-    heading: 'Muli, -apple-system, system-ui, sans-serif',
-  },
-
-  textFontMetrics: {
-    capHeight: 712,
-    ascent: 1005,
-    descent: -250,
-    lineGap: 0,
-    unitsPerEm: 1000,
-  },
-
-  headingFontMetrics: {
-    capHeight: 712,
-    ascent: 1005,
-    descent: -250,
-    lineGap: 0,
-    unitsPerEm: 1000,
-  },
-
-  fontWeights: {
-    regular: 400,
-    medium: 600,
-    strong: 700,
+  typography: {
+    default: {
+      family: '"Open Sans", -apple-system, system-ui, sans-serif',
+      metrics: {
+        capHeight: 1580,
+        ascent: 2189,
+        descent: -600,
+        lineGap: 0,
+        unitsPerEm: 2048,
+      },
+      scale: {
+        supertiny: {
+          size: 10,
+          rows: 3,
+        },
+        xsmall: {
+          size: 12,
+          rows: 4,
+        },
+        small: {
+          size: 14,
+          rows: 5,
+        },
+        standard: {
+          size: 15,
+          rows: 6,
+        },
+        large: {
+          size: 18,
+          rows: 7,
+        },
+        xlarge: {
+          size: 20,
+          rows: 8,
+        },
+      },
+      weights: {
+        regular: 400,
+        medium: 600,
+        strong: 700,
+      },
+    },
+    heading: {
+      family: '"Abril Fatface", -apple-system, system-ui, sans-serif',
+      metrics: {
+        capHeight: 700,
+        ascent: 1058,
+        descent: -291,
+        lineGap: 0,
+        unitsPerEm: 1000,
+      },
+      scale: {
+        xsmall: {
+          size: 12,
+          rows: 4,
+        },
+        small: {
+          size: 14,
+          rows: 5,
+        },
+        standard: {
+          size: 15,
+          rows: 6,
+        },
+        large: {
+          size: 32,
+          rows: 8,
+        },
+        xlarge: {
+          size: 48,
+          rows: 12,
+        },
+      },
+      weights: {
+        regular: 400,
+      },
+    },
   },
 
   contentWidth: {
@@ -87,56 +139,6 @@ export default {
   },
 
   colors,
-
-  textSizes: {
-    supertiny: {
-      size: 10,
-      rows: 3,
-    },
-    xsmall: {
-      size: 12,
-      rows: 4,
-    },
-    small: {
-      size: 14,
-      rows: 5,
-    },
-    standard: {
-      size: 15,
-      rows: 6,
-    },
-    large: {
-      size: 18,
-      rows: 7,
-    },
-    xlarge: {
-      size: 20,
-      rows: 8,
-    },
-  },
-
-  headingSizes: {
-    xsmall: {
-      size: 14,
-      rows: 5,
-    },
-    small: {
-      size: 18,
-      rows: 6,
-    },
-    standard: {
-      size: 23,
-      rows: 6,
-    },
-    large: {
-      size: 30,
-      rows: 8,
-    },
-    xlarge: {
-      size: 40,
-      rows: 10,
-    },
-  },
 
   letterSpacing: {
     small: '0.025em',

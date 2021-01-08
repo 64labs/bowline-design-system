@@ -39,14 +39,14 @@ const components = {
   ),
   h1: textWithProps({
     as: "h1",
-    heading: true,
+    family: "heading",
     size: "xlarge",
     weight: "strong",
     marginBottom: ["small"],
   }),
   h2: textWithProps({
     as: "h2",
-    heading: true,
+    family: "heading",
     size: "large",
     weight: "medium",
     marginTop: ["small", "gutter"],
@@ -54,19 +54,16 @@ const components = {
   }),
   h3: textWithProps({
     as: "h3",
-    heading: true,
     size: "standard",
-    weight: "medium",
+    weight: "strong",
   }),
   h4: textWithProps({
     as: "h4",
-    heading: true,
     size: "small",
     weight: "strong",
   }),
   h5: textWithProps({
     as: "h5",
-    heading: true,
     size: "xsmall",
     weight: "strong",
   }),

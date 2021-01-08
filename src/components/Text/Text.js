@@ -16,7 +16,7 @@ const Text = (props) => {
     tone = 'neutral',
     weight = 'regular',
     align = 'left',
-    heading = false,
+    family = 'default',
     baseline = true,
     block = false,
     transform,
@@ -32,22 +32,17 @@ const Text = (props) => {
 
   const classes = cx(
     {
-      text: !heading,
-      heading: heading,
       'baseline-crop': baseline,
       'display-block': block,
       [`text-transform-${transform}`]: transform,
       [`kern-${kerning}`]: kerning,
       [`tone-${tone}-on-${background}`]: background,
       [`tone-${tone}`]: tone,
-      [`text-weight-${weight}`]: weight !== 'regular',
+      [`weight-${family}-${weight}`]: weight !== 'regular',
     },
+    `font-${family}`,
     `text-align-${align}`,
-    responsiveClassnames(
-      theme.breakpoints,
-      size,
-      !heading ? 'text' : 'heading'
-    ),
+    responsiveClassnames(theme.breakpoints, size, `size-${family}`),
     className
   )
 
@@ -59,18 +54,22 @@ Text.defaultProps = {
   tone: 'neutral',
   weight: 'regular',
   align: 'left',
-  heading: false,
+  family: 'default',
   baseline: true,
   block: false,
 }
 
 Text.propTypes = {
   /**
-   * [textSizes] Set size and line-height
+   * [typography] Applies the given theme config
+   */
+  family: t.string,
+  /**
+   * [typography.[family].sizes] Set size and line-height
    */
   size: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
-   * [fontWeights] Set the font weight
+   * [typography.[family].weights] Set the font weight
    */
   weight: t.oneOfType([t.string, t.arrayOf(t.string)]),
   /**
@@ -95,10 +94,6 @@ Text.propTypes = {
    * [letterSpacing] Sets CSS letter-spacing
    */
   kerning: t.oneOfType([t.string, t.arrayOf(t.string)]),
-  /**
-   * Use heading font styles
-   */
-  heading: t.bool,
   /**
    * Strips space from top and bottom of text for precise alignment.
    */

@@ -28,7 +28,7 @@ const IndexPage = () => {
         <Stack align="center">
           <Text
             as="h1"
-            heading
+            family="heading"
             size="xlarge"
             weight="strong"
             align="center"

@@ -1,5 +1,6 @@
 @bowline base;
-@import url("https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
 html {
   font-family: sans-serif;
