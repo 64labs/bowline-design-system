@@ -50,6 +50,11 @@ export const useVariants = (component, props = {}) => {
 
   const variants = components[component].variants
 
+  // apply default variant if it exists and no variant is passed to component
+  if (variants && variants.default && !props.variant) {
+    return {...props, ...variants.default}
+  }
+
   return variants && props.variant && variants[props.variant]
     ? {...props, ...variants[props.variant]}
     : props
